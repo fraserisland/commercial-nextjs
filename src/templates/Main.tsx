@@ -12,7 +12,7 @@ const Main = ({ children, meta }: IMainProps) => (
     {meta}
     <NavBar />
     <div>{children}</div>
-    <footer>footer</footer>
+    <footer>footer yo</footer>
   </>
 );
 
