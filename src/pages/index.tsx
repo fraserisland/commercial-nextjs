@@ -1,3 +1,4 @@
+import Cta from '@/components/cta';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
@@ -11,6 +12,7 @@ const Index = () => {
         />
       }
     >
+      <Cta />
       Home!
     </Main>
   );
