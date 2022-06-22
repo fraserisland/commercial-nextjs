@@ -1,12 +1,13 @@
 @tailwind base;
 
 a {
-  @apply text-blue-700;
+  @apply font-medium text-gray-500
 }
 
 a:hover {
-  @apply border-b-2 border-blue-700;
+  @apply cursor-pointer text-gray-900;
 }
+
 
 @tailwind components;
 
