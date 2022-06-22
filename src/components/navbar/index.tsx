@@ -3,9 +3,15 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 import { Fragment } from 'react';
 
-// function classNames(...classes) {
-//   return classes.filter(Boolean).join(' ');
-// }
+const links = [
+  { href: '/forSale', name: 'For Sale' },
+  { href: '/lease', name: 'Lease' },
+  { href: '/results', name: 'Results' },
+  { href: '/propertyManagement', name: 'Property Management' },
+  { href: '/about', name: 'About' },
+  { href: '/appraisals', name: 'Appraisals' },
+  { href: '/contact', name: 'Contact' },
+];
 
 const NavBar = () => {
   return (
@@ -19,33 +25,13 @@ const NavBar = () => {
         </div>
         <div className="hidden max-w-[1280px] md:flex md:flex-1 md:items-center md:justify-between">
           <Popover.Group as="nav" className="flex space-x-10">
-            <div>
-              <Link href="/forSale">For Sale</Link>
-            </div>
-
-            <div>
-              <Link href="/lease">Lease</Link>
-            </div>
-
-            <div>
-              <Link href="/results">Results</Link>
-            </div>
-
-            <div>
-              <Link href="/propertyManagement">Property Management</Link>
-            </div>
-
-            <div>
-              <Link href="/about">About</Link>
-            </div>
-
-            <div>
-              <Link href="/appraisals">Appraisals</Link>
-            </div>
-
-            <div>
-              <Link href="/contact">Contact</Link>
-            </div>
+            {links.map((link) => {
+              return (
+                <div key={link.href}>
+                  <Link href={link.href}>{link.name}</Link>
+                </div>
+              );
+            })}
           </Popover.Group>
         </div>
 
@@ -97,33 +83,13 @@ const NavBar = () => {
             </div>
             <div className="py-6 px-5">
               <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <Link href="/forSale">For Sale</Link>
-                </div>
-
-                <div>
-                  <Link href="/lease">Lease</Link>
-                </div>
-
-                <div>
-                  <Link href="/results">Results</Link>
-                </div>
-
-                <div>
-                  <Link href="/propertyManagement">Property Management</Link>
-                </div>
-
-                <div>
-                  <Link href="/about">About</Link>
-                </div>
-
-                <div>
-                  <Link href="/appraisals">Appraisals</Link>
-                </div>
-
-                <div>
-                  <Link href="/contact">Contact</Link>
-                </div>
+                {links.map((link) => {
+                  return (
+                    <div key={link.href}>
+                      <Link href={link.href}>{link.name}</Link>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
