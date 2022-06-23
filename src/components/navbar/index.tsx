@@ -16,7 +16,7 @@ const links = [
 const NavBar = () => {
   return (
     <Popover className="relative bg-white">
-      <div className="flex items-center justify-between px-4 py-6 sm:px-6 md:justify-center md:space-x-10">
+      <div className="flex items-center justify-between px-4 pt-6 pb-1 sm:px-6 md:justify-center md:space-x-10">
         <div className="-my-2 -mr-2 md:hidden">
           <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
             <span className="sr-only">Open menu</span>
@@ -38,13 +38,15 @@ const NavBar = () => {
         <div>
           <Link href="/" className="flex">
             <img
-              className="h-8 w-auto hover:cursor-pointer sm:h-10"
-              src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+              className="h-10 w-auto hover:cursor-pointer sm:h-10"
+              src="/assets/images/logo.png"
               alt=""
             />
           </Link>
         </div>
       </div>
+
+      <div className="mx-5 h-1 bg-black"></div>
 
       {/* MOBILE MENU */}
 
@@ -74,7 +76,7 @@ const NavBar = () => {
                   <Link href="/" className="flex">
                     <img
                       className="h-8 w-auto hover:cursor-pointer sm:h-10"
-                      src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                      src="/assets/images/logo.png"
                       alt=""
                     />
                   </Link>
