@@ -16,38 +16,41 @@ const links = [
 const NavBar = () => {
   return (
     <Popover className="relative bg-whiteLinen">
-      <div className="flex items-center justify-between px-6 pt-6 pb-1 sm:px-6 lg:justify-center lg:space-x-10">
-        <div className="-my-2 -mr-2 lg:hidden">
-          <Popover.Button className="inline-flex items-center justify-center rounded-md bg-whiteLinen p-2 text-orange-400 hover:bg-orange-100 hover:text-orange-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blueCharcoal-500">
-            <span className="sr-only">Open menu</span>
-            <MenuIcon className="h-6 w-6" aria-hidden="true" />
-          </Popover.Button>
-        </div>
-        <div className="hidden max-w-[1280px] whitespace-nowrap lg:flex lg:flex-1 lg:justify-between">
-          <Popover.Group as="nav" className="flex space-x-8">
-            {links.map((link) => {
-              return (
-                <div key={link.href}>
-                  <Link href={link.href}>{link.name}</Link>
-                </div>
-              );
-            })}
-          </Popover.Group>
+      <div className="mx-auto max-w-7xl">
+        <div className="flex items-center justify-between px-6 pt-6 sm:px-6 lg:space-x-10 lg:pl-0 ">
+          <div className="-my-2 -mr-2 lg:hidden">
+            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-whiteLinen p-2 text-orange-400 hover:bg-orange-100 hover:text-orange-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blueCharcoal-500">
+              <span className="sr-only">Open menu</span>
+              <MenuIcon className="h-6 w-6" aria-hidden="true" />
+            </Popover.Button>
+          </div>
+
+          <div className="hidden whitespace-nowrap lg:flex lg:flex-1 lg:justify-between">
+            <Popover.Group as="nav" className="flex space-x-8">
+              {links.map((link) => {
+                return (
+                  <div key={link.href}>
+                    <Link href={link.href}>{link.name}</Link>
+                  </div>
+                );
+              })}
+            </Popover.Group>
+          </div>
+
+          <div className="shrink-0 pb-1">
+            <Link href="/">
+              <img
+                className="h-10 min-w-full hover:cursor-pointer sm:h-10"
+                src="/assets/images/logo.png"
+                alt=""
+              />
+            </Link>
+          </div>
         </div>
 
-        <div className="shrink-0">
-          <Link href="/">
-            <img
-              className="h-10 min-w-full hover:cursor-pointer sm:h-10"
-              src="/assets/images/logo.png"
-              alt=""
-            />
-          </Link>
+        <div className="mx-6">
+          <div className="mx-auto h-1  items-center justify-center  bg-orange"></div>
         </div>
-      </div>
-
-      <div className="mx-6">
-        <div className="mx-auto h-1 max-w-[1530px] items-center justify-center  bg-orange"></div>
       </div>
       {/* MOBILE MENU */}
 
