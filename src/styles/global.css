@@ -14,10 +14,18 @@ h1 {
 @apply font-heading
 }
 
+h2 {
+@apply font-heading text-orange
+}
+
+body {
+@apply bg-whiteLinen-500}
+
 
 @tailwind components;
 
 @tailwind utilities;
+
 
 .content p {
   @apply my-6;
