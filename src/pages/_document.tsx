@@ -8,7 +8,12 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang={AppConfig.locale}>
-        <Head />
+        <Head>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Lexend&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />
