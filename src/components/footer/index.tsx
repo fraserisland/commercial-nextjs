@@ -62,7 +62,7 @@ const Footer = () => {
             <a
               key={item.name}
               href={item.href}
-              className="text-gray-400 hover:text-gray-500"
+              className="text-orange-400 hover:text-orange-500"
             >
               <span className="sr-only">{item.name}</span>
               <item.icon className="h-6 w-6" aria-hidden="true" />
@@ -70,7 +70,7 @@ const Footer = () => {
           ))}
         </div>
         <div className="mt-8 items-center justify-center md:order-1 md:mt-0">
-          <div className="flex items-center justify-center text-center text-base text-gray-400">
+          <div className="flex items-center justify-center text-center text-base text-orange-400">
             {links.map((link) => {
               return (
                 <div className="p-4" key={link.href}>

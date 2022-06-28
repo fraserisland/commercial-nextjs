@@ -1,11 +1,17 @@
+
+
 @tailwind base;
 
 a {
-  @apply font-medium text-gray-500
+  @apply font-medium text-orange-500
 }
 
 a:hover {
-  @apply cursor-pointer text-gray-900;
+  @apply cursor-pointer text-orange-900;
+}
+
+h1 {
+@apply font-heading
 }
 
 
