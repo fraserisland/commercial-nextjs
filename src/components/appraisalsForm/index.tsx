@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ContactForm = () => {
+const AppraisalsForm = () => {
   const [isSuccess, setIsSuccess] = useState(false);
 
   const disableForm = isSuccess;
@@ -34,16 +34,16 @@ const ContactForm = () => {
 
   return (
     <>
-      <div className="overflow-hidden bg-whiteLinen py-8 px-4 sm:px-6 lg:px-8">
+      <div className="overflow-hidden bg-whiteLinen  py-8 px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold tracking-tight md:text-5xl lg:text-7xl">
-            Contact Us
+            What&apos;s Your Commercial Property Worth?
           </h2>
         </div>
         <div className="relative mx-auto mt-3 max-w-7xl border-2 border-black p-10">
           <div className="mt-2">
             <h1 className="text-xl md:text-2xl lg:text-3xl">
-              Contact us for further information
+              Request an appraisal on your property
             </h1>
             <br />
             <form
@@ -139,7 +139,7 @@ const ContactForm = () => {
                   type="submit"
                   className="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-orange-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
                 >
-                  Send
+                  Send Enquiry
                 </button>
               </div>
             </form>
@@ -151,4 +151,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default AppraisalsForm;
