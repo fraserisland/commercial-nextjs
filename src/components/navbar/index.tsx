@@ -65,9 +65,9 @@ const NavBar = () => {
       >
         <Popover.Panel
           focus
-          className="absolute inset-x-0 top-0 origin-top-right p-2 transition lg:hidden"
+          className="absolute inset-x-0 top-0 z-50 origin-top-right p-2 transition lg:hidden"
         >
-          <div className="divide-y-2 divide-orange-50 rounded-lg bg-whiteLinen ">
+          <div className="divide-y-2 divide-orange-50 rounded-lg bg-whiteLinen">
             <div className="px-5 pt-5 pb-6">
               <div className="flex items-center justify-between">
                 <div className="-mr-2">
