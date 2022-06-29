@@ -9,9 +9,7 @@ describe('About page', () => {
   describe('Render method', () => {
     it('should have two paragraphs of `Lorem ipsum`', () => {
       render(<About />);
-
       const paragraph = screen.getAllByText(/Lorem ipsum/);
-
       expect(paragraph).toHaveLength(2);
     });
   });

@@ -1,10 +1,10 @@
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
-const About = () => (
+const ForSale = () => (
   <Main meta={<Meta title="Commercial 1 GC" description="Commercial 1 GC" />}>
-    About!
+    For Sale!
   </Main>
 );
 
-export default About;
+export default ForSale;
