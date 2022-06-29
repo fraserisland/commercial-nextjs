@@ -1,10 +1,17 @@
-import kebabCase from 'lodash.kebabcase';
 import Link from 'next/link';
 
+import { getAvailableSaleProperties } from '@/api/properties';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
+import type { IProperty } from '@/types';
 
-const PropertySale = ({ availabeSaleProperties }: any) => {
+import makePropertyPath from '../../utils/makePropertyPath';
+
+const PropertySale = ({
+  availabeSaleProperties,
+}: {
+  availabeSaleProperties: { items: IProperty[] };
+}) => {
   return (
     <Main
       meta={
@@ -16,12 +23,10 @@ const PropertySale = ({ availabeSaleProperties }: any) => {
     >
       <h1>For sale properties</h1>
       <br />
-      {availabeSaleProperties.items.map((item: any) => {
+      {availabeSaleProperties.items.map((item: IProperty) => {
         return (
           <div key={item.id}>
-            <Link href={`/properties/${kebabCase(item.id)}`}>
-              {item.heading}
-            </Link>
+            <Link href={makePropertyPath(item)}>{item.heading}</Link>
             <hr />
           </div>
         );
@@ -32,28 +37,6 @@ const PropertySale = ({ availabeSaleProperties }: any) => {
 };
 
 export default PropertySale;
-
-export async function getAvailableSaleProperties() {
-  const myHeaders = new Headers();
-  // @TODO: MOVE ENV!!
-  myHeaders.append('X-Api-Key', 'UIxhtpbAwu2C7ODbHllEXnRs49FyuNz4KMOt8Ch9');
-  myHeaders.append(
-    'Authorization',
-    'Bearer sabblonocgwvaysnstujdijolciofiospxhpyzml'
-  );
-
-  const res = await fetch(
-    'https://ap-southeast-2.api.vaultre.com.au/api/v1.3/properties/commercial/sale/available',
-    {
-      method: 'GET',
-      headers: myHeaders,
-      redirect: 'follow',
-    }
-  );
-
-  const json = await res.json();
-  return json;
-}
 
 export async function getStaticProps() {
   const availabeSaleProperties = await getAvailableSaleProperties();

@@ -1,11 +1,14 @@
+import kebabCase from 'lodash.kebabcase';
+
+import {
+  getAvailableSaleProperties,
+  getSalePropertyByID,
+} from '@/api/properties';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
+import type { IProperty } from '@/types';
 
-import { getAvailableSaleProperties } from './sale';
-
-const Property = ({ property }: any) => {
-  console.log(property);
-
+const Property = ({ property }: { property: IProperty }) => {
   return (
     <Main
       meta={
@@ -25,37 +28,14 @@ const Property = ({ property }: any) => {
   );
 };
 
-export async function getSalePropertyByID({ id }: any) {
-  const myHeaders = new Headers();
-  // @TODO: MOVE ENV!!
-  myHeaders.append('X-Api-Key', 'UIxhtpbAwu2C7ODbHllEXnRs49FyuNz4KMOt8Ch9');
-  myHeaders.append(
-    'Authorization',
-    'Bearer sabblonocgwvaysnstujdijolciofiospxhpyzml'
-  );
-
-  try {
-    const res = await fetch(
-      `https://ap-southeast-2.api.vaultre.com.au/api/v1.3/properties/commercial/sale/${id}`,
-      {
-        method: 'GET',
-        headers: myHeaders,
-        redirect: 'follow',
-      }
-    );
-
-    const json = await res.json();
-
-    return json;
-  } catch (e) {
-    console.error(e);
-  }
-
-  return '';
+interface IParams {
+  params: {
+    id: string;
+    heading: string;
+  };
 }
 
-// https://nextjs.org/docs/basic-features/data-fetching
-export async function getStaticProps({ params }: any) {
+export async function getStaticProps({ params }: IParams) {
   const property = await getSalePropertyByID({ id: params.id });
 
   return {
@@ -74,8 +54,8 @@ export async function getStaticPaths() {
     throw new Error(`Failed fetching properties.`);
 
   const paths = availabeSaleProperties.items.map(
-    (property: { id: string }) => ({
-      params: { id: `${property.id}` },
+    (property: IProperty): IParams => ({
+      params: { id: `${property.id}`, heading: kebabCase(property.heading) },
     })
   );
 
