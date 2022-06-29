@@ -40,7 +40,7 @@ const ContactForm = () => {
             Contact Us
           </h2>
         </div>
-        <div className="relative mx-auto mt-3 max-w-7xl border-2 border-black p-10">
+        <div className="relative mx-auto mt-3 max-w-6xl border-2 border-black p-10">
           <div className="mt-2">
             <h1 className="text-xl md:text-2xl lg:text-3xl">
               Contact us for further information
@@ -64,6 +64,7 @@ const ContactForm = () => {
                   <input
                     disabled={disableForm}
                     onChange={handleChange}
+                    required={true}
                     type="text"
                     name="name"
                     id="name"
@@ -84,6 +85,7 @@ const ContactForm = () => {
                   <input
                     disabled={disableForm}
                     onChange={handleChange}
+                    required={true}
                     id="email"
                     name="email"
                     type="email"
@@ -104,6 +106,7 @@ const ContactForm = () => {
                   <input
                     disabled={disableForm}
                     onChange={handleChange}
+                    required={true}
                     type="text"
                     name="phone"
                     id="phone"
@@ -124,6 +127,7 @@ const ContactForm = () => {
                   <textarea
                     disabled={disableForm}
                     onChange={handleChange}
+                    required={true}
                     id="message"
                     name="message"
                     rows={4}

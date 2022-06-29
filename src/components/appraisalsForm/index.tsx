@@ -40,19 +40,40 @@ const AppraisalsForm = () => {
             What&apos;s Your Commercial Property Worth?
           </h2>
         </div>
-        <div className="relative mx-auto mt-3 max-w-7xl border-2 border-black p-10">
+        <div className="relative mx-auto mt-3 max-w-6xl border-2 border-black p-10">
           <div className="mt-2">
             <h1 className="text-xl md:text-2xl lg:text-3xl">
-              Request an appraisal on your property
+              Request an appraisal on your property:
             </h1>
             <br />
             <form
-              name="contact"
+              name="appraisal"
               action="#"
               method="POST"
               onSubmit={handleSubmit}
               className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
             >
+              <div className="sm:col-span-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Message
+                </label>
+                <div className="mt-1">
+                  <textarea
+                    disabled={disableForm}
+                    onChange={handleChange}
+                    required={true}
+                    id="message"
+                    name="message"
+                    rows={4}
+                    className="block w-full rounded-md border border-gray-300 py-3 px-4 shadow-sm focus:border-orange-500 focus:ring-orange-500"
+                    defaultValue={''}
+                  />
+                </div>
+              </div>
+
               <div>
                 <label
                   htmlFor="name"
@@ -64,6 +85,7 @@ const AppraisalsForm = () => {
                   <input
                     disabled={disableForm}
                     onChange={handleChange}
+                    required={true}
                     type="text"
                     name="name"
                     id="name"
@@ -84,6 +106,7 @@ const AppraisalsForm = () => {
                   <input
                     disabled={disableForm}
                     onChange={handleChange}
+                    required={true}
                     id="email"
                     name="email"
                     type="email"
@@ -104,6 +127,7 @@ const AppraisalsForm = () => {
                   <input
                     disabled={disableForm}
                     onChange={handleChange}
+                    required={true}
                     type="text"
                     name="phone"
                     id="phone"
@@ -112,27 +136,6 @@ const AppraisalsForm = () => {
                   />
                 </div>
               </div>
-
-              <div className="sm:col-span-2">
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Message
-                </label>
-                <div className="mt-1">
-                  <textarea
-                    disabled={disableForm}
-                    onChange={handleChange}
-                    id="message"
-                    name="message"
-                    rows={4}
-                    className="block w-full rounded-md border border-gray-300 py-3 px-4 shadow-sm focus:border-orange-500 focus:ring-orange-500"
-                    defaultValue={''}
-                  />
-                </div>
-              </div>
-
               <div className="sm:col-span-2">
                 <button
                   disabled={disableForm}
