@@ -34,3 +34,6 @@ local
 
 # vercel
 .vercel
+
+/src/types.js
+/src/scripts/out

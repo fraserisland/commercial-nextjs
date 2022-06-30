@@ -6,6 +6,8 @@
     "build": "next build",
     "start": "next start",
     "build-stats": "cross-env ANALYZE=true npm run build",
+    "pre-post-build": "tsc ./src/scripts/build-search.ts --outDir ./src/scripts/out --allowSyntheticDefaultImports ",
+    "post-build": "npm run pre-post-build && node ./src/scripts/out/scripts/build-search.js",
     "export": "next export",
     "build-prod": "run-s clean build export",
     "clean": "rimraf .next out",
@@ -15,11 +17,14 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "lodash.kebabcase": "^4.1.1",
     "@headlessui/react": "^1.6.5",
     "@heroicons/react": "^1.0.6",
+    "algoliasearch": "^4.13.1",
+    "dotenv": "^16.0.1",
+    "lodash.kebabcase": "^4.1.1",
     "next": "^12.1.6",
     "next-seo": "^5.4.0",
+    "node-fetch": "^2.6.7",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },

@@ -1,17 +1,13 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import { getAvailableSaleProperties } from '@/api/properties';
-import { Meta } from '@/layouts/Meta';
-import { Main } from '@/templates/Main';
-import type { IProperty } from '@/types';
+import { getAvailableSaleProperties } from "@/api/properties";
+import { Meta } from "@/layouts/Meta";
+import { Main } from "@/templates/Main";
+import type { IProperty } from "@/types";
 
-import makePropertyPath from '../../utils/makePropertyPath';
+import makePropertyPath from "../../utils/makePropertyPath";
 
-const PropertySale = ({
-  availabeSaleProperties,
-}: {
-  availabeSaleProperties: { items: IProperty[] };
-}) => {
+const PropertySale = ({ availabeSaleProperties }: { availabeSaleProperties: { items: IProperty[] } }) => {
   return (
     <Main
       meta={
