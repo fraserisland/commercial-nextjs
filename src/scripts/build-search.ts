@@ -8,11 +8,11 @@ import {
   getSoldSaleProperties,
 } from "../api/properties";
 
-import { IProperty } from "../types";
+import { IProperty, IPropertySearch } from "../types";
 import makePropertyPath from "../utils/makePropertyPath";
 
 function transformPostsToSearchObjects(properties: IProperty[]) {
-  const transformed = properties.map((p: IProperty) => {
+  const transformed = properties.map((p: IProperty): IPropertySearch => {
     return {
       objectID: p.id,
       title: p.heading,

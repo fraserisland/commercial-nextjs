@@ -38,3 +38,16 @@ export interface IProperty {
     };
   };
 }
+
+export interface IPropertySearch {
+  objectID: string;
+  title: string;
+  excerpt: string;
+  slug: string;
+  date: string;
+  displayPrice: number;
+  price: string;
+  state: string;
+  suburb: string;
+  modified: string;
+}
