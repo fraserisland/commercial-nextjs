@@ -1,16 +1,19 @@
-import fetch from "node-fetch";
+import fetch from 'node-fetch';
 
-const API_URL = "https://ap-southeast-2.api.vaultre.com.au/api/v1.3/";
+const API_URL = 'https://ap-southeast-2.api.vaultre.com.au/api/v1.3/';
 
-const client = async (endpoint: string, customConfig?: RequestInit): Promise<null | any> => {
+const client = async (
+  endpoint: string,
+  customConfig?: RequestInit
+): Promise<null | any> => {
   try {
     const headers = {
-      "X-Api-Key": "UIxhtpbAwu2C7ODbHllEXnRs49FyuNz4KMOt8Ch9",
-      Authorization: "Bearer sabblonocgwvaysnstujdijolciofiospxhpyzml",
+      'X-Api-Key': 'UIxhtpbAwu2C7ODbHllEXnRs49FyuNz4KMOt8Ch9',
+      Authorization: 'Bearer sabblonocgwvaysnstujdijolciofiospxhpyzml',
     };
 
     const config = {
-      method: "GET",
+      method: 'GET',
       ...customConfig,
       headers: {
         ...headers,
@@ -30,19 +33,19 @@ const client = async (endpoint: string, customConfig?: RequestInit): Promise<nul
 };
 
 const getAvailableSaleProperties = () => {
-  return client("properties/commercial/sale/available");
+  return client('properties/commercial/sale/available');
 };
 
 const getAvailableLeaseProperties = () => {
-  return client("properties/commercial/lease/available");
+  return client('properties/commercial/lease/available');
 };
 
 const getSoldSaleProperties = () => {
-  return client("properties/commercial/sale/sold");
+  return client('properties/commercial/sale/sold');
 };
 
 const getLeasedLeaseProperties = () => {
-  return client("properties/commercial/lease/leased");
+  return client('properties/commercial/lease/leased');
 };
 
 const getSalePropertyByID = ({ id }: { id: string }) => {
@@ -59,10 +62,10 @@ const getAllProperties = async () => {
 };
 
 export {
-  getAvailableSaleProperties,
-  getSalePropertyByID,
-  getAvailableLeaseProperties,
-  getSoldSaleProperties,
-  getLeasedLeaseProperties,
   getAllProperties,
+  getAvailableLeaseProperties,
+  getAvailableSaleProperties,
+  getLeasedLeaseProperties,
+  getSalePropertyByID,
+  getSoldSaleProperties,
 };

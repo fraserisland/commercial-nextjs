@@ -1,14 +1,18 @@
-import algoliasearch from "algoliasearch/lite";
+import algoliasearch from 'algoliasearch/lite';
+import type { InstantSearchServerState } from 'react-instantsearch-hooks-web';
+import {
+  InstantSearch,
+  InstantSearchSSRProvider,
+} from 'react-instantsearch-hooks-web';
 
-import { InstantSearch, InstantSearchServerState, InstantSearchSSRProvider } from "react-instantsearch-hooks-web";
-
-import { Main } from "@/templates/Main";
-import Hits from "@/components/search/hit";
-import Input from "@/components/search/input";
+import Hits from '@/components/search/hit';
+import Input from '@/components/search/input';
+import { Meta } from '@/layouts/Meta';
+import { Main } from '@/templates/Main';
 
 const client = algoliasearch(
-  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || "",
-  process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY || ""
+  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || '',
+  process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY || ''
 );
 
 type HomePageProps = {
@@ -18,7 +22,7 @@ type HomePageProps = {
 
 export default function HomePage({ serverState }: HomePageProps) {
   return (
-    <Main>
+    <Main meta={<Meta title="Commercial 1 GC" description="Commercial 1 GC" />}>
       <InstantSearchSSRProvider {...serverState}>
         <InstantSearch searchClient={client} indexName="commercial1">
           <Input />
