@@ -20,6 +20,9 @@ module.exports = {
       heading: ['Big Shoulders Display'],
     },
     extend: {
+      gridTemplateRows: {
+        '[auto,auto,1fr]': 'auto auto 1fr',
+      },
       colors: {
         gray: {
           100: '#f7fafc',
@@ -85,5 +88,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require('@tailwindcss/forms'),  require('@tailwindcss/aspect-ratio')],
 };
