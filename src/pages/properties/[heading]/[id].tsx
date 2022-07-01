@@ -51,11 +51,7 @@ const Property = ({ property }: { property: IProperty }) => {
                   </div>
                 </li>
               ))}
-              <li className="text-sm">
-                <a href={property.href} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
-                  {property.heading}
-                </a>
-              </li>
+              <li className="text-sm">{property.heading}</li>
             </ol>
           </nav>
 
