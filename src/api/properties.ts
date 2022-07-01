@@ -49,10 +49,20 @@ const getSalePropertyByID = ({ id }: { id: string }) => {
   return client(`properties/commercial/sale/${id}`);
 };
 
+const getAllProperties = async () => {
+  const sale = await getAvailableSaleProperties();
+  const lease = await getAvailableLeaseProperties();
+  const leased = await getLeasedLeaseProperties();
+  const sold = await getSoldSaleProperties();
+
+  return [...sale.items, ...lease.items, ...leased.items, ...sold.items];
+};
+
 export {
   getAvailableSaleProperties,
   getSalePropertyByID,
   getAvailableLeaseProperties,
   getSoldSaleProperties,
   getLeasedLeaseProperties,
+  getAllProperties,
 };

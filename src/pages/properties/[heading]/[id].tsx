@@ -1,12 +1,9 @@
-import kebabCase from 'lodash.kebabcase';
+import kebabCase from "lodash.kebabcase";
 
-import {
-  getAvailableSaleProperties,
-  getSalePropertyByID,
-} from '@/api/properties';
-import { Meta } from '@/layouts/Meta';
-import { Main } from '@/templates/Main';
-import type { IProperty } from '@/types';
+import { getAllProperties, getSalePropertyByID } from "@/api/properties";
+import { Meta } from "@/layouts/Meta";
+import { Main } from "@/templates/Main";
+import type { IProperty } from "@/types";
 
 const Property = ({ property }: { property: IProperty }) => {
   return (
@@ -48,12 +45,11 @@ export async function getStaticProps({ params }: IParams) {
 }
 
 export async function getStaticPaths() {
-  const availabeSaleProperties = await getAvailableSaleProperties();
+  const availabeSaleProperties = await getAllProperties();
 
-  if (!availabeSaleProperties?.items.length)
-    throw new Error(`Failed fetching properties.`);
+  if (!availabeSaleProperties?.length) throw new Error(`Failed fetching properties.`);
 
-  const paths = availabeSaleProperties.items.map(
+  const paths = availabeSaleProperties.map(
     (property: IProperty): IParams => ({
       params: { id: `${property.id}`, heading: kebabCase(property.heading) },
     })

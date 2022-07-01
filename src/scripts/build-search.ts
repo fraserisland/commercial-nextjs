@@ -1,12 +1,7 @@
 const dotenv = require("dotenv");
 const algoliasearch = require("algoliasearch/lite");
 
-import {
-  getAvailableSaleProperties,
-  getAvailableLeaseProperties,
-  getLeasedLeaseProperties,
-  getSoldSaleProperties,
-} from "../api/properties";
+import { getAllProperties } from "../api/properties";
 
 import { IProperty, IPropertySearch } from "../types";
 import makePropertyPath from "../utils/makePropertyPath";
@@ -14,11 +9,12 @@ import makePropertyPath from "../utils/makePropertyPath";
 function transformPostsToSearchObjects(properties: IProperty[]) {
   const transformed = properties.map((p: IProperty): IPropertySearch => {
     return {
-      objectID: p.id,
+      objectID: `${p.id}`,
       title: p.heading,
       excerpt: p.description,
       slug: makePropertyPath(p),
       date: p.inserted,
+      image: p.photos?.[0]?.thumbnails?.thumb_1024 ?? "",
       displayPrice: p.displayPrice,
       price: p.searchPrice,
       state: p.address.state.name,
@@ -34,12 +30,8 @@ function transformPostsToSearchObjects(properties: IProperty[]) {
   // initialize environment variables
   dotenv.config();
   try {
-    const sale = await getAvailableSaleProperties();
-    const lease = await getAvailableLeaseProperties();
-    const leased = await getLeasedLeaseProperties();
-    const sold = await getSoldSaleProperties();
-
-    const transformed = transformPostsToSearchObjects([...sale.items, ...lease.items, ...leased.items, ...sold.items]);
+    const properties = await getAllProperties();
+    const transformed = transformPostsToSearchObjects(properties);
 
     // initialize the client with your environment variables
     const client = algoliasearch(process.env.NEXT_PUBLIC_ALGOLIA_APP_ID, process.env.ALGOLIA_SEARCH_ADMIN_KEY);

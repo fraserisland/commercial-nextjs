@@ -6,6 +6,11 @@ export interface IProperty {
   unitNumber: string;
   inserted: string;
   modified: string;
+  photos?: {
+    thumbnails: {
+      thumb_1024: string;
+    };
+  }[];
   displayPrice: string;
   searchPrice: number;
   address: {
@@ -45,8 +50,9 @@ export interface IPropertySearch {
   excerpt: string;
   slug: string;
   date: string;
-  displayPrice: number;
-  price: string;
+  displayPrice: string;
+  image: string;
+  price: number;
   state: string;
   suburb: string;
   modified: string;
