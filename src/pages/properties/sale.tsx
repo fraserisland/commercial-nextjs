@@ -8,7 +8,6 @@ import type { IProperty } from "@/types";
 import makePropertyPath from "../../utils/makePropertyPath";
 
 const PropertySale = ({ availabeSaleProperties }: { availabeSaleProperties: { items: IProperty[] } }) => {
-  console.log(availabeSaleProperties);
   return (
     <Main
       meta={
