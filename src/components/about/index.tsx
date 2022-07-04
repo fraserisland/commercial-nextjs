@@ -20,6 +20,12 @@ const people = [
     mobile: '0406226533',
   },
   {
+    name: 'Mark Kelada',
+    role: 'Auctioneer',
+    imageUrl: '/assets/images/Mark.jpg',
+    mobile: '0410679664',
+  },
+  {
     name: 'Katie Rossi',
     role: 'Sales and Marketing Administrator',
     imageUrl: '/assets/images/Katie.jpg',
