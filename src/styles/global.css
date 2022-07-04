@@ -3,11 +3,11 @@
 @tailwind base;
 
 a {
-  @apply font-medium text-orange-500
+  @apply font-medium text-blueCharcoal-500
 }
 
 a:hover {
-  @apply cursor-pointer text-orange-900;
+  @apply cursor-pointer text-orange-200;
 }
 
 h1 {
