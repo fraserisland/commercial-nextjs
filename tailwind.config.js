@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -18,6 +20,9 @@ module.exports = {
       heading: ['Big Shoulders Display'],
     },
     extend: {
+      gridTemplateRows: {
+        '[auto,auto,1fr]': 'auto auto 1fr',
+      },
       colors: {
         gray: {
           100: '#f7fafc',
@@ -83,5 +88,8 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
+  ],
 };
