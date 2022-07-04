@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 
+import Notification from '../notification';
+
 const ContactForm = () => {
   const [isSuccess, setIsSuccess] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
 
   const disableForm = isSuccess;
 
@@ -21,6 +24,10 @@ const ContactForm = () => {
         phone: form.phone,
         message: form.message,
       });
+      setShowNotification(true);
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 5000);
     } catch {
       console.log(e);
     } finally {
@@ -150,7 +157,12 @@ const ContactForm = () => {
           </div>
         </div>
       </div>
-      {isSuccess && alert('message sent')}
+
+      <Notification
+        show={showNotification}
+        title={`Thanks!`}
+        description="We will be in touch as soon as possible."
+      />
     </>
   );
 };

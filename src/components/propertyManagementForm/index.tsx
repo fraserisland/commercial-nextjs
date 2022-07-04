@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 
+import Notification from '../notification';
+
 const PropertyManagementForm = () => {
   const [isSuccess, setIsSuccess] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
 
   const disableForm = isSuccess;
 
@@ -26,6 +29,10 @@ const PropertyManagementForm = () => {
         'property address': form.propertyAddress,
         time: form.time,
       });
+      setShowNotification(true);
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 5000);
     } catch {
       console.log(e);
     } finally {
@@ -182,7 +189,7 @@ const PropertyManagementForm = () => {
                 <legend className="block text-sm font-medium text-gray-700">
                   Preferred contact time:
                 </legend>
-                <div className="mt-4 grid grid-cols-4 gap-y-4">
+                <div className="mt-4 grid grid-cols-1 gap-y-4 md:grid-cols-4">
                   <div className="flex items-center">
                     <input
                       onChange={handleChange}
@@ -262,7 +269,11 @@ const PropertyManagementForm = () => {
           </div>
         </div>
       </div>
-      {isSuccess && alert('message sent')}
+      <Notification
+        show={showNotification}
+        title={`Thanks!`}
+        description="We will be in touch as soon as possible."
+      />
     </>
   );
 };
