@@ -1,19 +1,17 @@
-import fetch from 'node-fetch';
+import fetch from "node-fetch";
+import type { IProperty, PropertyType } from "../types";
 
-const API_URL = 'https://ap-southeast-2.api.vaultre.com.au/api/v1.3/';
+const API_URL = "https://ap-southeast-2.api.vaultre.com.au/api/v1.3/";
 
-const client = async (
-  endpoint: string,
-  customConfig?: RequestInit
-): Promise<null | any> => {
+const client = async (endpoint: string, customConfig?: RequestInit): Promise<null | any> => {
   try {
     const headers = {
-      'X-Api-Key': 'UIxhtpbAwu2C7ODbHllEXnRs49FyuNz4KMOt8Ch9',
-      Authorization: 'Bearer sabblonocgwvaysnstujdijolciofiospxhpyzml',
+      "X-Api-Key": "UIxhtpbAwu2C7ODbHllEXnRs49FyuNz4KMOt8Ch9",
+      Authorization: "Bearer sabblonocgwvaysnstujdijolciofiospxhpyzml",
     };
 
     const config = {
-      method: 'GET',
+      method: "GET",
       ...customConfig,
       headers: {
         ...headers,
@@ -33,23 +31,27 @@ const client = async (
 };
 
 const getAvailableSaleProperties = () => {
-  return client('properties/commercial/sale/available');
+  return client("properties/commercial/sale/available");
 };
 
 const getAvailableLeaseProperties = () => {
-  return client('properties/commercial/lease/available');
+  return client("properties/commercial/lease/available");
 };
 
 const getSoldSaleProperties = () => {
-  return client('properties/commercial/sale/sold');
+  return client("properties/commercial/sale/sold");
 };
 
 const getLeasedLeaseProperties = () => {
-  return client('properties/commercial/lease/leased');
+  return client("properties/commercial/lease/leased");
 };
 
 const getSalePropertyByID = ({ id }: { id: string }) => {
   return client(`properties/commercial/sale/${id}`);
+};
+
+const addPropertyType = (properties: IProperty[], type: PropertyType) => {
+  return properties.map((p: IProperty) => ({ ...p, type }));
 };
 
 const getAllProperties = async () => {
@@ -58,7 +60,12 @@ const getAllProperties = async () => {
   const leased = await getLeasedLeaseProperties();
   const sold = await getSoldSaleProperties();
 
-  return [...sale.items, ...lease.items, ...leased.items, ...sold.items];
+  return [
+    ...addPropertyType(sale.items, "sale"),
+    ...addPropertyType(lease.items, "lease"),
+    ...addPropertyType(leased.items, "leased"),
+    ...addPropertyType(sold.items, "sold"),
+  ];
 };
 
 export {

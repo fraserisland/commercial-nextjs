@@ -42,18 +42,32 @@ export interface IProperty {
       gstRate: number;
     };
   };
+  floorArea: {
+    units: string;
+    value: number;
+  };
+}
+
+export type PropertyType = "sale" | "sold" | "lease" | "leased";
+
+export interface IPropertyNormalised extends IProperty {
+  type: PropertyType;
 }
 
 export interface IPropertySearch {
   objectID: string;
   title: string;
-  excerpt: string;
   slug: string;
   date: string;
   displayPrice: string;
+  excerpt: string;
   image: string;
   price: number;
-  state: string;
-  suburb: string;
+  address: {
+    suburb: string;
+    state: string;
+  };
   modified: string;
+  floorArea: number;
+  type: PropertyType;
 }

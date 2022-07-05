@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import Cta from '../cta';
+import Cta from "../cta";
 
 const Cta4 = () => {
   return (
@@ -8,7 +8,7 @@ const Cta4 = () => {
       titleTop="REQUIRE INFORMATION"
       titleBottom="ON PROPERTY MANAGEMENT SERVICES?"
       btnText="Find out More"
-      href="/propertyManagement"
+      href="/property-management"
       bgImgSrc="/assets/images/banner4.jpg"
     />
   );

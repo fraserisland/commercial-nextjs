@@ -1,23 +1,24 @@
-import kebabCase from 'lodash.kebabcase';
+import kebabCase from "lodash.kebabcase";
 
-import { getAllProperties, getSalePropertyByID } from '@/api/properties';
-import { Meta } from '@/layouts/Meta';
-import { Main } from '@/templates/Main';
-import type { IProperty } from '@/types';
+import { getAllProperties, getSalePropertyByID } from "@/api/properties";
+import { Meta } from "@/layouts/Meta";
+import { Main } from "@/templates/Main";
+import type { IProperty } from "@/types";
 
 const breadcrumbs = [
-  { id: 1, name: 'Properties', href: '#' },
-  { id: 2, name: 'Sale', href: '#' },
+  { id: 1, name: "Properties", href: "#" },
+  { id: 2, name: "Sale", href: "#" },
 ];
 
 const highlights = [
-  'Hand cut and sewn locally',
-  'Dyed with our proprietary colors',
-  'Pre-washed & pre-shrunk',
-  'Ultra-soft 100% cotton',
+  "Hand cut and sewn locally",
+  "Dyed with our proprietary colors",
+  "Pre-washed & pre-shrunk",
+  "Ultra-soft 100% cotton",
 ];
 
 const Property = ({ property }: { property: IProperty }) => {
+  console.log(property);
   return (
     <Main
       meta={
@@ -30,17 +31,11 @@ const Property = ({ property }: { property: IProperty }) => {
       <div className="bg-white">
         <div className="pt-6">
           <nav aria-label="Breadcrumb">
-            <ol
-              role="list"
-              className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
-            >
+            <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
               {breadcrumbs.map((breadcrumb) => (
                 <li key={breadcrumb.id}>
                   <div className="flex items-center">
-                    <a
-                      href={breadcrumb.href}
-                      className="mr-2 text-sm font-medium text-gray-900"
-                    >
+                    <a href={breadcrumb.href} className="mr-2 text-sm font-medium text-gray-900">
                       {breadcrumb.name}
                     </a>
                     <svg
@@ -98,9 +93,7 @@ const Property = ({ property }: { property: IProperty }) => {
           {/* Product info */}
           <div className="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
             <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-              <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
-                {property.heading}
-              </h1>
+              <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">{property.heading}</h1>
             </div>
 
             {/* Options */}
@@ -124,16 +117,12 @@ const Property = ({ property }: { property: IProperty }) => {
                 <h3 className="sr-only">Description</h3>
 
                 <div className="space-y-6">
-                  <p className="text-base text-gray-900">
-                    {property.description}
-                  </p>
+                  <p className="text-base text-gray-900">{property.description}</p>
                 </div>
               </div>
 
               <div className="mt-10">
-                <h3 className="text-sm font-medium text-gray-900">
-                  Highlights
-                </h3>
+                <h3 className="text-sm font-medium text-gray-900">Highlights</h3>
 
                 <div className="mt-4">
                   <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
@@ -150,9 +139,7 @@ const Property = ({ property }: { property: IProperty }) => {
                 <h2 className="text-sm font-medium text-gray-900">Details</h2>
 
                 <div className="mt-4 space-y-6">
-                  <p className="text-sm text-gray-600">
-                    {property.displayAddress}
-                  </p>
+                  <p className="text-sm text-gray-600">{property.displayAddress}</p>
                 </div>
               </div>
             </div>
@@ -185,8 +172,7 @@ export async function getStaticProps({ params }: IParams) {
 export async function getStaticPaths() {
   const availabeSaleProperties = await getAllProperties();
 
-  if (!availabeSaleProperties?.length)
-    throw new Error(`Failed fetching properties.`);
+  if (!availabeSaleProperties?.length) throw new Error(`Failed fetching properties.`);
 
   const paths = availabeSaleProperties.map(
     (property: IProperty): IParams => ({
