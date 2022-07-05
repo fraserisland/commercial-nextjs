@@ -1,10 +1,28 @@
 import { Popover, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
-import { Fragment } from "react";
-import { useRefinementList } from "react-instantsearch-hooks-web";
+import connectRange from "instantsearch.js/es/connectors/range/connectRange";
+import { Fragment, useEffect, useState } from "react";
+import { useConnector } from "react-instantsearch-hooks-web";
 
-const RefinementList = ({ attribute, label }: { attribute: string }) => {
-  const { items, refine } = useRefinementList({ attribute });
+export function useRangeSlider(props) {
+  return useConnector(connectRange, props);
+}
+
+const Range = ({ attribute = "price", label = "Price ($)" }) => {
+  const { refine } = useRangeSlider({ attribute });
+
+  const [inputs, setInputs] = useState({
+    start: undefined,
+    end: undefined,
+  });
+
+  useEffect(() => {
+    refine([inputs.start, inputs.end]);
+  }, [inputs.start, inputs.end]);
+
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
   return (
     <Popover key={attribute} className="relative inline-block px-4 text-left">
@@ -28,26 +46,10 @@ const RefinementList = ({ attribute, label }: { attribute: string }) => {
         <Popover.Panel className="absolute left-0 mt-2 origin-top-left rounded-md bg-white p-4 shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
           <form className="space-y-4">
             <span>{label}</span>
-            {items.map((item) => (
-              <div key={item.value} className="flex items-center">
-                <input
-                  id={`filter-${attribute}-${item.value}`}
-                  name={item.value}
-                  defaultValue={item.value}
-                  type="checkbox"
-                  value={item.value}
-                  checked={item.isRefined}
-                  onChange={() => refine(item.value)}
-                  className="h-4 w-4 rounded border-gray-300 text-orange-600 focus:ring-orange-500"
-                />
-                <label
-                  htmlFor={`filter-${attribute}-${item.value}`}
-                  className="ml-3 whitespace-nowrap pr-6 text-sm font-medium text-gray-900"
-                >
-                  {item.label}
-                </label>
-              </div>
-            ))}
+            <>
+              <input name="start" placeholder="No Min" type="number" value={inputs.start} onChange={handleChange} />
+              <input name="end" placeholder="No Max" type="number" value={inputs.end} onChange={handleChange} />
+            </>
           </form>
         </Popover.Panel>
       </Transition>
@@ -55,4 +57,4 @@ const RefinementList = ({ attribute, label }: { attribute: string }) => {
   );
 };
 
-export default RefinementList;
+export default Range;

@@ -1,15 +1,28 @@
 import { Popover, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { Fragment } from "react";
-import { useRefinementList } from "react-instantsearch-hooks-web";
+import { useNumericMenu } from "react-instantsearch-hooks-web";
 
-const RefinementList = ({ attribute, label }: { attribute: string }) => {
-  const { items, refine } = useRefinementList({ attribute });
+const NumericMenu = ({
+  attribute = "price",
+  filterItems = [
+    { label: "All" },
+    { label: "Less than $50k", end: 50000 },
+    { label: "Between $50k - 100k", start: 50000, end: 100000 },
+    { label: "Between $100k - 400k", start: 100000, end: 400000 },
+    { label: "Between $50k - $1 million", start: 40000, end: 1000000 },
+    { label: "More than $1 million", start: 1000 },
+  ],
+}) => {
+  const { refine, items } = useNumericMenu({
+    attribute,
+    items: filterItems,
+  });
 
   return (
     <Popover key={attribute} className="relative inline-block px-4 text-left">
       <Popover.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
-        <span>{label}</span>
+        <span>{attribute}</span>
         <ChevronDownIcon
           className="-mr-1 ml-1 h-5 w-5 shrink-0 text-gray-400 group-hover:text-gray-500"
           aria-hidden="true"
@@ -27,15 +40,12 @@ const RefinementList = ({ attribute, label }: { attribute: string }) => {
       >
         <Popover.Panel className="absolute left-0 mt-2 origin-top-left rounded-md bg-white p-4 shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
           <form className="space-y-4">
-            <span>{label}</span>
+            <span>{attribute}</span>
             {items.map((item) => (
-              <div key={item.value} className="flex items-center">
+              <div key={item.label} className="flex items-center">
                 <input
-                  id={`filter-${attribute}-${item.value}`}
-                  name={item.value}
-                  defaultValue={item.value}
+                  id={`filter-${item.value}`}
                   type="checkbox"
-                  value={item.value}
                   checked={item.isRefined}
                   onChange={() => refine(item.value)}
                   className="h-4 w-4 rounded border-gray-300 text-orange-600 focus:ring-orange-500"
@@ -55,4 +65,4 @@ const RefinementList = ({ attribute, label }: { attribute: string }) => {
   );
 };
 
-export default RefinementList;
+export default NumericMenu;
