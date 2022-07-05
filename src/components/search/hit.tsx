@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { useHits } from "react-instantsearch-hooks-web";
+import Link from 'next/link';
+import { useHits } from 'react-instantsearch-hooks-web';
 
 export default function Example() {
   const { hits } = useHits();
@@ -27,11 +27,15 @@ export default function Example() {
                   <Link href={hit.slug}>{hit.title}</Link>
                 </h3>
                 <Link href={hit.slug}>
-                  <p className="text-sm text-gray-500">{hit.excerpt.substring(0, 100)}</p>
+                  <p className="text-sm text-gray-500">
+                    {hit.excerpt.substring(0, 100)}
+                  </p>
                 </Link>
                 <div className="flex flex-1 flex-col justify-end">
                   <p className="text-sm italic text-gray-500">{hit.state}</p>
-                  <p className="text-base font-medium text-gray-900">${hit.price}</p>
+                  <p className="text-base font-medium text-gray-900">
+                    ${hit.price}
+                  </p>
                 </div>
               </div>
             </div>

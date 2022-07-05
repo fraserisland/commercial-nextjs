@@ -1,5 +1,3 @@
-import { IProperty } from "@/types";
-
 const Agent = ({ agent }) => {
   return <div>{agent}</div>;
 };
@@ -17,11 +15,11 @@ export async function getStaticProps({ params }: IParams) {
 export async function getStaticPaths() {
   const allAgents = [
     {
-      name: "ryan",
+      name: 'ryan',
       id: 1,
     },
     {
-      name: "jacob",
+      name: 'jacob',
       id: 1,
     },
   ];

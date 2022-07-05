@@ -1,11 +1,11 @@
-import { useSearchBox } from "react-instantsearch-hooks-web";
+import { useSearchBox } from 'react-instantsearch-hooks-web';
 
 export default function Example() {
   const { refine } = useSearchBox();
 
   return (
     <>
-      <div className="max-w-7xl mx-auto relative mt-1 flex-column items-center px-6 pt-4">
+      <div className="flex-column relative mx-auto mt-1 max-w-7xl items-center px-6 pt-4">
         <div>
           <input
             type="text"

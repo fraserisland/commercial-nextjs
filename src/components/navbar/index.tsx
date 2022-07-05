@@ -1,16 +1,16 @@
-import { Popover, Transition } from "@headlessui/react";
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import Link from "next/link";
-import { Fragment } from "react";
+import { Popover, Transition } from '@headlessui/react';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import Link from 'next/link';
+import { Fragment } from 'react';
 
 const links = [
-  { href: "/for-sale", name: "For Sale" },
-  { href: "/lease", name: "Lease" },
-  { href: "/results", name: "Results" },
-  { href: "/property-management", name: "Property Management" },
-  { href: "/about", name: "About" },
-  { href: "/appraisals", name: "Appraisals" },
-  { href: "/contact", name: "Contact" },
+  { href: '/for-sale', name: 'For Sale' },
+  { href: '/lease', name: 'Lease' },
+  { href: '/results', name: 'Results' },
+  { href: '/property-management', name: 'Property Management' },
+  { href: '/about', name: 'About' },
+  { href: '/appraisals', name: 'Appraisals' },
+  { href: '/contact', name: 'Contact' },
 ];
 
 const NavBar = () => {
@@ -39,7 +39,11 @@ const NavBar = () => {
 
           <div className="shrink-0 pb-1">
             <Link href="/">
-              <img className="h-10 min-w-full hover:cursor-pointer sm:h-10" src="/assets/images/logo.png" alt="" />
+              <img
+                className="h-10 min-w-full hover:cursor-pointer sm:h-10"
+                src="/assets/images/logo.png"
+                alt=""
+              />
             </Link>
           </div>
         </div>
@@ -59,7 +63,10 @@ const NavBar = () => {
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
       >
-        <Popover.Panel focus className="absolute inset-x-0 top-0 z-50 origin-top-right p-2 transition lg:hidden">
+        <Popover.Panel
+          focus
+          className="absolute inset-x-0 top-0 z-50 origin-top-right p-2 transition lg:hidden"
+        >
           <div className="divide-y-2 divide-orange-50 rounded-lg bg-whiteLinen">
             <div className="px-5 pt-5 pb-6">
               <div className="flex items-center justify-between">
@@ -71,7 +78,11 @@ const NavBar = () => {
                 </div>
                 <div>
                   <Link href="/" className="flex">
-                    <img className="h-10 w-auto hover:cursor-pointer sm:h-10" src="/assets/images/logo.png" alt="" />
+                    <img
+                      className="h-10 w-auto hover:cursor-pointer sm:h-10"
+                      src="/assets/images/logo.png"
+                      alt=""
+                    />
                   </Link>
                 </div>
               </div>

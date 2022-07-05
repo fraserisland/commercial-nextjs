@@ -48,7 +48,7 @@ export interface IProperty {
   };
 }
 
-export type PropertyType = "sale" | "sold" | "lease" | "leased";
+export type PropertyType = 'sale' | 'sold' | 'lease' | 'leased';
 
 export interface IPropertyNormalised extends IProperty {
   type: PropertyType;
