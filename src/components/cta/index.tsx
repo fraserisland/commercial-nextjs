@@ -13,7 +13,7 @@ const Cta = ({
       style={{
         backgroundImage: `url(${bgImgSrc})`,
       }}
-      className={`m-auto max-w-7xl filter`}
+      className={`m-auto max-w-7xl`}
     >
       <div className="mx-auto max-w-2xl py-16 px-4 text-center sm:py-20 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-extrabold text-white  drop-shadow-lg sm:text-4xl">
