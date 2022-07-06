@@ -1,16 +1,13 @@
 import algoliasearch from 'algoliasearch/lite';
 import type { InstantSearchServerState } from 'react-instantsearch-hooks-web';
-import {
-  Configure,
-  InstantSearch,
-  InstantSearchSSRProvider,
-} from 'react-instantsearch-hooks-web';
+import { Configure, InstantSearch, InstantSearchSSRProvider } from 'react-instantsearch-hooks-web';
 
 import Header from '@/components/Header';
 import ActiveFilters from '@/components/search/ActiveFilters';
 import FiltersHolder from '@/components/search/FiltersHolder';
 import Hits from '@/components/search/hit';
 import Input from '@/components/search/input';
+import RefinementList from '@/components/search/refinementList';
 import Range from '@/components/search/Range';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
@@ -27,21 +24,17 @@ type ForSalePageProps = {
 
 export default function ForSalePage({ serverState }: ForSalePageProps) {
   return (
-    <Main meta={<Meta title="Commercial 1 GC" description="Commercial 1 GC" />}>
-      <Header
-        tag="for lease"
-        title="For Lease"
-        subtitle="browse the best properties for lease"
-      />
+    <Main meta={<Meta title='Commercial 1 GC' description='Commercial 1 GC' />}>
+      <Header tag='for lease' title='For Lease' subtitle='browse the best properties for lease' />
 
       <InstantSearchSSRProvider {...serverState}>
-        <InstantSearch searchClient={client} indexName="commercial1">
-          <Configure filters="type:lease" />
+        <InstantSearch searchClient={client} indexName='commercial1'>
+          <Configure filters='type:lease' />
           <Input />
           <FiltersHolder>
-            <Range attribute="price" label="Price ($)" />
-            <Range attribute="floorArea" label="Floor Area (sqm)" />
-            {/* <RefinementList attribute="type" label="Type" /> */}
+            <Range attribute='price' label='Price ($)' />
+            <Range attribute='floorArea' label='Floor Area (sqm)' />
+            <RefinementList attribute='address.suburb' label='Suburb' />
           </FiltersHolder>
           <ActiveFilters />
           <Hits />
