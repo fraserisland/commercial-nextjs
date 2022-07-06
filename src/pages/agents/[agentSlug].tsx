@@ -1,13 +1,17 @@
+import algoliasearch from 'algoliasearch';
+import {
+  Configure,
+  InstantSearch,
+  InstantSearchSSRProvider,
+} from 'react-instantsearch-hooks-web';
+
+import Header from '@/components/Header';
 import IndividualAgent from '@/components/individualAgent';
+import Hits from '@/components/search/hit';
 import { AGENTS } from '@/constants';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 import type { IAgent } from '@/types';
-import Header from '@/components/Header';
-
-import { Configure, InstantSearch, InstantSearchSSRProvider } from 'react-instantsearch-hooks-web';
-import Hits from '@/components/search/hit';
-import algoliasearch from 'algoliasearch';
 
 const findAgentBySlug = (slug: IAgent['slug']): IAgent | undefined => {
   const agent = AGENTS.find((a: IAgent) => {
@@ -29,18 +33,18 @@ const Agent = ({ agent }: { agent: IAgent }) => {
     <Main
       meta={
         <Meta
-          title='Next.js Boilerplate Presentation'
-          description='Next js Boilerplate is the perfect starter code for your project. Build your React application with the Next.js framework.'
+          title="Next.js Boilerplate Presentation"
+          description="Next js Boilerplate is the perfect starter code for your project. Build your React application with the Next.js framework."
         />
       }
     >
       <IndividualAgent agent={agent} />
       <InstantSearchSSRProvider>
-        <InstantSearch searchClient={client} indexName='commercial1'>
+        <InstantSearch searchClient={client} indexName="commercial1">
           <Configure filters={`agents.id:${agent.id}`} />
           <Header
-            tag='Results'
-            title='Sold and Leased properties'
+            tag="Results"
+            title="Sold and Leased properties"
             subtitle={`Properties leased and sold by ${agent.name}`}
           />
           <Hits />
@@ -50,7 +54,11 @@ const Agent = ({ agent }: { agent: IAgent }) => {
   );
 };
 
-export async function getStaticProps({ params }: { params: { agentSlug: IAgent['slug'] } }) {
+export async function getStaticProps({
+  params,
+}: {
+  params: { agentSlug: IAgent['slug'] };
+}) {
   return {
     props: {
       agent: findAgentBySlug(params.agentSlug),
