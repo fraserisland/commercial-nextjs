@@ -10,6 +10,7 @@ import Range from "@/components/search/Range";
 
 import { Meta } from "@/layouts/Meta";
 import { Main } from "@/templates/Main";
+import Header from "@/components/Header";
 
 const client = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || "",
@@ -24,6 +25,8 @@ type ForSalePageProps = {
 export default function ForSalePage({ serverState }: ForSalePageProps) {
   return (
     <Main meta={<Meta title="Commercial 1 GC" description="Commercial 1 GC" />}>
+      <Header tag="for lease" title="For Lease" subtitle="browse the best properties for lease" />
+
       <InstantSearchSSRProvider {...serverState}>
         <InstantSearch searchClient={client} indexName="commercial1">
           <Configure filters="type:lease" />

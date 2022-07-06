@@ -3,6 +3,7 @@ import type { InstantSearchServerState } from "react-instantsearch-hooks-web";
 import { InstantSearch, InstantSearchSSRProvider, Configure } from "react-instantsearch-hooks-web";
 
 import Hits from "@/components/search/hit";
+import Header from "@/components/Header";
 import Input from "@/components/search/input";
 import FiltersHolder from "@/components/search/FiltersHolder";
 import ActiveFilters from "@/components/search/ActiveFilters";
@@ -24,6 +25,7 @@ type ForSalePageProps = {
 export default function ForSalePage({ serverState }: ForSalePageProps) {
   return (
     <Main meta={<Meta title="Commercial 1 GC" description="Commercial 1 GC" />}>
+      <Header tag="for sale" title="For Sale" subtitle="browse the best properties for sale" />
       <InstantSearchSSRProvider {...serverState}>
         <InstantSearch searchClient={client} indexName="commercial1">
           <Configure filters="type:sale" />
