@@ -81,7 +81,7 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
             <div className="mt-6">
               <div
                 className="space-y-6 text-base text-gray-700"
-                dangerouslySetInnerHTML={{ __html: agent.about }}
+                dangerouslySetInnerHTML={{ __html: agent.about! }}
               />
             </div>
           </div>

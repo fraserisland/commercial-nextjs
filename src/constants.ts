@@ -19,7 +19,7 @@ export const AGENTS: IAgent[] = [
     imageUrl: '/assets/images/Adam.jpg',
     mobile: '0400371989',
     about:
-      'Adam’s decision to enter the Commercial Real Estate industry followed on from the success the family business had already achieved and the expertise he could add to compliment Steve, Ryan & the team already in place.<br/><br/>After living on the Gold Coast from a young age and following on from his previous career with a background in engineering and drafting, Adam has a passion, extensive knowledge and experience around commercial and industrial buildings the property sector in general.<br/><br/>Adam is committed to providing the highest level of communication to his clients which has proven to be a recipe for success in the past.',
+      'Adams decision to enter the Commercial Real Estate industry followed on from the success the family business had already achieved and the expertise he could add to compliment Steve, Ryan & the team already in place.  <br /><br /> After living on the Gold Coast from a young age and following on from his previous career with a background in engineering and drafting, Adam has a passion, extensive knowledge and experience around commercial and industrial buildings the property sector in general.<br/><br/>Adam is committed to providing the highest level of communication to his clients which has proven to be a recipe for success in the past.<br/><br/>',
   },
   {
     id: 3,
