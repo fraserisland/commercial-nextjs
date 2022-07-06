@@ -47,24 +47,7 @@ const PropertyManagementForm = () => {
   return (
     <>
       <div className="overflow-hidden bg-whiteLinen py-8 px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight md:text-5xl lg:text-7xl">
-            Your Property – Our Priority!
-          </h2>
-        </div>
-        <p className="mx-auto my-6 max-w-6xl text-sm md:text-base">
-          At Commercial 1 Property Management we specialise in Commercial and
-          Industrial properties and are committed to ensuring you are provided
-          with the highest level of service. <br />
-          <br />
-          Our team is experienced in overseeing the leasing of your property
-          through to the management, collection of rent, inspections,
-          maintenance, reporting, lease renewals, annual increases and tenant
-          vacates. <br />
-          <br />
-          Please do not hesitate to contact a member of our team should you have
-          any questions or require any further information.
-        </p>
+        
         <div className="relative mx-auto mt-3 max-w-6xl border-2 border-black p-10">
           <div className="mt-2">
             <h1 className="text-xl md:text-2xl lg:text-3xl">
