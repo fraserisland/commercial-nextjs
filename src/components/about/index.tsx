@@ -1,36 +1,7 @@
 import React from 'react';
 
-const people = [
-  {
-    name: 'Steve Macgregor ',
-    role: 'Managing Director | Sales & Leasing',
-    imageUrl: '/assets/images/Steve.jpg',
-    mobile: '0410679664',
-  },
-  {
-    name: 'Adam Quinn',
-    role: 'Leasing & Sales Executive',
-    imageUrl: '/assets/images/Adam.jpg',
-    mobile: '0400371989',
-  },
-  {
-    name: 'Ryan Macgregor',
-    role: 'Leasing & Sales Executive',
-    imageUrl: '/assets/images/Ryan.jpg',
-    mobile: '0406226533',
-  },
-  {
-    name: 'Mark Kelada',
-    role: 'Auctioneer',
-    imageUrl: '/assets/images/Mark.jpg',
-    mobile: '0410679664',
-  },
-  {
-    name: 'Katie Rossi',
-    role: 'Sales and Marketing Administrator',
-    imageUrl: '/assets/images/Katie.jpg',
-  },
-];
+import TeamMember from '@/components/teamMember';
+import { AGENTS } from '@/constants';
 
 const AboutComponent = () => {
   return (
@@ -67,36 +38,9 @@ const AboutComponent = () => {
               role="list"
               className="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8"
             >
-              {people.map((person) => (
-                <li key={person.name}>
-                  <div className="space-y-4">
-                    <div className="aspect-w-3 aspect-h-2">
-                      <img
-                        className="rounded-lg object-cover shadow-lg"
-                        src={person.imageUrl}
-                        alt=""
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <div className="space-y-1 text-lg font-medium leading-6">
-                        <h3>{person.name}</h3>
-                        <p className="text-orange-600">{person.role}</p>
-                      </div>
-                      <ul role="list" className="flex space-x-5">
-                        {person.mobile ? (
-                          <li>
-                            {' '}
-                            <a href={`tel: ${person.mobile}`}>
-                              M. {person.mobile}
-                            </a>
-                          </li>
-                        ) : (
-                          <li></li>
-                        )}
-                      </ul>
-                    </div>
-                  </div>
+              {AGENTS.map((agent) => (
+                <li key={agent.name}>
+                  <TeamMember agent={agent} />
                 </li>
               ))}
             </ul>

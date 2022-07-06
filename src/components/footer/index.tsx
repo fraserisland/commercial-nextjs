@@ -56,28 +56,34 @@ const navigation = [
 const Footer = () => {
   return (
     <footer>
-      <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
-        <div className="flex justify-center space-x-6 md:order-2">
-          {navigation.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-orange-400 hover:text-orange-500"
-            >
-              <span className="sr-only">{item.name}</span>
-              <item.icon className="h-6 w-6" aria-hidden="true" />
-            </a>
-          ))}
-        </div>
-        <div className="mt-8 items-center justify-center md:order-1 md:mt-0">
-          <div className="flex items-center justify-center text-center text-base text-orange-400">
-            {links.map((link) => {
-              return (
-                <div className="p-4" key={link.href}>
-                  <Link href={link.href}>{link.name}</Link>
-                </div>
-              );
-            })}
+      <div className="mt-10 w-full bg-orange-500">
+        <div className="mx-auto max-w-7xl bg-orange-500 py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
+          <div className="flex justify-center space-x-6 md:order-2">
+            {navigation.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-whiteLinen-500 hover:text-orange-200"
+              >
+                <span className="sr-only">{item.name}</span>
+                <item.icon className="h-6 w-6" aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+          <div className="mt-8 items-center justify-center md:order-1 md:mt-0">
+            <div className="flex items-center justify-center text-center text-base text-orange-400">
+              {links.map((link) => {
+                return (
+                  <div className="p-4" key={link.href}>
+                    <Link href={link.href}>
+                      <p className="text-whiteLinen hover:cursor-pointer hover:text-orange-200 ">
+                        {link.name}
+                      </p>
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

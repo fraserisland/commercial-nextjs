@@ -71,3 +71,13 @@ export interface IPropertySearch {
   floorArea: number;
   type: PropertyType;
 }
+
+export interface IAgent {
+  id: number;
+  name: string;
+  slug: string;
+  mobile?: string;
+  role: string;
+  imageUrl: string;
+  about?: string;
+}
