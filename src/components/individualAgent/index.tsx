@@ -70,13 +70,11 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
               <p className="text-3xl text-orange-300">{agent.role}</p>
             </div>
 
-            {agent.mobile ? (
+            {agent.mobile && (
               <p className="pt-3">
                 <a href={`tel: ${agent.mobile}`}>M. {agent.mobile}</a>
               </p>
-            ) : (
-              <p></p>
-            )}
+            ) }
 
             <div className="mt-6">
               <div
