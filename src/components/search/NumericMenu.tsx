@@ -1,17 +1,17 @@
-import { Popover, Transition } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/solid";
-import { Fragment } from "react";
-import { useNumericMenu } from "react-instantsearch-hooks-web";
+import { Popover, Transition } from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/solid';
+import { Fragment } from 'react';
+import { useNumericMenu } from 'react-instantsearch-hooks-web';
 
 const NumericMenu = ({
-  attribute = "price",
+  attribute = 'price',
   filterItems = [
-    { label: "All" },
-    { label: "Less than $50k", end: 50000 },
-    { label: "Between $50k - 100k", start: 50000, end: 100000 },
-    { label: "Between $100k - 400k", start: 100000, end: 400000 },
-    { label: "Between $50k - $1 million", start: 40000, end: 1000000 },
-    { label: "More than $1 million", start: 1000 },
+    { label: 'All' },
+    { label: 'Less than $50k', end: 50000 },
+    { label: 'Between $50k - 100k', start: 50000, end: 100000 },
+    { label: 'Between $100k - 400k', start: 100000, end: 400000 },
+    { label: 'Between $50k - $1 million', start: 40000, end: 1000000 },
+    { label: 'More than $1 million', start: 1000 },
   ],
 }) => {
   const { refine, items } = useNumericMenu({

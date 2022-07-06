@@ -1,7 +1,7 @@
-import React from "react";
-import { Popover } from "@headlessui/react";
+import { Popover } from '@headlessui/react';
+import React from 'react';
 
-const FiltersHolder = ({ children }) => {
+const FiltersHolder = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="pt-4">
       <section aria-labelledby="filter-heading">
@@ -13,7 +13,9 @@ const FiltersHolder = ({ children }) => {
           <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
             <div className="block">
               <div className="flow-root">
-                <Popover.Group className="-mx-4 flex items-center divide-x divide-gray-200">{children}</Popover.Group>
+                <Popover.Group className="-mx-4 flex items-center divide-x divide-gray-200">
+                  {children}
+                </Popover.Group>
               </div>
             </div>
           </div>

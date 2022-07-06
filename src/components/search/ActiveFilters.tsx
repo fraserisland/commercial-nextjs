@@ -1,9 +1,12 @@
-import { useClearRefinements, useCurrentRefinements } from "react-instantsearch-hooks-web";
+import {
+  useClearRefinements,
+  useCurrentRefinements,
+} from 'react-instantsearch-hooks-web';
 
 const ActiveFilters = () => {
   const { items, refine } = useCurrentRefinements();
   const { refine: clearRefinements, canRefine } = useClearRefinements({
-    includedAttributes: ["price", "floorArea", "type"],
+    includedAttributes: ['price', 'floorArea', 'type'],
   });
 
   return (
@@ -14,7 +17,10 @@ const ActiveFilters = () => {
           <span className="sr-only">, active</span>
         </h3>
 
-        <div aria-hidden="true" className="hidden h-5 w-px bg-gray-300 sm:ml-4 sm:block" />
+        <div
+          aria-hidden="true"
+          className="hidden h-5 w-px bg-gray-300 sm:ml-4 sm:block"
+        />
 
         <div className="mt-2 sm:mt-0 sm:ml-4">
           <div className="-m-1 flex flex-wrap items-center">
@@ -36,9 +42,20 @@ const ActiveFilters = () => {
                           refine(itemRefinement);
                         }}
                       >
-                        <span className="sr-only">Remove filter for {item.label}</span>
-                        <svg className="h-2 w-2" stroke="currentColor" fill="none" viewBox="0 0 8 8">
-                          <path strokeLinecap="round" strokeWidth="1.5" d="M1 1l6 6m0-6L1 7" />
+                        <span className="sr-only">
+                          Remove filter for {item.label}
+                        </span>
+                        <svg
+                          className="h-2 w-2"
+                          stroke="currentColor"
+                          fill="none"
+                          viewBox="0 0 8 8"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeWidth="1.5"
+                            d="M1 1l6 6m0-6L1 7"
+                          />
                         </svg>
                       </button>
                     </span>
@@ -50,7 +67,7 @@ const ActiveFilters = () => {
         </div>
         {canRefine && (
           <button
-            style={{ marginLeft: "auto" }}
+            style={{ marginLeft: 'auto' }}
             className="py-1 text-xs font-semibold tracking-wide"
             onClick={clearRefinements}
           >

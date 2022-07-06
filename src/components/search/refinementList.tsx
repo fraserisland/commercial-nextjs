@@ -1,9 +1,15 @@
-import { Popover, Transition } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/solid";
-import { Fragment } from "react";
-import { useRefinementList } from "react-instantsearch-hooks-web";
+import { Popover, Transition } from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/solid';
+import { Fragment } from 'react';
+import { useRefinementList } from 'react-instantsearch-hooks-web';
 
-const RefinementList = ({ attribute, label }: { attribute: string }) => {
+const RefinementList = ({
+  attribute,
+  label,
+}: {
+  attribute: string;
+  label: string;
+}) => {
   const { items, refine } = useRefinementList({ attribute });
 
   return (
