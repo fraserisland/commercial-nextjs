@@ -30,14 +30,13 @@ export default function ForSalePage({ serverState }: ForSalePageProps) {
   return (
     <Main meta={<Meta title="Commercial 1 GC" description="Commercial 1 GC" />}>
       <Header
-        tag="for lease"
-        title="For Lease"
-        subtitle="browse the best properties for lease"
+        tag="for sale"
+        title="For Sale"
+        subtitle="browse the best properties for sale"
       />
-
       <InstantSearchSSRProvider {...serverState}>
         <InstantSearch searchClient={client} indexName="commercial1">
-          <Configure filters="type:lease" />
+          <Configure filters="type:sale" />
           <Input />
           <FiltersHolder>
             <Range attribute="price" label="Price ($)" />

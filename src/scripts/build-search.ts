@@ -1,26 +1,33 @@
 import { getAllProperties } from '../api/properties';
-import type { IProperty, IPropertySearch } from '../types';
+import type { IPropertyNormalised, IPropertySearch } from '../types';
 import makePropertyPath from '../utils/makePropertyPath';
 
+const crypto = require('crypto');
 const dotenv = require('dotenv');
 const algoliasearch = require('algoliasearch/lite');
 
-function transformPostsToSearchObjects(properties: IProperty[]) {
-  const transformed = properties.map((p: IProperty): IPropertySearch => {
-    return {
-      objectID: `${p.id}`,
-      title: p.heading,
-      excerpt: p.description,
-      slug: makePropertyPath(p),
-      date: p.inserted,
-      image: p.photos?.[0]?.thumbnails?.thumb_1024 ?? '',
-      displayPrice: p.displayPrice,
-      price: p.searchPrice,
-      state: p.address.state.name,
-      suburb: p.address.suburb.name,
-      modified: p.modified,
-    };
-  });
+function transformPostsToSearchObjects(properties: IPropertyNormalised[]) {
+  const transformed = properties.map(
+    (p: IPropertyNormalised): IPropertySearch => {
+      return {
+        objectID: crypto.createHash('sha256').update(`${p.id}`).digest('hex'),
+        title: p.heading,
+        slug: makePropertyPath(p),
+        date: p.inserted,
+        image: p.photos?.[0]?.thumbnails?.thumb_1024 ?? '',
+        displayPrice: p.displayPrice,
+        price: p.searchPrice,
+        excerpt: p.description,
+        address: {
+          state: p.address.state.name,
+          suburb: p.address.suburb.name,
+        },
+        modified: p.modified,
+        floorArea: p.floorArea.value,
+        type: p.type,
+      };
+    }
+  );
 
   return transformed;
 }

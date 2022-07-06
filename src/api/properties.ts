@@ -1,5 +1,7 @@
 import fetch from 'node-fetch';
 
+import type { IProperty, PropertyType } from '../types';
+
 const API_URL = 'https://ap-southeast-2.api.vaultre.com.au/api/v1.3/';
 
 const client = async (
@@ -52,13 +54,22 @@ const getSalePropertyByID = ({ id }: { id: string }) => {
   return client(`properties/commercial/sale/${id}`);
 };
 
+const addPropertyType = (properties: IProperty[], type: PropertyType) => {
+  return properties.map((p: IProperty) => ({ ...p, type }));
+};
+
 const getAllProperties = async () => {
   const sale = await getAvailableSaleProperties();
   const lease = await getAvailableLeaseProperties();
   const leased = await getLeasedLeaseProperties();
   const sold = await getSoldSaleProperties();
 
-  return [...sale.items, ...lease.items, ...leased.items, ...sold.items];
+  return [
+    ...addPropertyType(sale.items, 'sale'),
+    ...addPropertyType(lease.items, 'lease'),
+    ...addPropertyType(leased.items, 'leased'),
+    ...addPropertyType(sold.items, 'sold'),
+  ];
 };
 
 export {

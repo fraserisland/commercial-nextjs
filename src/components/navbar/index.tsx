@@ -4,10 +4,10 @@ import Link from 'next/link';
 import { Fragment } from 'react';
 
 const links = [
-  { href: '/forSale', name: 'For Sale' },
+  { href: '/for-sale', name: 'For Sale' },
   { href: '/lease', name: 'Lease' },
   { href: '/results', name: 'Results' },
-  { href: '/propertyManagement', name: 'Property Management' },
+  { href: '/property-management', name: 'Property Management' },
   { href: '/about', name: 'About' },
   { href: '/appraisals', name: 'Appraisals' },
   { href: '/contact', name: 'Contact' },
