@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import Notification from '../notification';
 
+import { MailIcon, PhoneIcon } from "@heroicons/react/outline";
+
 const AppraisalsForm = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
@@ -41,18 +43,35 @@ const AppraisalsForm = () => {
 
   return (
     <>
-      <div className="overflow-hidden bg-whiteLinen  py-8 px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight md:text-5xl lg:text-7xl">
-            What&apos;s Your Commercial Property Worth?
-          </h2>
+    
+ <div className="relative bg-whiteLinen-500 lg:my-16 max-w-7xl m-auto shadow-2xl rounded-md">
+        <div className="absolute inset-0">
+          <div className="absolute inset-y-0 left-0 w-1/2 bg-whiteLinen-500 " />
         </div>
-        <div className="relative mx-auto mt-3 max-w-6xl border-2 border-black p-10">
-          <div className="mt-2">
-            <h1 className="text-xl md:text-2xl lg:text-3xl">
-              Request an appraisal on your property:
-            </h1>
-            <br />
+        <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5">
+          <div className="bg-white-50 py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
+            <div className="max-w-lg mx-auto">
+              <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
+              Contact Our Appraisals Team
+              </h2>
+              <p className="mt-3 text-lg leading-6 text-blueCharcoal-500">
+              </p>
+              <dl className="mt-8 text-base text-gray-600">
+                <div>
+                 
+                  <dd>
+                    <p>              We’d love to hear from you! Send us a message using this form to enquire about a sales or rental appraisal on your property.
+</p>
+                   
+                  </dd>
+                </div>
+                
+              </dl>
+              
+            </div>
+          </div>
+          <div className="bg-whiteLinen py-16 px-4 sm:px-6 sm:m-2 lg:col-span-3 lg:py-16 lg:px-8 xl:pl-12 ">
+            <div className="max-w-lg mx-auto lg:max-w-none ">
             <form
               name="appraisal"
               action="#"
@@ -153,6 +172,7 @@ const AppraisalsForm = () => {
                 </button>
               </div>
             </form>
+            </div>
           </div>
         </div>
       </div>
@@ -161,6 +181,7 @@ const AppraisalsForm = () => {
         title={`Thanks!`}
         description="We will be in touch as soon as possible."
       />
+
     </>
   );
 };

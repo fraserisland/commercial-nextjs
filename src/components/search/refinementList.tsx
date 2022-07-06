@@ -3,6 +3,8 @@ import { ChevronDownIcon } from '@heroicons/react/solid';
 import { Fragment } from 'react';
 import { useRefinementList } from 'react-instantsearch-hooks-web';
 
+import capitalise from '@/utils/capitalise';
+
 const RefinementList = ({
   attribute,
   label,
@@ -10,8 +12,9 @@ const RefinementList = ({
   attribute: string;
   label: string;
 }) => {
-  const { items, refine } = useRefinementList({ attribute });
+  const { items, refine, canRefine } = useRefinementList({ attribute });
 
+  if (!canRefine) return null;
   return (
     <Popover key={attribute} className="relative inline-block px-4 text-left">
       <Popover.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
@@ -50,7 +53,8 @@ const RefinementList = ({
                   htmlFor={`filter-${attribute}-${item.value}`}
                   className="ml-3 whitespace-nowrap pr-6 text-sm font-medium text-gray-900"
                 >
-                  {item.label}
+                  {capitalise(item.label)}{' '}
+                  <span className="text-gray-500">({item.count})</span>
                 </label>
               </div>
             ))}

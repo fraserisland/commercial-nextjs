@@ -48,11 +48,12 @@ const PropertyManagementForm = () => {
     <>
       <div className="overflow-hidden bg-whiteLinen py-8 px-4 sm:px-6 lg:px-8">
         
-        <div className="relative mx-auto mt-3 max-w-6xl border-2 border-black p-10">
+        <div className="relative mx-auto mt-3 max-w-5xl shadow-2xl rounded-md p-10">
           <div className="mt-2">
-            <h1 className="text-xl md:text-2xl lg:text-3xl">
-              Request Further Information on Property Management
-            </h1>
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Contact Our Property Management Team</h2>
+                <p className="mt-4 text-lg text-gray-500 sm:mt-3">
+                  We’d love to hear from you! Send us a message using the form below to enquire about our property management services.
+                </p>
             <br />
             <form
               name="propertyManagement"
@@ -103,7 +104,7 @@ const PropertyManagementForm = () => {
                 </div>
               </div>
 
-              <p className="sm:col-span-2">Enter your details:</p>
+              <p className="sm:col-span-2 mt-4 text-lg text-gray-500 sm:mt-3">Enter your details:</p>
 
               <div>
                 <label

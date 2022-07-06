@@ -12,7 +12,7 @@ const PropertyManagementCopy = () => {
       the highest level of service. <br /> <br />Our team is experienced in overseeing
       the leasing of your property through to the management, collection of
       rent, inspections, maintenance, reporting, lease renewals, annual
-      increases and tenant vacates. Please do not hesitate to contact a member
+      increases and tenant vacates. <br /> <br />Please do not hesitate to contact a member
       of our team should you have any questions or require any further
       information.
     </>
@@ -24,7 +24,7 @@ const PropertyManagement = () => (
     <Header
       tag="Property Management Services"
       title="Your Property – Our Priority!"
-      subtitle= {<PropertyManagementCopy/>}
+      subtitle={<PropertyManagementCopy/>}
       />
      
     <PropertyManagementForm />

@@ -22,6 +22,11 @@ function transformPostsToSearchObjects(properties: IPropertyNormalised[]) {
           state: p.address.state.name,
           suburb: p.address.suburb.name,
         },
+        agents: p.contactStaff.map((c) => ({
+          id: c.id,
+          firstName: c.firstName,
+          staffTypeId: c.staffTypeId,
+        })),
         modified: p.modified,
         floorArea: p.floorArea.value,
         type: p.type,
