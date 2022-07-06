@@ -57,3 +57,13 @@ export interface IPropertySearch {
   suburb: string;
   modified: string;
 }
+
+export interface IAgent {
+  id: number;
+  name: string;
+  slug: string;
+  mobile?: string;
+  role: string;
+  imageUrl: string;
+  about?: string;
+}

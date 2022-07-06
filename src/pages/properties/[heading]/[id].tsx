@@ -18,6 +18,7 @@ const highlights = [
 ];
 
 const Property = ({ property }: { property: IProperty }) => {
+  console.log(property);
   return (
     <Main
       meta={
