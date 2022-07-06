@@ -74,7 +74,7 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
               <p className="pt-3">
                 <a href={`tel: ${agent.mobile}`}>M. {agent.mobile}</a>
               </p>
-            ) }
+            )}
 
             <div className="mt-6">
               <div
