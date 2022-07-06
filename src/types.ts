@@ -46,6 +46,11 @@ export interface IProperty {
     units: string;
     value: number;
   };
+  contactStaff: {
+    id: number;
+    firstName: string;
+    staffTypeId: number;
+  }[];
 }
 
 export type PropertyType = 'sale' | 'sold' | 'lease' | 'leased';
@@ -70,6 +75,11 @@ export interface IPropertySearch {
   modified: string;
   floorArea: number;
   type: PropertyType;
+  agents: {
+    id: number;
+    firstName: string;
+    staffTypeId: number;
+  }[];
 }
 
 export interface IAgent {

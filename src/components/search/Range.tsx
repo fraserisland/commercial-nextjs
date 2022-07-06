@@ -77,7 +77,7 @@ export function RangeInput(props: RangeProps) {
               type="number"
               min={min}
               max={max}
-              value={from}
+              value={from || min}
               placeholder={'min'}
               disabled={!canRefine}
               onChange={(event) => {
@@ -90,7 +90,7 @@ export function RangeInput(props: RangeProps) {
               type="number"
               min={min}
               max={max}
-              value={to}
+              value={to || max}
               placeholder={'max'}
               disabled={!canRefine}
               onChange={(event) =>

@@ -2,7 +2,7 @@ import type { IAgent } from '@/types';
 
 export const AGENTS: IAgent[] = [
   {
-    id: 1,
+    id: 50744,
     name: 'Steve Macgregor',
     slug: 'steve-macgregor',
     role: 'Managing Director | Sales & Leasing',
@@ -12,7 +12,7 @@ export const AGENTS: IAgent[] = [
       'Not only am I a proud Gold Coast resident, but I am also a passionate believer in the areas property market, particularly the commercial sector.<br/><br/>Prior to becoming a real estate agent I ran a family manufacturing business with both national and international contracts. Through this the company became involved in owning and renting many commercial properties while also carrying out major renovation projects.<br/><br/>This experience was a terrific grounding to embark on a career in commercial and industrial property and over the past eleven years I have sold and leased in excess of 3 billion dollars worth of real estate.<br/><br/>As director of Commercial 1 Gold Coast my focus is on achieving the very best results and outcomes for our clients combined with a more personalised service.',
   },
   {
-    id: 2,
+    id: 50747,
     name: 'Adam Quinn',
     slug: 'adam-quinn',
     role: 'Leasing & Sales Executive',
@@ -22,7 +22,7 @@ export const AGENTS: IAgent[] = [
       'Adams decision to enter the Commercial Real Estate industry followed on from the success the family business had already achieved and the expertise he could add to compliment Steve, Ryan & the team already in place.  <br /><br /> After living on the Gold Coast from a young age and following on from his previous career with a background in engineering and drafting, Adam has a passion, extensive knowledge and experience around commercial and industrial buildings the property sector in general.<br/><br/>Adam is committed to providing the highest level of communication to his clients which has proven to be a recipe for success in the past.<br/><br/>',
   },
   {
-    id: 3,
+    id: 50745,
     name: 'Ryan Macgregor',
     slug: 'ryan-macgregor',
     role: 'Leasing & Sales Executive',

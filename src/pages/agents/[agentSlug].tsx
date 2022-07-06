@@ -1,4 +1,13 @@
+import algoliasearch from 'algoliasearch';
+import {
+  Configure,
+  InstantSearch,
+  InstantSearchSSRProvider,
+} from 'react-instantsearch-hooks-web';
+
+import Header from '@/components/Header';
 import IndividualAgent from '@/components/individualAgent';
+import Hits from '@/components/search/hit';
 import { AGENTS } from '@/constants';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
@@ -14,6 +23,11 @@ const findAgentBySlug = (slug: IAgent['slug']): IAgent | undefined => {
   return agent;
 };
 
+const client = algoliasearch(
+  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || '',
+  process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY || ''
+);
+
 const Agent = ({ agent }: { agent: IAgent }) => {
   return (
     <Main
@@ -25,6 +39,17 @@ const Agent = ({ agent }: { agent: IAgent }) => {
       }
     >
       <IndividualAgent agent={agent} />
+      <InstantSearchSSRProvider>
+        <InstantSearch searchClient={client} indexName="commercial1">
+          <Configure filters={`agents.id:${agent.id}`} />
+          <Header
+            tag="Results"
+            title="Sold and Leased properties"
+            subtitle={`Properties leased and sold by ${agent.name}`}
+          />
+          <Hits />
+        </InstantSearch>
+      </InstantSearchSSRProvider>
     </Main>
   );
 };
