@@ -1,19 +1,21 @@
-import React, { useState } from "react";
+import { Tab } from '@headlessui/react';
+import React, { useState } from 'react';
 
-import Notification from "../notification";
+import type { IAgent } from '@/types';
 
+import Notification from '../notification';
 
-const AppraisalsForm = () => {
+const IndividualAgent = ({ agent }: { agent: IAgent }) => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
 
   const disableForm = isSuccess;
 
   const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    message: "",
-    email: "",
+    name: '',
+    phone: '',
+    message: '',
+    email: '',
   });
 
   const handleSubmit = async (e: any) => {
@@ -41,62 +43,63 @@ const AppraisalsForm = () => {
   };
 
   return (
-    <>
-      <div className="relative bg-white lg:my-16 max-w-7xl m-auto shadow-2xl rounded-md border-2 border-gray-100">
-        <div className="absolute inset-0">
-          <div className="absolute inset-y-0 left-0 w-1/2 bg-white rounded-md" />
-        </div>
-        <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5">
-          <div className="bg-white-50 py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
-            <div className="max-w-lg mx-auto">
-              <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
-                Contact Our Appraisals Team
-              </h2>
-              <p className="mt-3 text-lg leading-6 text-blueCharcoal-500"></p>
-              <dl className="mt-8 text-base text-gray-600">
-                <div>
-                  <dd>
-                    <p>
-                      {" "}
-                      We&apos;d love to hear from you! Send us a message using this
-                      form to enquire about a sales or rental appraisal on your
-                      property.
-                    </p>
-                  </dd>
-                </div>
-              </dl>
+    <div className="bg-whiteLinen">
+      <div className="mx-auto max-w-2xl py-10 px-4 sm:px-6 lg:max-w-7xl lg:py-16 lg:px-8">
+        <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
+          {/* Image gallery */}
+          <Tab.Group as="div" className="flex flex-col-reverse">
+            {/* Image selector */}
+            <Tab.Panels className="aspect-w-1 aspect-h-1 w-full">
+              <Tab.Panel key={agent.id}>
+                <img
+                  src={agent.imageUrl}
+                  alt="agent image"
+                  className="h-full w-full object-cover object-center sm:rounded-lg"
+                />
+              </Tab.Panel>
+            </Tab.Panels>
+          </Tab.Group>
+
+          {/* Product info */}
+          <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
+            <h1 className="text-3xl font-extrabold tracking-tight text-orange-500">
+              {agent.name}
+            </h1>
+
+            <div className="mt-3">
+              <p className="text-3xl text-orange-300">{agent.role}</p>
+            </div>
+
+            {agent.mobile && (
+              <p className="pt-3">
+                <a href={`tel: ${agent.mobile}`}>M. {agent.mobile}</a>
+              </p>
+            )}
+
+            <div className="mt-6">
+              <div
+                className="space-y-6 text-base text-gray-700"
+                dangerouslySetInnerHTML={{ __html: agent.about! }}
+              />
             </div>
           </div>
-          <div className="bg-white py-16 px-4 sm:px-6 sm:m-2 lg:col-span-3 lg:py-16 lg:px-8 xl:pl-12 ">
-            <div className="max-w-lg mx-auto lg:max-w-none ">
+        </div>
+      </div>
+      <>
+        <div className="overflow-hidden bg-whiteLinen py-8 px-4 sm:px-6 lg:px-8">
+          <div className="relative mx-auto max-w-6xl border-2 border-black p-10">
+            <div className="">
+              <h1 className="text-xl md:text-2xl lg:text-3xl">
+                Contact {agent.name} for further information
+              </h1>
+              <br />
               <form
-                name="appraisal"
+                name="contact"
                 action="#"
                 method="POST"
                 onSubmit={handleSubmit}
                 className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
               >
-                <div className="sm:col-span-2">
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Message
-                  </label>
-                  <div className="mt-1">
-                    <textarea
-                      disabled={disableForm}
-                      onChange={handleChange}
-                      required={true}
-                      id="message"
-                      name="message"
-                      rows={4}
-                      className="block w-full rounded-md border border-gray-300 py-3 px-4 shadow-sm focus:border-orange-500 focus:ring-orange-500"
-                      defaultValue={""}
-                    />
-                  </div>
-                </div>
-
                 <div>
                   <label
                     htmlFor="name"
@@ -159,27 +162,50 @@ const AppraisalsForm = () => {
                     />
                   </div>
                 </div>
+
+                <div className="sm:col-span-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Message
+                  </label>
+                  <div className="mt-1">
+                    <textarea
+                      disabled={disableForm}
+                      onChange={handleChange}
+                      required={true}
+                      id="message"
+                      name="message"
+                      rows={4}
+                      className="block w-full rounded-md border border-gray-300 py-3 px-4 shadow-sm focus:border-orange-500 focus:ring-orange-500"
+                      defaultValue={''}
+                    />
+                  </div>
+                </div>
+
                 <div className="sm:col-span-2">
                   <button
                     disabled={disableForm}
                     type="submit"
                     className="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-orange-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
                   >
-                    Send Enquiry
+                    Send
                   </button>
                 </div>
               </form>
             </div>
           </div>
         </div>
-      </div>
-      <Notification
-        show={showNotification}
-        title={`Thanks!`}
-        description="We will be in touch as soon as possible."
-      />
-    </>
+
+        <Notification
+          show={showNotification}
+          title={`Thanks!`}
+          description="We will be in touch as soon as possible."
+        />
+      </>
+    </div>
   );
 };
 
-export default AppraisalsForm;
+export default IndividualAgent;
