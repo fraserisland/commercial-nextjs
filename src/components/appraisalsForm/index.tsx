@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 import Notification from "../notification";
 
-import { MailIcon, PhoneIcon } from "@heroicons/react/outline";
 
 const AppraisalsForm = () => {
   const [isSuccess, setIsSuccess] = useState(false);

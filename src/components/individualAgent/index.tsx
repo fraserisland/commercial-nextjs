@@ -1,8 +1,7 @@
-import { Tab } from "@headlessui/react";
 import React, { useState } from "react";
 import Header from "@/components/Header";
 import type { IAgent } from "@/types";
-import { MailIcon, PhoneIcon } from "@heroicons/react/outline";
+import { PhoneIcon } from "@heroicons/react/outline";
 
 import Notification from "../notification";
 
@@ -41,10 +40,6 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
 
   const handleChange = (e: any) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const AgentCopy = () => {
-    return <>{agent.about}</>;
   };
 
   return (
