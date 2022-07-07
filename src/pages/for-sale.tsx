@@ -30,7 +30,7 @@ export default function ForSalePage({ serverState }: ForSalePageProps) {
   return (
     <Main meta={<Meta title="Commercial 1 GC" description="Commercial 1 GC" />}>
       <Header
-        tag="for sale"
+        tag=""
         title="For Sale"
         subtitle="browse the best properties for sale"
       />
