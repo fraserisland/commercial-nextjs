@@ -46,15 +46,32 @@ const PropertyManagementForm = () => {
 
   return (
     <>
-      <div className="overflow-hidden bg-whiteLinen py-8 px-4 sm:px-6 lg:px-8">
-        
-        <div className="relative mx-auto mt-3 max-w-5xl shadow-2xl rounded-md p-10">
-          <div className="mt-2">
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Contact Our Property Management Team</h2>
-                <p className="mt-4 text-lg text-gray-500 sm:mt-3">
-                  We’d love to hear from you! Send us a message using the form below to enquire about our property management services.
-                </p>
-            <br />
+      
+      <div className="relative bg-white lg:my-16 max-w-7xl m-auto shadow-2xl rounded-md  border-2 border-gray-100">
+        <div className="absolute inset-0">
+          <div className="absolute inset-y-0 left-0 w-1/2 bg-white rounded-md " />
+        </div>
+        <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5 ">
+          <div className="bg-white-50 py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12 ">
+            <div className="max-w-lg mx-auto">
+              <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl ">
+              Contact Our Property Management Team
+              </h2>
+              <p className="mt-3 text-lg leading-6 text-blueCharcoal-500"></p>
+              <dl className="mt-8 text-base text-gray-600">
+                <div>
+                  <dd>
+                    <p>
+                      {" "}
+                      We&apos;d love to hear from you! Send us a message using this form to enquire about our property management services.
+                    </p>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+          <div className="bg-white py-16 px-4 sm:px-6 sm:m-2 lg:col-span-3 lg:py-16 lg:px-8 xl:pl-12 ">
+            <div className="max-w-lg mx-auto lg:max-w-none ">
             <form
               name="propertyManagement"
               action="#"
@@ -67,7 +84,7 @@ const PropertyManagementForm = () => {
                   htmlFor="propertyAddress"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Property Addresss
+                  Property Address
                 </label>
                 <div className="mt-1">
                   <textarea
@@ -103,8 +120,6 @@ const PropertyManagementForm = () => {
                   />
                 </div>
               </div>
-
-              <p className="sm:col-span-2 mt-4 text-lg text-gray-500 sm:mt-3">Enter your details:</p>
 
               <div>
                 <label
@@ -250,9 +265,11 @@ const PropertyManagementForm = () => {
                 </button>
               </div>
             </form>
+            </div>
           </div>
         </div>
       </div>
+
       <Notification
         show={showNotification}
         title={`Thanks!`}

@@ -45,9 +45,9 @@ const ContactForm = () => {
     <>
       
 
-      <div className="relative bg-whiteLinen-500 lg:my-16 max-w-7xl m-auto my-6 shadow-2xl rounded-md">
+      <div className="relative bg-white lg:my-16 max-w-7xl m-auto my-6 shadow-2xl rounded-md border-2 border-gray-100">
         <div className="absolute inset-0">
-          <div className="absolute inset-y-0 left-0 w-1/2 bg-whiteLinen-500" />
+          <div className="absolute inset-y-0 left-0 w-1/2 bg-white rounded-md" />
         </div>
         <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5">
           <div className="bg-white-50 py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
@@ -95,7 +95,7 @@ const ContactForm = () => {
               </p>
             </div>
           </div>
-          <div className="bg-whiteLinen py-16 px-4 sm:px-6 sm:m-2 lg:col-span-3 lg:py-16 lg:px-8 xl:pl-12 ">
+          <div className="bg-white py-16 px-4 sm:px-6 sm:m-2 lg:col-span-3 lg:py-16 lg:px-8 xl:pl-12 ">
             <div className="max-w-lg mx-auto lg:max-w-none ">
               <form
                 name="contact"

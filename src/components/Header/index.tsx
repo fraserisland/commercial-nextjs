@@ -15,7 +15,10 @@ export default function Example({
           <p className="mt-1 text-3xl font-extrabold text-gray-900 sm:text-4xl sm:tracking-tight lg:text-5xl md:py-3">
             {title}
           </p>
-          <p className="mt-5 max-w-7xl text-lg text-gray-600">{subtitle}</p>
+          <div
+                className="space-y-6 text-base text-gray-700"
+                dangerouslySetInnerHTML={{ __html: subtitle! }}
+              />
         </div>
       </div>
     </div>

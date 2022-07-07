@@ -5,10 +5,10 @@ import type { IAgent } from '@/types';
 const TeamMember = ({ agent }: { agent: IAgent }) => {
   return (
     <div className="space-y-4">
-      <div className="aspect-w-3 aspect-h-2">
+      <div className="aspect-w-3 aspect-h-2 ">
         <Link href={`/agents/${agent.slug}`}>
           <img
-            className="rounded-lg object-cover shadow-lg transition duration-500 hover:scale-105 hover:cursor-pointer "
+            className="rounded-lg object-cover shadow-xl transition duration-500 hover:scale-105 hover:cursor-pointer border-1 border-gray-100 "
             src={agent.imageUrl}
             alt="agent image"
           />
