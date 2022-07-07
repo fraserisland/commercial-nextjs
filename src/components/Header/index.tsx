@@ -17,7 +17,7 @@ export default function Example({
           </p>
           <div
                 className="space-y-6 text-base text-gray-700"
-                dangerouslySetInnerHTML={{ __html: subtitle! }}
+                dangerouslySetInnerHTML={{ __html: subtitle }}
               />
         </div>
       </div>
