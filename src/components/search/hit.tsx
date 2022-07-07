@@ -5,7 +5,7 @@ export default function Example() {
   const { hits } = useHits();
 
   return (
-    <div className='mx-auto max-w-2xl lg:max-w-7xl'>
+    <div className='mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl'>
       <h2 className='sr-only'>Hits</h2>
       <div className='grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-4 lg:gap-x-8'>
         {hits.map((hit: any) => (

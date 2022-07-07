@@ -4,10 +4,7 @@ import type { IProperty, PropertyType } from '../types';
 
 const API_URL = 'https://ap-southeast-2.api.vaultre.com.au/api/v1.3/';
 
-const client = async (
-  endpoint: string,
-  customConfig?: RequestInit
-): Promise<null | any> => {
+const client = async (endpoint: string, customConfig?: RequestInit): Promise<null | any> => {
   try {
     const headers = {
       'X-Api-Key': 'UIxhtpbAwu2C7ODbHllEXnRs49FyuNz4KMOt8Ch9',
@@ -54,6 +51,10 @@ const getSalePropertyByID = ({ id }: { id: string }) => {
   return client(`properties/commercial/sale/${id}`);
 };
 
+const getLeasePropertyByID = ({ id }: { id: string }) => {
+  return client(`properties/commercial/lease/${id}`);
+};
+
 const addPropertyType = (properties: IProperty[], type: PropertyType) => {
   return properties.map((p: IProperty) => ({ ...p, type }));
 };
@@ -78,5 +79,6 @@ export {
   getAvailableSaleProperties,
   getLeasedLeaseProperties,
   getSalePropertyByID,
+  getLeasePropertyByID,
   getSoldSaleProperties,
 };

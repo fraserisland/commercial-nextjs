@@ -36,7 +36,7 @@ export default function Example({ posts = allPosts }) {
   return (
     <div className='pt-12'>
       <Header tag='' title='Latest property news' />
-      <div className='relative pb-20   lg:pb-28 '>
+      <div className='relative pb-20 px-4 sm:px-6  lg:pb-28 lg:px-8'>
         <div className='relative max-w-7xl mx-auto'>
           <div className='max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none'>
             {posts.map((post) => (
