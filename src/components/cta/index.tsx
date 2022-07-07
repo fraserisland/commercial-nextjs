@@ -1,30 +1,27 @@
 import Link from 'next/link';
 import React from 'react';
+import capitalize from '@/utils/capitalise';
 
-const Cta = ({
-  titleTop = '',
-  titleBottom = '',
-  btnText = '',
-  bgImgSrc = '',
-  href = '',
-}) => {
+const Cta = ({ titleTop = '', titleBottom = '', btnText = '', bgImgSrc = '', href = '' }) => {
   return (
-    <div
-      style={{
-        backgroundImage: `url(${bgImgSrc})`,
-      }}
-      className={`m-auto max-w-7xl`}
-    >
-      <div className="mx-auto max-w-2xl py-16 px-4 text-center sm:py-20 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-extrabold text-white  drop-shadow-lg sm:text-4xl">
-          <span className="block">{titleTop}</span>
-          <span className="block">{titleBottom}</span>
-        </h2>
-        <Link href={href}>
-          <div className="mt-8 inline-flex w-full items-center justify-center border border-transparent bg-orange px-5 py-3 text-base  font-medium text-whiteLinen hover:cursor-pointer hover:bg-orange-50 sm:w-auto">
-            {btnText}
+    <div className='mt-16 space-y-16'>
+      <div className='flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8 lg:items-center'>
+        <div className='lg:col-start-8 xl:col-start-9 mt-6 lg:mt-0 lg:row-start-1 lg:col-span-5 xl:col-span-4'>
+          <img className='hidden md:block w-28 hover:cursor-pointer mb-2' src='/assets/images/logo.png' alt='' />
+          <h3 className='text-lg lg:text-2xl font-medium text-gray-900'>
+            {capitalize(titleTop)} {titleBottom.toLowerCase()}
+          </h3>
+          <Link href={href}>
+            <div className='mt-4 inline-flex w-full items-center justify-center border rounded border-transparent bg-orange px-5 py-3 text-base  font-medium text-whiteLinen hover:cursor-pointer hover:bg-orange-50 sm:w-auto'>
+              {btnText}
+            </div>
+          </Link>
+        </div>
+        <div className={'lg:col-start-1 flex-auto lg:row-start-1 lg:col-span-7 xl:col-span-8'}>
+          <div className='aspect-w-5 aspect-h-2 rounded-lg bg-gray-100 overflow-hidden'>
+            <img src={bgImgSrc} alt={titleTop} className='object-center object-cover' />
           </div>
-        </Link>
+        </div>
       </div>
     </div>
   );
