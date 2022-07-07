@@ -43,7 +43,7 @@ const Agent = ({ agent }: { agent: IAgent }) => {
         <InstantSearch searchClient={client} indexName="commercial1">
           <Configure filters={`agents.id:${agent.id}`} />
           <Header
-            tag="Results"
+            tag=""
             title="Sold and Leased properties"
             subtitle={`Properties leased and sold by ${agent.name}`}
           />

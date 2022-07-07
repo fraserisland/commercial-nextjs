@@ -45,7 +45,7 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
   return (
     <>
       <Header
-        tag={agent.role}
+        tag=""
         title={agent.name}
         subtitle={agent.about}
       />

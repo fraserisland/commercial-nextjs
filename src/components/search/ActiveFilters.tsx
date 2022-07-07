@@ -39,7 +39,7 @@ const ActiveFilters = () => {
   });
 
   return (
-    <div className='bg-gray-100'>
+    <div className='bg-gray-100 rounded-b-md'>
       <div className='mx-auto max-w-7xl py-3 px-4 sm:flex sm:items-center sm:px-6 lg:px-8'>
         <h3 className='nowrap py-1 text-xs font-semibold uppercase tracking-wide text-gray-500'>
           APPLIED FILTERS

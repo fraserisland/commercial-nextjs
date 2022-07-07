@@ -6,6 +6,7 @@ import { Main } from '@/templates/Main';
 
 const PropertyManagement = () => (
   <Main meta={<Meta title='Commercial 1 GC' description='Commercial 1 GC' />}>
+    <div className='m-auto max-w-7xl px-6'>
     <Header
       tag=''
       title='Your Property – Our Priority!'
@@ -21,6 +22,7 @@ const PropertyManagement = () => (
 
     <PropertyManagementForm />
     <Cta3 />
+    </div>
   </Main>
 );
 

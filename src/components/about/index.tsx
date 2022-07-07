@@ -5,10 +5,10 @@ import { AGENTS } from '@/constants';
 
 const AboutComponent = () => {
   return (
-    <div className="mx-auto max-w-7xl  overflow-hidden bg-whiteLinen py-8 px-4 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl   bg-whiteLinen py-8  my-5 ">
       
 
-      <div className="bg-white rounded-md shadow-xl border-2 border-gray-100">
+      <div className="bg-white rounded-md  border-2 border-gray-100 shadow-xl">
         <div className="mx-auto max-w-7xl lg:py-4 px-4 sm:px-6 lg:px-8 ">
           <div className="space-y-8">
             <div className="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">

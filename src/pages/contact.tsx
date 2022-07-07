@@ -6,6 +6,7 @@ import Header from '@/components/Header';
 
 const Contact = () => (
   <Main meta={<Meta title='Commercial 1 GC' description='Commercial 1 GC' />}>
+    <div className='m-auto max-w-7xl px-6'>
     <Header
       tag=''
       title='Would you like to contact us?'
@@ -18,6 +19,7 @@ const Contact = () => (
     />
     <ContactForm />
     <Cta4 />
+    </div>
   </Main>
 );
 

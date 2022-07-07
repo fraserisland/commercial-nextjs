@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 
 const About = () => (
   <Main meta={<Meta title="Commercial 1 GC" description="Commercial 1 GC" />}>
+    <div className='m-auto max-w-7xl px-6'>
     <Header
       tag=""
       title="About Commercial 1"
@@ -22,6 +23,7 @@ const About = () => (
       extraordinary outcome in your next real estate transaction."
     />
     <AboutComponent />
+    </div>
   </Main>
 );
 

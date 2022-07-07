@@ -4,9 +4,9 @@ import capitalize from '@/utils/capitalise';
 
 const Cta = ({ titleTop = '', titleBottom = '', btnText = '', bgImgSrc = '', href = '' }) => {
   return (
-    <div className='mt-16 space-y-16'>
+    <div className='mt-16 space-y-16 bg-white rounded-md shadow-xl'>
       <div className='flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8 lg:items-center'>
-        <div className='lg:col-start-8 xl:col-start-9 mt-6 lg:mt-0 lg:row-start-1 lg:col-span-5 xl:col-span-4'>
+        <div className='lg:col-start-8 xl:col-start-9 mt-6 lg:mt-0 lg:row-start-1 lg:col-span-5'>
           <img className='hidden md:block w-28 hover:cursor-pointer mb-2' src='/assets/images/logo.png' alt='' />
           <h3 className='text-lg lg:text-2xl font-medium text-gray-900'>
             {capitalize(titleTop)} {titleBottom.toLowerCase()}
@@ -18,7 +18,7 @@ const Cta = ({ titleTop = '', titleBottom = '', btnText = '', bgImgSrc = '', hre
           </Link>
         </div>
         <div className={'lg:col-start-1 flex-auto lg:row-start-1 lg:col-span-7 xl:col-span-8'}>
-          <div className='aspect-w-5 aspect-h-2 rounded-lg bg-gray-100 overflow-hidden'>
+          <div className='aspect-w-5 aspect-h-2 rounded-md rounded-r-none bg-gray-100 overflow-hidden'>
             <img src={bgImgSrc} alt={titleTop} className='object-center object-cover' />
           </div>
         </div>
