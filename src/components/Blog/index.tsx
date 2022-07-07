@@ -46,7 +46,7 @@ export default function Example({ posts = allPosts }) {
                 </div>
                 <div className='flex-1 p-6 flex flex-col justify-between'>
                   <div className='flex-1'>
-                    <a href={post.href} target='_blank' className='block mt-2'>
+                    <a href={post.href} target='_blank' rel='noreferrer' className='block mt-2'>
                       <p className='text-xl font-semibold text-gray-900'>{post.title}</p>
                       <p className='mt-3 text-base text-gray-500'>{post.description}</p>
                     </a>
