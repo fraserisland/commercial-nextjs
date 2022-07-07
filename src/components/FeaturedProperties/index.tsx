@@ -1,47 +1,30 @@
-const products = [
-  {
-    id: 1,
-    name: 'Basic Tee',
-    href: '#',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: '$35',
-    color: 'Black',
-  },
-];
+import algoliasearch from 'algoliasearch/lite';
+import type { InstantSearchServerState } from 'react-instantsearch-hooks-web';
+import { Configure, InstantSearch, InstantSearchSSRProvider } from 'react-instantsearch-hooks-web';
 
-export default function Example() {
+import Header from '@/components/Header';
+import Hits from '@/components/search/hit';
+
+const client = algoliasearch(
+  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || '',
+  process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY || ''
+);
+
+type ForSalePageProps = {
+  serverState?: InstantSearchServerState;
+  url?: string;
+};
+
+export default function FeatureProperties({ serverState }: ForSalePageProps) {
   return (
-    <div>
-      <div className='max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8'>
-        <h2 className='text-2xl font-extrabold tracking-tight text-gray-900'>Featured properties</h2>
-
-        <div className='mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8'>
-          {products.map((product) => (
-            <div key={product.id} className='group relative'>
-              <div className='w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none'>
-                <img
-                  src={product.imageSrc}
-                  alt={product.imageAlt}
-                  className='w-full h-full object-center object-cover'
-                />
-              </div>
-              <div className='mt-4 flex justify-between'>
-                <div>
-                  <h3 className='text-sm text-gray-700'>
-                    <a href={product.href}>
-                      <span aria-hidden='true' className='absolute inset-0' />
-                      {product.name}
-                    </a>
-                  </h3>
-                  <p className='mt-1 text-sm text-gray-500'>{product.color}</p>
-                </div>
-                <p className='text-sm font-medium text-gray-900'>{product.price}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+    <>
+      <InstantSearchSSRProvider {...serverState}>
+        <InstantSearch searchClient={client} indexName='commercial1'>
+          <Configure hitsPerPage={4} filters='type:sale OR type:lease' />
+          <Header tag='' title='Featured Properties' subtitle='' />
+          <Hits />
+        </InstantSearch>
+      </InstantSearchSSRProvider>
+    </>
   );
 }

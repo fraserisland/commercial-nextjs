@@ -64,6 +64,7 @@ export interface IPropertySearch {
   title: string;
   slug: string;
   date: string;
+  timestamp: number;
   displayPrice: string;
   excerpt: string;
   image: string;

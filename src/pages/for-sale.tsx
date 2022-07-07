@@ -1,10 +1,6 @@
 import algoliasearch from 'algoliasearch/lite';
 import type { InstantSearchServerState } from 'react-instantsearch-hooks-web';
-import {
-  Configure,
-  InstantSearch,
-  InstantSearchSSRProvider,
-} from 'react-instantsearch-hooks-web';
+import { Configure, InstantSearch, InstantSearchSSRProvider } from 'react-instantsearch-hooks-web';
 
 import Header from '@/components/Header';
 import ActiveFilters from '@/components/search/ActiveFilters';
@@ -28,22 +24,19 @@ type ForSalePageProps = {
 
 export default function ForSalePage({ serverState }: ForSalePageProps) {
   return (
-    <Main meta={<Meta title="Commercial 1 GC" description="Commercial 1 GC" />}>
-      <Header
-        tag=""
-        title="For Sale"
-        subtitle="browse the best properties for sale"
-      />
+    <Main meta={<Meta title='Commercial 1 GC' description='Commercial 1 GC' />}>
+      <Header tag='' title='For Sale' subtitle='browse the best properties for sale' />
       <InstantSearchSSRProvider {...serverState}>
-        <InstantSearch searchClient={client} indexName="commercial1">
-          <Configure filters="type:sale" />
+        <InstantSearch searchClient={client} indexName='commercial1'>
+          <Configure filters='type:sale' />
           <Input />
           <FiltersHolder>
-            <Range attribute="price" label="Price ($)" />
-            <Range attribute="floorArea" label="Floor Area (sqm)" />
-            <RefinementList attribute="address.suburb" label="Suburb" />
+            <Range attribute='price' label='Price ($)' />
+            <Range attribute='floorArea' label='Floor Area (sqm)' />
+            <RefinementList attribute='address.suburb' label='Suburb' />
           </FiltersHolder>
           <ActiveFilters />
+          <div className='pt-8' />
           <Hits />
         </InstantSearch>
       </InstantSearchSSRProvider>
