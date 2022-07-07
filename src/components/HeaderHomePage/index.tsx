@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Example() {
   return (
     <div>
@@ -12,12 +14,11 @@ export default function Example() {
                 <span className='block sm:inline'>The #1 address for commercial property</span>
               </h2>
               {/* <p className='mt-3 text-xl text-white'>Search commercial property's</p> */}
-              <a
-                href='/search'
-                className='mt-4 inline-flex w-full items-center justify-center border rounded border-transparent bg-orange px-5 py-3 text-base  font-medium text-whiteLinen hover:cursor-pointer hover:bg-orange-50 sm:w-auto'
-              >
-                Find properties now
-              </a>
+              <Link href='/search'>
+                <span className='mt-4 inline-flex w-full items-center justify-center border rounded border-transparent bg-orange px-5 py-3 text-base  font-medium text-whiteLinen hover:cursor-pointer hover:bg-orange-50 sm:w-auto'>
+                  Find properties now
+                </span>
+              </Link>
             </div>
           </div>
         </div>

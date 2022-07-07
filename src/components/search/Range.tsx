@@ -6,6 +6,7 @@ import { useRange } from 'react-instantsearch-hooks-web';
 
 type Props = {
   label: string;
+  attribute: 'price' | 'floorArea';
 };
 
 export type RangeProps = React.ComponentProps<'div'> & UseRangeProps & Props;
@@ -51,16 +52,16 @@ const floorAreaRange = [
   { id: 1211, name: '3000 sqm', value: 3000 },
 ];
 
-const findSelecedByValue = (value, selection) => {
-  return selection.find((r) => r.value === value);
+const findSelecedByValue = (value: any, selection: any) => {
+  return selection.find((r: any) => r.value === value);
 };
 
-const getItems = (attribute: 'price' | 'floorArea', { min, max }) => {
+const getItems = (attribute: 'price' | 'floorArea', { min, max }: { min: any; max: any }) => {
   let items;
   if (attribute === 'price') items = priceRange;
   if (attribute === 'floorArea') items = floorAreaRange;
 
-  items = items.filter((r) => r.value > min && r.value < max);
+  items = items?.filter((r) => r.value > min && r.value < max);
 
   return items;
 };
@@ -117,14 +118,14 @@ export function RangeInput(props: RangeProps) {
           >
             <SelectBox
               items={selectItems}
-              onChange={(e) => setRange({ from: e.value, to })}
+              onChange={(e: any) => setRange({ from: e.value, to })}
               currentSelected={findSelecedByValue(from, selectItems)}
             />
 
             <span className='mx-2'> - </span>
             <SelectBox
-              items={from ? selectItems.filter((r) => r.value > from) : selectItems}
-              onChange={(e) => setRange({ to: e.value, from })}
+              items={from ? selectItems?.filter((r) => r.value > from) : selectItems}
+              onChange={(e: any) => setRange({ to: e.value, from })}
               currentSelected={findSelecedByValue(to, selectItems)}
             />
 
@@ -147,11 +148,17 @@ import { Fragment } from 'react';
 import { Listbox } from '@headlessui/react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 
-function classNames(...classes) {
+function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-function SelectBox({ items, onChange = () => {}, currentSelected }) {
+interface SelectProps {
+  items: any;
+  onChange: (e: any) => void;
+  currentSelected: any;
+}
+
+function SelectBox({ items, onChange = (e) => e as void, currentSelected }: SelectProps) {
   // const [selected, setSelected] = useState(items[0]);
   const selected = currentSelected || items[0];
 
@@ -175,7 +182,7 @@ function SelectBox({ items, onChange = () => {}, currentSelected }) {
               leaveTo='opacity-0'
             >
               <Listbox.Options className='absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm'>
-                {items.map((item) => (
+                {items.map((item: any) => (
                   <Listbox.Option
                     key={item.id}
                     className={({ active }) =>
