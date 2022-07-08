@@ -38,6 +38,7 @@ const Agent = ({ agent }: { agent: IAgent }) => {
         />
       }
     >
+       <div className='m-auto max-w-7xl px-6'>
       <IndividualAgent agent={agent} />
       <InstantSearchSSRProvider>
         <InstantSearch searchClient={client} indexName="commercial1">
@@ -50,6 +51,7 @@ const Agent = ({ agent }: { agent: IAgent }) => {
           <Hits />
         </InstantSearch>
       </InstantSearchSSRProvider>
+      </div>
     </Main>
   );
 };

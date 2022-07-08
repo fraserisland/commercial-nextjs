@@ -25,7 +25,7 @@ type ForSalePageProps = {
 export default function ForSalePage({ serverState }: ForSalePageProps) {
   return (
     <Main meta={<Meta title='Commercial 1 GC' description='Commercial 1 GC' />}>
-      <div className='m-auto max-w-7xl px-6'>
+     
       <Header tag='' title='For Lease' subtitle='browse the best properties for lease' />
 
       <InstantSearchSSRProvider {...serverState}>
@@ -45,7 +45,7 @@ export default function ForSalePage({ serverState }: ForSalePageProps) {
           </div>
         </InstantSearch>
       </InstantSearchSSRProvider>
-      </div>
+     
     </Main>
   );
 }

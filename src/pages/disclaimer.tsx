@@ -3,7 +3,7 @@ import { Main } from '@/templates/Main';
 
 const Disclaimer = () => (
   <Main meta={<Meta title="Commercial 1 GC" description="Commercial 1 GC" />}>
-    <div className="m-auto max-w-7xl px-6 pt-6">
+    <div className="h-screen px-6 pt-6">
       <h2>Disclaimer</h2>
       <br />
       <h1>

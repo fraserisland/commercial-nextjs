@@ -7,11 +7,11 @@ import { Main } from '@/templates/Main';
 
 const Index = () => (
   <Main meta={<Meta title='Commercial 1 GC' description='Commercial 1 GC' />}>
-    <div className='m-auto max-w-7xl px-6'>
+   
       <FeaturedProperties />
       <Cta1 />
       <Blog />
-    </div>
+   
   </Main>
 );
 

@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 
+
 import Notification from "../notification";
 
 import { MailIcon, PhoneIcon } from "@heroicons/react/outline";
 
+
 const ContactForm = () => {
+
   const [isSuccess, setIsSuccess] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
 
@@ -201,12 +204,16 @@ const ContactForm = () => {
             </div>
           </div>
         </div>
+
+      
+
       </div>
       <Notification
         show={showNotification}
         title={`Thanks!`}
         description="We will be in touch as soon as possible."
       />
+
     </>
   );
 };
