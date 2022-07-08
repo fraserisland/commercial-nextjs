@@ -13,8 +13,7 @@ const getFormattedNumberLabel = (label: string, attribute: string) => {
   const isPrice = attribute === 'price';
   const isSqm = attribute === 'floorArea';
   const num = label.split(' ');
-  const formatted = parseInt(num[1] as string, 2).toLocaleString();
-
+  const formatted = parseInt(num[1] as string).toLocaleString();
   return `${num[0]?.replace('≥', 'over').replace('≤', 'under')} ${isPrice ? '$' : ''}${formatted}${isSqm ? 'sqm' : ''}`;
 };
 
@@ -38,10 +37,12 @@ const ActiveFilters = () => {
     includedAttributes: ['price', 'floorArea', 'address.suburb'],
   });
 
+  console.log('active', { items });
+
   return (
     <div className='bg-gray-100 rounded-b-md'>
       <div className='mx-auto max-w-7xl py-3 px-4 sm:flex sm:items-center sm:px-6 lg:px-8'>
-        <h3 className='nowrap py-1 text-xs font-semibold uppercase tracking-wide text-gray-500'>
+        <h3 className='whitespace-nowrap py-1 text-xs font-semibold uppercase tracking-wide text-gray-500'>
           APPLIED FILTERS
           <span className='sr-only'>, active</span>
         </h3>
@@ -81,7 +82,7 @@ const ActiveFilters = () => {
         {canRefine && (
           <button
             style={{ marginLeft: 'auto' }}
-            className='nowrap py-1 text-xs font-semibold tracking-wide'
+            className='whitespace-nowrap ml-2 inline-flex items-center rounded border border-transparent bg-orange-100 px-3 py-1 text-xs font-medium text-orange-700 hover:bg-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2'
             onClick={clearRefinements}
           >
             clear all
