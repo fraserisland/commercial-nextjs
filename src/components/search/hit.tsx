@@ -5,12 +5,12 @@ export default function Example() {
   const { hits } = useHits();
 
   return (
-    <div className='mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl'>
+    <div className='mx-auto max-w-2xl lg:max-w-7xl pt-3'>
       <h2 className='sr-only'>Hits</h2>
       <div className='grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-4 lg:gap-x-8'>
         {hits.map((hit: any) => (
           <Link key={hit.slug} href={hit.slug}>
-            <div className='group relative flex cursor-pointer flex-col overflow-hidden rounded-lg border border-gray-200 bg-white'>
+            <div className='group relative flex cursor-pointer flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg'>
               <div className='aspect-w-3 aspect-h-2 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-52'>
                 <img
                   src={hit.image}

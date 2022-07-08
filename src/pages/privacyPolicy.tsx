@@ -3,7 +3,7 @@ import { Main } from '@/templates/Main';
 
 const PrivacyPolicy = () => (
   <Main meta={<Meta title="Commercial 1 GC" description="Commercial 1 GC" />}>
-    <div className="m-auto max-w-7xl px-6 pt-6">
+    <div className="px-6 pt-6">
       <h2>Privacy Policy</h2>
       <br />
       <h1>

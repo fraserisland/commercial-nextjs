@@ -25,11 +25,13 @@ type ResultsPageProps = {
 export default function ResultsPage({ serverState }: ResultsPageProps) {
   return (
     <Main meta={<Meta title='Commercial 1 GC' description='Commercial 1 GC' />}>
+     
       <Header tag='' title='Sold and leased' subtitle='check out some of our results' />
-
       <InstantSearchSSRProvider {...serverState}>
         <InstantSearch searchClient={client} indexName='commercial1'>
           <Configure filters='type:sold OR type:leased' />
+          
+          <div className="border-[1px] border-gray-300 rounded-md">
           <Input />
           <FiltersHolder>
             <Range attribute='price' label='Price ($)' />
@@ -37,10 +39,13 @@ export default function ResultsPage({ serverState }: ResultsPageProps) {
             <RefinementList attribute='address.suburb' label='Suburb' />
           </FiltersHolder>
           <ActiveFilters />
-          <div className='pt-8' />
+          </div>
+          <div className='p-3 pt-8' >
           <Hits />
+          </div>
         </InstantSearch>
       </InstantSearchSSRProvider>
+      
     </Main>
   );
 }

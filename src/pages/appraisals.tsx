@@ -6,6 +6,7 @@ import Header from '@/components/Header';
 
 const Apprasials = () => (
   <Main meta={<Meta title='Commercial 1 GC' description='Commercial 1 GC' />}>
+  
     <Header
       tag=''
       title="What's Your Commercial Property Worth?"
@@ -18,6 +19,7 @@ const Apprasials = () => (
     />
     <AppraisalsForm />
     <Cta4 />
+  
   </Main>
 );
 

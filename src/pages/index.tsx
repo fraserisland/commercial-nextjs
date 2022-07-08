@@ -17,6 +17,7 @@ const Index = () => (
       <div className='py-4' />
       <Blog />
     </div>
+   
   </Main>
 );
 
