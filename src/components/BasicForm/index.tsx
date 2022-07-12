@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import Notification from "../Notification";
+import Notification from "@/components/Notification";
 import emailjs from '@emailjs/browser';
 
 const BasicForm = () => {
