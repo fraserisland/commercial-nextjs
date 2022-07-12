@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Cta from '@/components/cta';
+import Cta from '@/components/Cta';
 
 const Cta2 = () => {
   return (

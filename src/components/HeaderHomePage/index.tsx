@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function Example() {
   return (
     <div>
-      <div className='max-w-7xl mx-auto pt-8  '>
+      <div className='max-w-7xl mx-auto pb-14 '>
         <div className='relative rounded-lg overflow-hidden'>
           <div className='absolute inset-0'>
             <img src='/assets/images/banner1.jpg' alt='' className='w-full h-full object-center object-cover' />

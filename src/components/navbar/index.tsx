@@ -101,7 +101,7 @@ const NavBar = () => {
         </Popover.Panel>
       </Transition>
      
-          <div className="mx-auto h-[1px]  items-center justify-center  bg-orange shadow-md"></div>
+          <div className="mx-auto h-[1px]  items-center justify-center  bg-orange shadow-md lg:mb-12 mb-9"></div>
       
     </Popover>
    

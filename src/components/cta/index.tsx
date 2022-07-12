@@ -4,9 +4,10 @@ import capitalize from '@/utils/capitalise';
 
 const Cta = ({ titleTop = '', titleBottom = '', btnText = '', bgImgSrc = '', href = '' }) => {
   return (
-    <div className='mt-16 space-y-16 bg-white rounded-md shadow-xl'>
+    
+    <div className='my-24 space-y-16 bg-white rounded-md shadow-xl'>
       <div className='flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8 lg:items-center'>
-        <div className='lg:col-start-8 xl:col-start-9 mt-6 lg:mt-0 lg:row-start-1 lg:col-span-5'>
+        <div className='lg:col-start-8 xl:col-start-9 mt-6 lg:mt-0 lg:row-start-1 lg:col-span-5  px-4 pb-4 lg:p-0 lg:pr-3'>
           <img className='hidden md:block w-28 hover:cursor-pointer mb-2' src='/assets/images/logo.png' alt='' />
           <h3 className='text-lg lg:text-2xl font-medium text-gray-900'>
             {capitalize(titleTop)} {titleBottom.toLowerCase()}
@@ -24,6 +25,7 @@ const Cta = ({ titleTop = '', titleBottom = '', btnText = '', bgImgSrc = '', hre
         </div>
       </div>
     </div>
+    
   );
 };
 

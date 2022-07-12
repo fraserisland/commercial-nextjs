@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-
-import Notification from '../notification';
+import React, { useState, useRef } from 'react';
+import Notification from '../Notification';
+import emailjs from '@emailjs/browser';
 
 const PropertyManagementForm = () => {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -29,6 +29,12 @@ const PropertyManagementForm = () => {
         'property address': form.propertyAddress,
         time: form.time,
       });
+      emailjs.sendForm('contact', 'pm_contact', form2.current as HTMLFormElement, 'F1azEZxseozcuFQq2')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
       setShowNotification(true);
       setTimeout(() => {
         setShowNotification(false);
@@ -44,13 +50,13 @@ const PropertyManagementForm = () => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const form2 = useRef<HTMLFormElement>(null);
+
   return (
     <>
       
-      <div className="relative bg-white lg:my-10 max-w-7xl m-auto shadow-2xl rounded-md  border-2 border-gray-100">
-        <div className="absolute inset-0">
-          <div className="absolute inset-y-0 left-0 w-1/2 bg-white rounded-md " />
-        </div>
+      <div className="relative bg-white  max-w-7xl m-auto shadow-2xl rounded-md  border-2 border-gray-100">
+        
         <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5 ">
           <div className="bg-white-50 py-10 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-16 xl:pr-12 ">
             <div className="max-w-lg mx-auto">
@@ -73,6 +79,7 @@ const PropertyManagementForm = () => {
           <div className="bg-white py-6 px-4 sm:px-6 sm:m-2 lg:col-span-3 lg:py-10 lg:px-8 xl:pl-12 ">
             <div className="max-w-lg mx-auto lg:max-w-none ">
             <form
+            ref={form2}
               name="propertyManagement"
               action="#"
               method="POST"

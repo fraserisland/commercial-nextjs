@@ -23,9 +23,9 @@ const Property = ({ property }: { property: IProperty }) => {
     <Main
       meta={
         <Meta
-          title='Next.js Boilerplate Presentation'
-          description='Next js Boilerplate is the perfect starter code for your project. Build your React application with the Next.js framework.'
-        />
+        title={property.heading}
+        description="Commercial 1 Gold Coast"
+      />
       }
     >
       <div className='bg-white'>

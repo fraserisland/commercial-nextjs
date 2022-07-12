@@ -3,12 +3,12 @@ import type { InstantSearchServerState } from 'react-instantsearch-hooks-web';
 import { Configure, InstantSearch, InstantSearchSSRProvider } from 'react-instantsearch-hooks-web';
 
 import Header from '@/components/Header';
-import ActiveFilters from '@/components/search/ActiveFilters';
-import FiltersHolder from '@/components/search/FiltersHolder';
-import Hits from '@/components/search/hit';
-import Input from '@/components/search/input';
-import Range from '@/components/search/Range';
-import RefinementList from '@/components/search/refinementList';
+import ActiveFilters from '@/components/Search/ActiveFilters';
+import FiltersHolder from '@/components/Search/FiltersHolder';
+import Hits from '@/components/Search/hit';
+import Input from '@/components/Search/input';
+import Range from '@/components/Search/Range';
+import RefinementList from '@/components/Search/refinementList';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
@@ -24,14 +24,14 @@ type ForSalePageProps = {
 
 export default function ForSalePage({ serverState }: ForSalePageProps) {
   return (
-    <Main meta={<Meta title='Commercial 1 GC' description='Commercial 1 GC' />}>
+    <Main meta={<Meta title='Lease with Commercial 1 GC' description='Commercial 1 GC' />}>
      
       <Header tag='' title='For Lease' subtitle='browse the best properties for lease' />
 
       <InstantSearchSSRProvider {...serverState}>
         <InstantSearch searchClient={client} indexName='commercial1'>
           <Configure filters='type:lease' />
-          <div className="border-[1px] border-gray-300 rounded-md">
+          <div className="border-[1px] border-gray-300 rounded-md shadow-md bg-white">
           <Input />
           <FiltersHolder>
             <Range attribute='price' label='Price ($)' />
@@ -40,7 +40,7 @@ export default function ForSalePage({ serverState }: ForSalePageProps) {
           </FiltersHolder>
           <ActiveFilters />
           </div>
-          <div className='p-3 pt-8'>
+          <div className='pt-16'>
           <Hits />
           </div>
         </InstantSearch>

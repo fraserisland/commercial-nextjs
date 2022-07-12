@@ -3,7 +3,7 @@ import type { InstantSearchServerState } from 'react-instantsearch-hooks-web';
 import { Configure, InstantSearch, InstantSearchSSRProvider } from 'react-instantsearch-hooks-web';
 
 import Header from '@/components/Header';
-import Hits from '@/components/search/hit';
+import Hits from '@/components/Search/hit';
 
 const client = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || '',

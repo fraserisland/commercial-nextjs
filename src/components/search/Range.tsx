@@ -91,10 +91,10 @@ export function RangeInput(props: RangeProps) {
 
   return (
     <Popover key={props.attribute} className='relative inline-block px-4 text-left'>
-      <Popover.Button className='group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900'>
+      <Popover.Button className='group inline-flex justify-center text-sm font-medium text-gray-500 group-hover:text-gray-600'>
         <span>{props.label}</span>
         <ChevronDownIcon
-          className='-mr-1 ml-1 h-5 w-5 shrink-0 text-gray-400 group-hover:text-gray-500'
+          className='-mr-1 ml-1 h-5 w-5 shrink-0 text-gray-500 group-hover:text-gray-600'
           aria-hidden='true'
         />
       </Popover.Button>

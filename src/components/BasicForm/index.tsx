@@ -1,31 +1,35 @@
-import { Tab } from '@headlessui/react';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react'
+import Notification from "../Notification";
+import emailjs from '@emailjs/browser';
 
-import type { IAgent } from '@/types';
+const BasicForm = () => {
 
-import Notification from '../Notification';
-
-const IndividualAgent = ({ agent }: { agent: IAgent }) => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
 
   const disableForm = isSuccess;
 
   const [form, setForm] = useState({
-    name: '',
-    phone: '',
-    message: '',
-    email: '',
+    user_name: "",
+    user_phone: "",
+    message: "",
+    user_email: "",
   });
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       console.log({
-        email: form.email,
-        name: form.name,
-        phone: form.phone,
+        email: form.user_email,
+        name: form.user_name,
+        phone: form.user_phone,
         message: form.message,
+      });
+      emailjs.sendForm('contact', 'contact_form', form2.current as HTMLFormElement, 'F1azEZxseozcuFQq2')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
       });
       setShowNotification(true);
       setTimeout(() => {
@@ -42,58 +46,13 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const form2 = useRef<HTMLFormElement>(null);
+
+
   return (
-    <div className="bg-whiteLinen">
-      <div className="mx-auto max-w-2xl py-10 px-4 sm:px-6 lg:max-w-7xl lg:py-16 lg:px-8">
-        <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
-          {/* Image gallery */}
-          <Tab.Group as="div" className="flex flex-col-reverse">
-            {/* Image selector */}
-            <Tab.Panels className="aspect-w-1 aspect-h-1 w-full">
-              <Tab.Panel key={agent.id}>
-                <img
-                  src={agent.imageUrl}
-                  alt="agent image"
-                  className="h-full w-full object-cover object-center sm:rounded-lg"
-                />
-              </Tab.Panel>
-            </Tab.Panels>
-          </Tab.Group>
-
-          {/* Product info */}
-          <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-            <h1 className="text-3xl font-extrabold tracking-tight text-orange-500">
-              {agent.name}
-            </h1>
-
-            <div className="mt-3">
-              <p className="text-3xl text-orange-300">{agent.role}</p>
-            </div>
-
-            {agent.mobile && (
-              <p className="pt-3">
-                <a href={`tel: ${agent.mobile}`}>M. {agent.mobile}</a>
-              </p>
-            )}
-
-            <div className="mt-6">
-              <div
-                className="space-y-6 text-base text-gray-700"
-                dangerouslySetInnerHTML={{ __html: agent.about! }}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <>
-        <div className="overflow-hidden bg-whiteLinen py-8 px-4 sm:px-6 lg:px-8">
-          <div className="relative mx-auto max-w-6xl border-2 border-black p-10">
-            <div className="">
-              <h1 className="text-xl md:text-2xl lg:text-3xl">
-                Contact {agent.name} for further information
-              </h1>
-              <br />
-              <form
+    <div>
+             <form
+                ref={form2}
                 name="contact"
                 action="#"
                 method="POST"
@@ -102,7 +61,7 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
               >
                 <div>
                   <label
-                    htmlFor="name"
+                    htmlFor="user_name"
                     className="block text-sm font-medium text-gray-700"
                   >
                     Name
@@ -113,8 +72,8 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
                       onChange={handleChange}
                       required={true}
                       type="text"
-                      name="name"
-                      id="name"
+                      name="user_name"
+                      id="user_name"
                       autoComplete="full name"
                       className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-orange-500 focus:ring-orange-500"
                     />
@@ -123,7 +82,7 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
 
                 <div>
                   <label
-                    htmlFor="email"
+                    htmlFor="user_email"
                     className="block text-sm font-medium text-gray-700"
                   >
                     Email
@@ -133,8 +92,8 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
                       disabled={disableForm}
                       onChange={handleChange}
                       required={true}
-                      id="email"
-                      name="email"
+                      id="user_email"
+                      name="user_email"
                       type="email"
                       autoComplete="email"
                       className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-orange-500 focus:ring-orange-500"
@@ -144,7 +103,7 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
 
                 <div>
                   <label
-                    htmlFor="phone"
+                    htmlFor="user_phone"
                     className="block text-sm font-medium text-gray-700"
                   >
                     Phone Number
@@ -155,8 +114,8 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
                       onChange={handleChange}
                       required={true}
                       type="text"
-                      name="phone"
-                      id="phone"
+                      name="user_phone"
+                      id="user_phone"
                       autoComplete="tel"
                       className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm  focus:border-orange-500 focus:ring-orange-500"
                     />
@@ -179,7 +138,7 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
                       name="message"
                       rows={4}
                       className="block w-full rounded-md border border-gray-300 py-3 px-4 shadow-sm focus:border-orange-500 focus:ring-orange-500"
-                      defaultValue={''}
+                      defaultValue={""}
                     />
                   </div>
                 </div>
@@ -194,18 +153,13 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
                   </button>
                 </div>
               </form>
-            </div>
-          </div>
-        </div>
-
-        <Notification
-          show={showNotification}
-          title={`Thanks!`}
-          description="We will be in touch as soon as possible."
-        />
-      </>
+              <Notification
+        show={showNotification}
+        title={`Thanks!`}
+        description="We will be in touch as soon as possible."
+      />
     </div>
-  );
-};
+  )
+}
 
-export default IndividualAgent;
+export default BasicForm

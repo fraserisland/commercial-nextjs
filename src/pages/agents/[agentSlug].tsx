@@ -6,8 +6,8 @@ import {
 } from 'react-instantsearch-hooks-web';
 
 import Header from '@/components/Header';
-import IndividualAgent from '@/components/individualAgent';
-import Hits from '@/components/search/hit';
+import IndividualAgent from '@/components/IndividualAgent';
+import Hits from '@/components/Search/hit';
 import { AGENTS } from '@/constants';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
@@ -33,8 +33,8 @@ const Agent = ({ agent }: { agent: IAgent }) => {
     <Main
       meta={
         <Meta
-          title="Next.js Boilerplate Presentation"
-          description="Next js Boilerplate is the perfect starter code for your project. Build your React application with the Next.js framework."
+          title="Steve Macgregor"
+          description="Commercial 1 Gold Coast"
         />
       }
     >

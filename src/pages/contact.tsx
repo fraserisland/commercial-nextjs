@@ -1,11 +1,11 @@
-import ContactForm from '@/components/contactForm';
-import Cta4 from '@/components/cta4';
+import ContactForm from '@/components/ContactForm';
+import Cta4 from '@/components/Cta4';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 import Header from '@/components/Header';
 
 const Contact = () => (
-  <Main meta={<Meta title='Commercial 1 GC' description='Commercial 1 GC' />}>
+  <Main meta={<Meta title='Contact Commercial 1 GC' description='Commercial 1 GC' />}>
     
     <Header
       tag=''

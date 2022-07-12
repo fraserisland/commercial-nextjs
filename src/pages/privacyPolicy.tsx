@@ -2,7 +2,7 @@ import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
 const PrivacyPolicy = () => (
-  <Main meta={<Meta title="Commercial 1 GC" description="Commercial 1 GC" />}>
+  <Main meta={<Meta title="Commercial 1 GC Privacy Policy" description="Commercial 1 GC" />}>
     <div className="px-6 pt-6">
       <h2>Privacy Policy</h2>
       <br />
