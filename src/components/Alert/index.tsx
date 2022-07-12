@@ -1,22 +1,22 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Transition } from '@headlessui/react';
-import { CheckCircleIcon } from '@heroicons/react/outline';
-import React, { Fragment } from 'react';
+import { Transition } from "@headlessui/react";
+import { CheckCircleIcon } from "@heroicons/react/outline";
+import React, { Fragment } from "react";
 
-function Notification({
+function Alert({
   show = false,
-  title = 'Successfully subscribed!',
-  description = 'Please check your spam or junk folder, and allow up to 15 minutes.',
+  title = "Successfully subscribed!",
+  description = "Please check your spam or junk folder, and allow up to 15 minutes.",
 }) {
   return (
     <>
-      {/* Global notification live region, render this permanently at the end of the document */}
+      {/* Global Alert live region, render this permanently at the end of the document */}
       <div
         aria-live="assertive"
         className="pointer-events-none fixed inset-x-0 bottom-0 z-50 flex items-end px-4 py-6 sm:items-start sm:p-6"
       >
         <div className="flex w-full flex-col items-center space-y-4 sm:items-end">
-          {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
+          {/* Alert panel, dynamically insert this into the live region when it needs to be displayed */}
           <Transition
             show={show}
             as={Fragment}
@@ -50,4 +50,4 @@ function Notification({
   );
 }
 
-export default Notification;
+export default Alert;

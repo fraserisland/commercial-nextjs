@@ -1,21 +1,21 @@
-import { Tab } from '@headlessui/react';
-import React, { useState } from 'react';
+import { Tab } from "@headlessui/react";
+import React, { useState } from "react";
 
-import type { IAgent } from '@/types';
+import type { IAgent } from "@/types";
 
-import Notification from '../Notification';
+import Alert from "../Alert";
 
 const IndividualAgent = ({ agent }: { agent: IAgent }) => {
   const [isSuccess, setIsSuccess] = useState(false);
-  const [showNotification, setShowNotification] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
   const disableForm = isSuccess;
 
   const [form, setForm] = useState({
-    name: '',
-    phone: '',
-    message: '',
-    email: '',
+    name: "",
+    phone: "",
+    message: "",
+    email: "",
   });
 
   const handleSubmit = async (e: any) => {
@@ -27,9 +27,9 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
         phone: form.phone,
         message: form.message,
       });
-      setShowNotification(true);
+      setShowAlert(true);
       setTimeout(() => {
-        setShowNotification(false);
+        setShowAlert(false);
       }, 5000);
     } catch {
       console.log(e);
@@ -179,7 +179,7 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
                       name="message"
                       rows={4}
                       className="block w-full rounded-md border border-gray-300 py-3 px-4 shadow-sm focus:border-orange-500 focus:ring-orange-500"
-                      defaultValue={''}
+                      defaultValue={""}
                     />
                   </div>
                 </div>
@@ -198,8 +198,8 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
           </div>
         </div>
 
-        <Notification
-          show={showNotification}
+        <Alert
+          show={showAlert}
           title={`Thanks!`}
           description="We will be in touch as soon as possible."
         />
