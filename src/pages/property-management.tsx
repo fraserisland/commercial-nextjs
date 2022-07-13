@@ -1,11 +1,11 @@
-import Cta3 from '@/components/cta3';
+import Cta3 from '@/components/Cta3';
 import Header from '@/components/Header';
-import PropertyManagementForm from '@/components/propertyManagementForm';
+import PropertyManagementForm from '@/components/PropertyManagementForm';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
 const PropertyManagement = () => (
-  <Main meta={<Meta title='Commercial 1 GC' description='Commercial 1 GC' />}>
+  <Main meta={<Meta title='Property Mangement with Commercial 1 GC' description='Commercial 1 GC' />}>
   
     <Header
       tag=''

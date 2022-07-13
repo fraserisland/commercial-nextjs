@@ -1,11 +1,11 @@
-import AppraisalsForm from '@/components/appraisalsForm';
-import Cta4 from '@/components/cta4';
+import AppraisalsForm from '@/components/AppraisalsForm';
+import Cta4 from '@/components/Cta4';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 import Header from '@/components/Header';
 
 const Apprasials = () => (
-  <Main meta={<Meta title='Commercial 1 GC' description='Commercial 1 GC' />}>
+  <Main meta={<Meta title='Appraisals with Commercial 1 GC' description='Commercial 1 GC' />}>
   
     <Header
       tag=''

@@ -5,12 +5,12 @@ import {
   InstantSearchSSRProvider,
 } from 'react-instantsearch-hooks-web';
 
-import ActiveFilters from '@/components/search/ActiveFilters';
-import FiltersHolder from '@/components/search/FiltersHolder';
-import Hits from '@/components/search/hit';
-import Input from '@/components/search/input';
-import Range from '@/components/search/Range';
-import RefinementList from '@/components/search/refinementList';
+import ActiveFilters from '@/components/Search/ActiveFilters';
+import FiltersHolder from '@/components/Search/FiltersHolder';
+import Hits from '@/components/Search/hit';
+import Input from '@/components/Search/input';
+import Range from '@/components/Search/Range';
+import RefinementList from '@/components/Search/refinementList';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
