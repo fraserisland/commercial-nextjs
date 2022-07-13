@@ -5,7 +5,8 @@ import { Main } from '@/templates/Main';
 import Header from '@/components/Header';
 
 const Contact = () => (
-  <Main meta={<Meta title='Contact Commercial 1 GC' description='Commercial 1 GC' />}>
+  <Main meta={<Meta title='Contact Us - Commercial 1 GC' description='Please do not hesitate to contact a member of our team using the form below should you have any
+  questions or require any further information.' />}>
     
     <Header
       tag=''
