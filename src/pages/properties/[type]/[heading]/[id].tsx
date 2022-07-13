@@ -20,14 +20,7 @@ const highlights = [
 const Property = ({ property }: { property: IProperty }) => {
   console.log(property);
   return (
-    <Main
-      meta={
-        <Meta
-        title={property.heading}
-        description="Commercial 1 Gold Coast"
-      />
-      }
-    >
+    <Main meta={<Meta title={property.heading} description='Commercial 1 Gold Coast' />}>
       <div className='bg-white'>
         <div className='pt-6'>
           <nav aria-label='Breadcrumb'>
@@ -104,7 +97,7 @@ const Property = ({ property }: { property: IProperty }) => {
               <form className='mt-10'>
                 <button
                   type='submit'
-                  className='mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                  className='mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-orange-600 py-3 px-8 text-base font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2'
                 >
                   Enquire now
                 </button>
