@@ -32,16 +32,6 @@ export const AGENTS: IAgent[] = [
       'Ryan Macgregor is a driven individual who has a passion for service. <br/><br/> Born and raised on the Gold Coast, Ryan became a young entrepreneur in 2012 owing and operating a sign company for 5 years at which point Ryan decided it was time for a change and wanted to follow in his fathers footsteps becoming a commercial and industrial leasing and sales specialist. <br/><br/> During Ryan’s time in the real estate industry, he has consistently achieved great results and is considered a hard working, youthful agent by his customers. Ryan prides himself on leaving no stone unturned, following up and providing the very best service to both owners and tenants. <br/><br/> With the resources available to him by both Steve Macgregor and Commercial 1 Gold Coast, he will without a doubt continue to succeed.',
   },
   {
-    id: 4,
-    name: 'Mark Kelada',
-    slug: 'mark-kelada',
-    role: 'Auctioneer',
-    imageUrl: '/assets/images/Mark.jpg',
-    mobile: '0410679664',
-    about:
-      'My investment property portfolio began in 1991 having purchased and flipped my first property on the Gold Coast at age 19. I have since purchased/sold around 20 properties both residential and industrial to date and still own a number of industrial and residential properties on the Gold Coast.<br/><br/>I completed my studies as an auctioneer with REIQ in 2008 and was immediately offered and signed on as a provisional auctioneer by my REIQ trainer which was an absolute honour and privilege to be so highly regarded by my lecturer. I obtained my full auctioneers licence in 2009 and started my auction career as a Luxury boat auctioneer, and soon thereafter progressed into automotive, chattel and above all investment and high end Real Estate in 2010.<br/><br/>I have successfully auctioned in excess of 1 billion dollars worth of Residential, Commercial and Industrial property and continue to invest in the place I love and believe in most of all being the Gold Coast.<br/><br/>(My Beginnings) I was born and raised in Melbourne and brought up in the property industry as my father was a renowned architect in Melbourne and is best known for his design of the iconic Melbourne Arts Centre Spire Tower. He developed many commercial and residential properties in Melbourne from 1971 till the time we moved to the Gold Coast in 1987 and then continued to develop on the Gold Coast in the residential property market for both first home buyers as well as luxury waterfront and commercial property. He was an active property investor on the Gold Coast having developed around 100 properties in total, and at almost age 81 continues to passionately practice architecture to date.<br/><br/>Real Estate is not a simple transaction for me, it is a passion and a way of life! It’s an industry I “live, breath, love and embrace” on a daily basis, no challenge is too hard and my focus will always be creative marketing and sales whilst achieving outstanding results for our clients.',
-  },
-  {
     id: 5,
     name: 'Katie Rossi',
     slug: 'katie-rossi',

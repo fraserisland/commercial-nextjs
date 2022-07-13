@@ -4,8 +4,8 @@ import type { IAgent } from '@/types';
 
 const TeamMember = ({ agent }: { agent: IAgent }) => {
   return (
-    <div className="space-y-4 border-gray-300 border-[1px] rounded-md transition duration-500 hover:scale-105 hover:cursor-pointer shadow-xl bg-white">
-      <div className="aspect-w-3 aspect-h-2 ">
+    <div className="space-y-4 border-gray-300 border-[1px] rounded-md transition duration-500 hover:scale-105 hover:cursor-pointer shadow-xl bg-white h-full">
+      <div className="aspect-w-3 aspect-h-3 ">
         <Link href={`/agents/${agent.slug}`}>
           <img
             className="rounded-t-md object-cover      "
@@ -15,7 +15,7 @@ const TeamMember = ({ agent }: { agent: IAgent }) => {
         </Link>
       </div>
 
-      <div className="space-y-4 h-32 px-4  ">
+      <div className="space-y-4 px-4 pb-3 h-full">
         <div className="space-y-5 text-lg font-medium leading-6 hover:cursor-pointer text-orange-600  ">
           <Link href={`/agents/${agent.slug}`}>
             <h3 className='text-blueCharcoal-500 '>{agent.name}</h3>
