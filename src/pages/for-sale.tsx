@@ -25,30 +25,26 @@ type ForSalePageProps = {
 export default function ForSalePage({ serverState }: ForSalePageProps) {
   return (
     <Main meta={<Meta title='Properties for Sale' description='Commercial 1 GC' />}>
-      
       <Header tag='' title='For Sale' subtitle='browse the best properties for sale' />
       <InstantSearchSSRProvider {...serverState}>
         <InstantSearch searchClient={client} indexName='commercial1'>
           <Configure filters='type:sale' />
-          <div className="border-[1px] border-gray-300 rounded-md shadow-md bg-white">
-          <Input />
-          <FiltersHolder>
-            <Range attribute='price' label='Price ($)' />
-            <Range attribute='floorArea' label='Floor Area (sqm)' />
-            <RefinementList attribute='address.suburb' label='Suburb' />
-          </FiltersHolder>
-          
-        
-          <ActiveFilters />
+          <div className='border-[1px] border-gray-300 rounded-md shadow-md bg-white'>
+            <Input />
+            <FiltersHolder>
+              <Range attribute='price' label='Price ($)' />
+              <Range attribute='floorArea' label='Floor Area (sqm)' />
+              <RefinementList attribute='address.suburb' label='Suburb' />
+            </FiltersHolder>
+
+            <ActiveFilters />
           </div>
-         
-          <div className="pt-16">
-          <Hits />
-        
+
+          <div className='pt-16'>
+            <Hits />
           </div>
         </InstantSearch>
       </InstantSearchSSRProvider>
-    
     </Main>
   );
 }
