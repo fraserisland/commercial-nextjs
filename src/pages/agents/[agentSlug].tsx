@@ -34,7 +34,7 @@ const Agent = ({ agent }: { agent: IAgent }) => {
       meta={
         <>
         <Meta
-          title={agent.name}
+          title={`${agent.name} - Commercial 1 GC`}
           description={agent.role}
           image={agent.imageUrl}
         />

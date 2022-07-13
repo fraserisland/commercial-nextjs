@@ -23,8 +23,8 @@ const Property = ({ property }: { property: IProperty }) => {
     <Main
       meta={
         <Meta
-        title={property.heading}
-        description={property.displayPrice}
+        title={`${property.heading} - Commercial 1 GC`}
+        description={`${property.displayPrice} - ${property.description}`}
         image={property.photos?.[0]?.thumbnails.thumb_1024}
       />
       }
