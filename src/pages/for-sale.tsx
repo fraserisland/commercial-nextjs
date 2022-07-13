@@ -23,8 +23,9 @@ type ForSalePageProps = {
 };
 
 export default function ForSalePage({ serverState }: ForSalePageProps) {
+
   return (
-    <Main meta={<Meta title='Properties for Sale' description='Commercial 1 GC' />}>
+    <Main meta={<Meta title='Properties for Sale' description='Buy with Commercial 1' />}>
       
       <Header tag='' title='For Sale' subtitle='browse the best properties for sale' />
       <InstantSearchSSRProvider {...serverState}>

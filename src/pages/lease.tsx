@@ -24,7 +24,7 @@ type ForSalePageProps = {
 
 export default function ForSalePage({ serverState }: ForSalePageProps) {
   return (
-    <Main meta={<Meta title='Lease with Commercial 1 GC' description='Commercial 1 GC' />}>
+    <Main meta={<Meta title='Available Properties' description='Lease with Commercial 1 GC' />}>
      
       <Header tag='' title='For Lease' subtitle='browse the best properties for lease' />
 

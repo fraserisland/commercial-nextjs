@@ -24,7 +24,8 @@ const Property = ({ property }: { property: IProperty }) => {
       meta={
         <Meta
         title={property.heading}
-        description="Commercial 1 Gold Coast"
+        description={property.displayPrice}
+        image={property.photos?.[0]?.thumbnails.thumb_1024}
       />
       }
     >

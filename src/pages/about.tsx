@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 
 
 const About = () => (
-  <Main meta={<Meta title="About Commercial 1 GC" description="Commercial 1 GC" />}>
+  <Main meta={<Meta title="Commercial 1 GC" description="Commercial 1 GC" />}>
     <div className=''>
     <Header
       tag=""

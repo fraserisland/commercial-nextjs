@@ -32,10 +32,13 @@ const Agent = ({ agent }: { agent: IAgent }) => {
   return (
     <Main
       meta={
+        <>
         <Meta
-          title="Steve Macgregor"
-          description="Commercial 1 Gold Coast"
+          title={agent.name}
+          description={agent.role}
+          image={agent.imageUrl}
         />
+        </>
       }
     >
        <div className='m-auto max-w-7xl px-6'>

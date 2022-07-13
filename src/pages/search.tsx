@@ -26,7 +26,7 @@ type HomePageProps = {
 
 export default function HomePage({ serverState }: HomePageProps) {
   return (
-    <Main meta={<Meta title="Commercial 1 GC" description="Commercial 1 GC" />}>
+    <Main meta={<Meta title="Property Search" description="Commercial 1 GC" />}>
       <InstantSearchSSRProvider {...serverState}>
         <InstantSearch searchClient={client} indexName="commercial1">
           <Input />

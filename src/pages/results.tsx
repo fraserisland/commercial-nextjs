@@ -24,7 +24,7 @@ type ResultsPageProps = {
 
 export default function ResultsPage({ serverState }: ResultsPageProps) {
   return (
-    <Main meta={<Meta title='Commercial 1 GC' description='Commercial 1 GC' />}>
+    <Main meta={<Meta title='Our Results' description='Commercial 1 GC' />}>
      
       <Header tag='' title='Sold and leased' subtitle='check out some of our results' />
       
