@@ -24,9 +24,9 @@ type ResultsPageProps = {
 
 export default function ResultsPage({ serverState }: ResultsPageProps) {
   return (
-    <Main meta={<Meta title='Commercial 1 GC' description='Commercial 1 GC' />}>
+    <Main meta={<Meta title='Our Results - Commercial 1 GC' description='Check out some of our sale and lease results' />}>
      
-      <Header tag='' title='Sold and leased' subtitle='check out some of our results' />
+      <Header tag='' title='Sold and leased' subtitle='Check out some of our results' />
       
       <InstantSearchSSRProvider {...serverState}>
         <InstantSearch searchClient={client} indexName='commercial1'>

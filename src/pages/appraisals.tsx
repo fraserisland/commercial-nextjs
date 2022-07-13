@@ -5,7 +5,11 @@ import { Main } from '@/templates/Main';
 import Header from '@/components/Header';
 
 const Apprasials = () => (
-  <Main meta={<Meta title='Appraisals with Commercial 1 GC' description='Commercial 1 GC' />}>
+  <Main meta={<Meta title='Appraisals - Commercial 1 GC' description='At Commercial 1 we specialise in providing Rental and Sales appraisals for
+  Commercial and Industrial properties and are committed to ensuring you are
+  provided with the highest level of service.
+  Please do not hesitate to contact a member of our team should you have any
+  questions or require any further information.' />}>
   
     <Header
       tag=''

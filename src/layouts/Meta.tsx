@@ -1,16 +1,24 @@
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { NextSeo } from 'next-seo';
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { NextSeo } from "next-seo";
 
-import { AppConfig } from '@/utils/AppConfig';
+import { AppConfig } from "@/utils/AppConfig";
 
 type IMetaProps = {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   canonical?: string;
+  image?: string;
 };
 
-const Meta = (props: IMetaProps) => {
+const defaults = { title: "Commercial 1 GC", description: "The Gold Coast's commercial property experts.", canonical: "", image: "/assets/images/team.jpeg" };
+
+const Meta = ({
+  title = defaults.title,
+  description = defaults.description,
+  canonical = defaults.canonical,
+  image = defaults.image,
+}: IMetaProps) => {
   const router = useRouter();
 
   return (
@@ -48,15 +56,19 @@ const Meta = (props: IMetaProps) => {
         />
       </Head>
       <NextSeo
-        title={props.title}
-        description={props.description}
-        canonical={props.canonical}
+        title={title}
+        description={description}
+        canonical={canonical}
         openGraph={{
-          title: props.title,
-          description: props.description,
-          url: props.canonical,
+          images: [{url: image}],
+          title: title,
+          description: description,
+          url: canonical,
           locale: AppConfig.locale,
           site_name: AppConfig.site_name,
+        }}
+        twitter={{
+          cardType: 'summary_large_image',
         }}
       />
     </>
