@@ -22,11 +22,14 @@ type ResultsPageProps = {
   url?: string;
 };
 
+const title = 'Sold and Leased'
+const desc = 'Check out some of our results'
+
 export default function ResultsPage({ serverState }: ResultsPageProps) {
   return (
-    <Main meta={<Meta title='Our Results - Commercial 1 GC' description='Check out some of our sale and lease results' />}>
+    <Main meta={<Meta title={title} description={desc} />}>
      
-      <Header tag='' title='Sold and leased' subtitle='Check out some of our results' />
+      <Header tag='' title={title} subtitle= {desc} />
       
       <InstantSearchSSRProvider {...serverState}>
         <InstantSearch searchClient={client} indexName='commercial1'>
