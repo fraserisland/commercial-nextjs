@@ -22,12 +22,15 @@ type ForSalePageProps = {
   url?: string;
 };
 
+const title = 'For Sale' 
+const desc = 'Browse the best properties for sale'
+
 export default function ForSalePage({ serverState }: ForSalePageProps) {
 
   return (
-    <Main meta={<Meta title={`Properties for Sale - Commercial 1 GC`} description='Buy your next commercial property with Commercial 1 GC' />}>
+    <Main meta={<Meta title={`${title} - Commercial 1 GC`} description={desc} />}>
       
-      <Header tag='' title='For Sale' subtitle='browse the best properties for sale' />
+      <Header tag='' title={title} subtitle={desc} />
       <InstantSearchSSRProvider {...serverState}>
         <InstantSearch searchClient={client} indexName='commercial1'>
           <Configure filters='type:sale' />
