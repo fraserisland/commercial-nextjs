@@ -1,7 +1,9 @@
-export default function () {
+const Divider = () => {
   return (
     <div>
-      <hr className='my-6 border-orange-100' />
+      <hr className="my-6 border-orange-100" />
     </div>
   );
-}
+};
+
+export default Divider;
