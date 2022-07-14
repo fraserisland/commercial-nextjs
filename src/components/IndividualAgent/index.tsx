@@ -19,6 +19,7 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
               <div className="max-w-lg mx-auto">
                 <Image
                   src={agent.imageUrl}
+                  alt={agent.name}
                   layout="responsive"
                   height="100%"
                   width="100%"
