@@ -24,7 +24,7 @@ const AboutComponent = () => {
             </div>
             <ul
               role="list"
-              className="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 xl:grid-cols-3 lg:gap-x-8"
+              className="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 md:grid-cols-3 lg:gap-x-8"
             >
               {AGENTS.map((agent) => (
                 <li key={agent.name}>
