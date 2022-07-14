@@ -1,21 +1,21 @@
-import { Popover, Transition } from '@headlessui/react';
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import Link from 'next/link';
-import { Fragment } from 'react';
+import { Popover, Transition } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import Link from "next/link";
+import { Fragment } from "react";
+import Image from "next/image";
 
 const links = [
-  { href: '/for-sale', name: 'For Sale' },
-  { href: '/lease', name: 'Lease' },
-  { href: '/results', name: 'Results' },
-  { href: '/property-management', name: 'Property Management' },
-  { href: '/about', name: 'About' },
-  { href: '/appraisals', name: 'Appraisals' },
-  { href: '/contact', name: 'Contact' },
+  { href: "/for-sale", name: "For Sale" },
+  { href: "/lease", name: "Lease" },
+  { href: "/results", name: "Results" },
+  { href: "/property-management", name: "Property Management" },
+  { href: "/about", name: "About" },
+  { href: "/appraisals", name: "Appraisals" },
+  { href: "/contact", name: "Contact" },
 ];
 
 const NavBar = () => {
   return (
-
     <Popover className="relative bg-white shadow-md">
       <div className="mx-auto max-w-7xl bg-white">
         <div className="flex items-center justify-between px-6 pt-6 sm:px-6 lg:space-x-10 lg:pl-0 ">
@@ -40,16 +40,19 @@ const NavBar = () => {
 
           <div className="shrink-0 pb-4">
             <Link href="/">
-              <img
-                className="h-10 min-w-full hover:cursor-pointer sm:h-10"
-                src="/assets/images/logo.png"
-                alt=""
-              />
+              <div className="h-10 min-w-full hover:cursor-pointer sm:h-10">
+                <Image
+                  src="/assets/images/logo.png"
+                  alt="logo"
+                  layout="fixed"
+                  height="40%"
+                  width="165%"
+                  className="contain"
+                />
+              </div>
             </Link>
           </div>
         </div>
-
-        
       </div>
       {/* MOBILE MENU */}
 
@@ -77,10 +80,13 @@ const NavBar = () => {
                 </div>
                 <div>
                   <Link href="/" className="flex">
-                    <img
-                      className="h-10 w-auto hover:cursor-pointer sm:h-10"
+                    <Image
                       src="/assets/images/logo.png"
-                      alt=""
+                      alt="logo"
+                      layout="fixed"
+                      height="40%"
+                      width="165%"
+                      className="contain"
                     />
                   </Link>
                 </div>
@@ -100,11 +106,9 @@ const NavBar = () => {
           </div>
         </Popover.Panel>
       </Transition>
-     
-          <div className="mx-auto h-[1px]  items-center justify-center  bg-orange shadow-md lg:mb-12 mb-9"></div>
-      
+
+      <div className="mx-auto h-[1px]  items-center justify-center  bg-orange shadow-md lg:mb-12 mb-9"></div>
     </Popover>
-   
   );
 };
 
