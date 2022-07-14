@@ -13,6 +13,7 @@ import Range from '@/components/Search/Range';
 import RefinementList from '@/components/Search/refinementList';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
+import Header from '@/components/Header';
 
 const client = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || '',
@@ -24,9 +25,13 @@ type HomePageProps = {
   url?: string;
 };
 
+const title = "Property Search"
+const desc = "Search for your next property"
+
 export default function HomePage({ serverState }: HomePageProps) {
   return (
-    <Main meta={<Meta title="Property Search - Commercial 1 GC" description="Search for your next property with Commercial 1 GC" />}>
+    <Main meta={<Meta title={`${title} - Commercial 1 GC`} description={desc} />}>
+      <Header tag='' title={title} subtitle= {desc} />
       <InstantSearchSSRProvider {...serverState}>
         <InstantSearch searchClient={client} indexName="commercial1">
           <Input />
