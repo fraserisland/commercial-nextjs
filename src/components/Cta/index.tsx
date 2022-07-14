@@ -19,7 +19,7 @@ const Cta = ({ titleTop = '', titleBottom = '', btnText = '', bgImgSrc = '', hre
           </Link>
         </div>
         <div className={'lg:col-start-1 flex-auto lg:row-start-1 lg:col-span-7 xl:col-span-8'}>
-          <div className='aspect-w-5 aspect-h-2 rounded-md rounded-r-none bg-gray-100 overflow-hidden'>
+          <div className='aspect-w-5 aspect-h-2 rounded-md rounded-b-none lg:rounded-r-none lg:rounded-bl bg-gray-100 overflow-hidden'>
             <img src={bgImgSrc} alt={titleTop} className='object-center object-cover' />
           </div>
         </div>

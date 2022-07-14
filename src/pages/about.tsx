@@ -5,7 +5,13 @@ import Header from "@/components/Header";
 
 
 const About = () => (
-  <Main meta={<Meta title="About Commercial 1 GC" description="Commercial 1 GC" />}>
+
+
+
+  <Main meta={<Meta title="About us - Commercial 1 GC" description="A family owned and operated independent real estate agency located on
+  the Gold Coast focusing on selling and leasing of commercial and
+  industrial properties, investments, storage facilities and development
+  sites." />}>
     <div className=''>
     <Header
       tag=""

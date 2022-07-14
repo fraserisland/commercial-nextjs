@@ -2,7 +2,7 @@ import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
 const Disclaimer = () => (
-  <Main meta={<Meta title="Commercial 1 GC Disclaimer" description="Commercial 1 GC" />}>
+  <Main meta={<Meta title="Disclaimer - Commercial 1 GC" description="Disclaimer" />}>
     <div className="h-screen px-6 pt-6">
       <h2>Disclaimer</h2>
       <br />
