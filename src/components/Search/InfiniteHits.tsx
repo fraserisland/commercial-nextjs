@@ -11,7 +11,7 @@ const Hit = ({ hit }: { hit: any }) => {
       <div className="group relative flex cursor-pointer flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md">
         <div className="aspect-w-3 aspect-h-2 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-52 overflow-hidden">
           <div className="h-full w-full object-cover object-center sm:h-full sm:w-full ">
-            <Image src={hit.image} alt={hit.title} layout="responsive" height="300" width="300" className="" />
+            <Image src={hit.image} alt={hit.title} layout="responsive" height="300" width="300" objectFit="cover" />
           </div>
         </div>
         <div className="flex flex-1 flex-col space-y-2 p-4">
