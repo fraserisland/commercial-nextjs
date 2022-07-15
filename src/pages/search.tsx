@@ -7,12 +7,13 @@ import {
 
 import ActiveFilters from '@/components/Search/ActiveFilters';
 import FiltersHolder from '@/components/Search/FiltersHolder';
-import Hits from '@/components/Search/hit';
+import {InfiniteHits} from '@/components/Search/InfiniteHits';
 import Input from '@/components/Search/input';
 import Range from '@/components/Search/Range';
 import RefinementList from '@/components/Search/refinementList';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
+import Header from '@/components/Header';
 
 const client = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || '',
@@ -24,9 +25,13 @@ type HomePageProps = {
   url?: string;
 };
 
+const title = "Property Search"
+const desc = "Search for your next property"
+
 export default function HomePage({ serverState }: HomePageProps) {
   return (
-    <Main meta={<Meta title="Commercial 1 GC" description="Commercial 1 GC" />}>
+    <Main meta={<Meta title={`${title} - Commercial 1 GC`} description={desc} />}>
+      <Header tag='' title={title} subtitle= {desc} />
       <InstantSearchSSRProvider {...serverState}>
         <InstantSearch searchClient={client} indexName="commercial1">
           <Input />
@@ -36,7 +41,7 @@ export default function HomePage({ serverState }: HomePageProps) {
             <RefinementList attribute="type" label="Type" />
           </FiltersHolder>
           <ActiveFilters />
-          <Hits />
+          <InfiniteHits />
         </InstantSearch>
       </InstantSearchSSRProvider>
     </Main>

@@ -5,8 +5,9 @@ import { Configure, InstantSearch, InstantSearchSSRProvider } from 'react-instan
 import Header from '@/components/Header';
 import ActiveFilters from '@/components/Search/ActiveFilters';
 import FiltersHolder from '@/components/Search/FiltersHolder';
-import Hits from '@/components/Search/hit';
 import Input from '@/components/Search/input';
+import {InfiniteHits} from '@/components/Search/InfiniteHits';
+
 import Range from '@/components/Search/Range';
 import RefinementList from '@/components/Search/refinementList';
 import { Meta } from '@/layouts/Meta';
@@ -22,11 +23,14 @@ type ResultsPageProps = {
   url?: string;
 };
 
+const title = 'Sold and Leased'
+const desc = 'Check out some of our results'
+
 export default function ResultsPage({ serverState }: ResultsPageProps) {
   return (
-    <Main meta={<Meta title='Commercial 1 GC' description='Commercial 1 GC' />}>
+    <Main meta={<Meta title={title} description={desc} />}>
      
-      <Header tag='' title='Sold and leased' subtitle='check out some of our results' />
+      <Header tag='' title={title} subtitle= {desc} />
       
       <InstantSearchSSRProvider {...serverState}>
         <InstantSearch searchClient={client} indexName='commercial1'>
@@ -43,7 +47,7 @@ export default function ResultsPage({ serverState }: ResultsPageProps) {
           <ActiveFilters />
           </div>
           <div className='pt-16' >
-          <Hits />
+            <InfiniteHits />
           </div>
         </InstantSearch>
       </InstantSearchSSRProvider>
