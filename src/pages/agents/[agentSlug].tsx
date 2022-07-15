@@ -7,7 +7,7 @@ import {
 
 import Header from '@/components/Header';
 import IndividualAgent from '@/components/IndividualAgent';
-import Hits from '@/components/Search/hit';
+import { InfiniteHits } from '@/components/Search/InfiniteHits';
 import { AGENTS } from '@/constants';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
@@ -51,7 +51,7 @@ const Agent = ({ agent }: { agent: IAgent }) => {
             title="Sold and Leased properties"
             subtitle={`Properties leased and sold by ${agent.name}`}
           />
-          <Hits />
+          <InfiniteHits />
         </InstantSearch>
       </InstantSearchSSRProvider>
       </div>
