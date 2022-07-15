@@ -5,7 +5,7 @@
     "package-lock.json": true
   },
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "editor.formatOnSave": true,
+  // "editor.formatOnSave": true,
   "editor.codeActionsOnSave": ["source.addMissingImports", "source.fixAll.eslint"],
   "jest.autoRun": {
     "watch": true, // Start the jest with the watch flag

@@ -5,7 +5,7 @@ import { Configure, InstantSearch, InstantSearchSSRProvider } from 'react-instan
 import Header from '@/components/Header';
 import ActiveFilters from '@/components/Search/ActiveFilters';
 import FiltersHolder from '@/components/Search/FiltersHolder';
-import Hits from '@/components/Search/hit';
+import { InfiniteHits } from '@/components/Search/InfiniteHits';
 import Input from '@/components/Search/input';
 import Range from '@/components/Search/Range';
 import RefinementList from '@/components/Search/refinementList';
@@ -47,7 +47,7 @@ export default function ForSalePage({ serverState }: ForSalePageProps) {
           </div>
          
           <div className="pt-16">
-          <Hits />
+          <InfiniteHits />
         
           </div>
         </InstantSearch>

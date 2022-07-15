@@ -7,7 +7,7 @@ import {
 
 import ActiveFilters from '@/components/Search/ActiveFilters';
 import FiltersHolder from '@/components/Search/FiltersHolder';
-import Hits from '@/components/Search/hit';
+import { InfiniteHits } from '@/components/Search/InfiniteHits';
 import Input from '@/components/Search/input';
 import Range from '@/components/Search/Range';
 import RefinementList from '@/components/Search/refinementList';
@@ -41,7 +41,7 @@ export default function HomePage({ serverState }: HomePageProps) {
             <RefinementList attribute="type" label="Type" />
           </FiltersHolder>
           <ActiveFilters />
-          <Hits />
+          <InfiniteHits />
         </InstantSearch>
       </InstantSearchSSRProvider>
     </Main>

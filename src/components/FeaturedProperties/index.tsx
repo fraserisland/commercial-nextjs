@@ -3,7 +3,7 @@ import type { InstantSearchServerState } from 'react-instantsearch-hooks-web';
 import { Configure, InstantSearch, InstantSearchSSRProvider } from 'react-instantsearch-hooks-web';
 
 import Header from '@/components/Header';
-import Hits from '@/components/Search/hit';
+import { InfiniteHits } from '@/components/Search/InfiniteHits';
 
 const client = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || '',
@@ -22,7 +22,7 @@ export default function FeatureProperties({ serverState }: ForSalePageProps) {
         <InstantSearch searchClient={client} indexName='commercial1'>
           <Configure hitsPerPage={4} filters='type:sale OR type:lease' />
           <Header tag='' title='Featured Properties' subtitle='' />
-          <Hits />
+          <InfiniteHits noPaginate={true} />
         </InstantSearch>
       </InstantSearchSSRProvider>
     </>
