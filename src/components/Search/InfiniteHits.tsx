@@ -49,6 +49,7 @@ export function InfiniteHits({ hitComponent: HitComponent = Hit, noPaginate = fa
         observer.disconnect();
       };
     }
+    return
   }, [isLastPage, showMore]);
 
   return (
