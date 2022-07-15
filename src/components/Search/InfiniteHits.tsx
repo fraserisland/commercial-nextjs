@@ -76,7 +76,7 @@ export function InfiniteHits({ hitComponent: HitComponent = Hit, noPaginate = fa
           )})}
         </div>
         {!noPaginate &&
-          <li className="ais-InfiniteHits-sentinel" ref={sentinelRef} aria-hidden="true" />
+          <div className="ais-InfiniteHits-sentinel" ref={sentinelRef} aria-hidden="true" />
         }
     </div>
   );
