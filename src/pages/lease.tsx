@@ -1,5 +1,5 @@
 import algoliasearch from 'algoliasearch/lite';
-import { InfiniteHits, InstantSearchServerState } from 'react-instantsearch-hooks-web';
+import { InstantSearchServerState } from 'react-instantsearch-hooks-web';
 import { Configure, InstantSearch, InstantSearchSSRProvider } from 'react-instantsearch-hooks-web';
 
 import Header from '@/components/Header';
