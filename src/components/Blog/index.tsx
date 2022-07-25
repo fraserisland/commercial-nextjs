@@ -46,7 +46,7 @@ export default function Example({ posts = allPosts }) {
             {posts.map((post) => (
               <div
                 key={post.title}
-                className="flex flex-col rounded-lg shadow-lg overflow-hidden"
+                className="flex flex-col rounded-lg shadow-lg overflow-hidden bg-white"
               >
                 <div className="flex-shrink-0">
                   <Image

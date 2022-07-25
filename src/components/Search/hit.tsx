@@ -12,7 +12,7 @@ export default function Example() {
     <div className="">
       <h2 className="sr-only">Hits</h2>
 
-      <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-4 lg:gap-x-8">
+      <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 md:grid-cols-3 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-4 lg:gap-x-8">
         {hits.map((hit: any, index) => (
           <>
             {index % 8 === 0 && index != 0 && index === 8 ? (
@@ -37,7 +37,7 @@ export default function Example() {
             <Link key={hit.slug} href={hit.slug}>
               <div className="group relative flex cursor-pointer flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md">
                 <div className="aspect-w-3 aspect-h-2 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-52 overflow-hidden">
-                  <div className="h-full w-full object-cover object-center sm:h-full sm:w-full ">
+                  <div className="h-full w-full object-cover  sm:h-full sm:w-full ">
                     <Image
                       src={hit.image}
                       alt={hit.title}
@@ -45,6 +45,7 @@ export default function Example() {
                       height="300"
                       width="300"
                       className=""
+                      objectFit="cover"
                     />
                   </div>
                 </div>
@@ -53,7 +54,7 @@ export default function Example() {
                     {hit.title}
                   </h3>
 
-                  <p className="cursor-pointer text-sm text-gray-500">
+                  <p className="cursor-pointer text-sm text-gray-500 whitespace-pre-wrap">
                     {hit.excerpt.substring(0, 100)}
                   </p>
 

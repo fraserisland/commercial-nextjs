@@ -6,11 +6,15 @@ export interface IProperty {
   unitNumber: string;
   inserted: string;
   modified: string;
+  // type: {
+  //   name:string;
+  // };
   commercialListingType: 'sale' | 'lease';
-  photos?: {
+  photos: {
     thumbnails: {
       thumb_1024: string;
     };
+    url: string;
   }[];
   displayPrice: string;
   searchPrice: number;
@@ -44,7 +48,31 @@ export interface IProperty {
     };
   };
   floorArea: {
-    units: string;
+    units: "sqm";
+    value: number;
+  };
+  officeArea: {
+    units: "sqm";
+    value: number;
+  };
+  landArea: {
+    units: "sqm";
+    value: number;
+  };
+  retailArea: {
+    units: "sqm";
+    value: number;
+  };
+  otherArea: {
+    units: "sqm";
+    value: number;
+  };
+  mezzanineArea: {
+    units: "sqm";
+    value: number;
+  };
+  warehouseArea: {
+    units: "sqm";
     value: number;
   };
   contactStaff: {
@@ -56,7 +84,7 @@ export interface IProperty {
 
 export type PropertyType = 'sale' | 'sold' | 'lease' | 'leased';
 
-export interface IPropertyNormalised extends IProperty {
+export interface IPropertyNormalised extends Omit<IProperty, "type"> {
   type: PropertyType;
 }
 

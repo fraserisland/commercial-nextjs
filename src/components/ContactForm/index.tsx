@@ -6,7 +6,7 @@ import BasicForm from "../BasicForm";
 const ContactForm = () => {
   return (
     <>
-      <div className="relative bg-white max-w-7xl m-auto shadow-2xl rounded-md border-2 border-gray-100 mt-8">
+      <div className="relative bg-white max-w-7xl m-auto shadow-2xl rounded-lg border-2 border-gray-100 mt-8">
         <div className="absolute inset-0">
           <div className="absolute inset-y-0 left-0 w-1/2 bg-white rounded-md" />
         </div>
@@ -45,7 +45,7 @@ const ContactForm = () => {
                       className="flex-shrink-0 h-6 w-6 text-gray-400"
                       aria-hidden="true"
                     />
-                    <span className="ml-3">support@example.com</span>
+                    <span className="ml-3">admin@commercial1.com</span>
                   </dd>
                 </div>
               </dl>
