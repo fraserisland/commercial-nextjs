@@ -1,4 +1,3 @@
-// @ts-nocheck
 import kebabCase from "lodash.kebabcase";
 
 import {
@@ -18,8 +17,6 @@ const breadcrumbs = [
   { id: 1, name: "Properties", href: "#" },
   { id: 2, name: "Sale", href: "#" },
 ];
-
-
 
 
 const Property = ({ property }: { property: IProperty }) => {
@@ -42,7 +39,7 @@ const Property = ({ property }: { property: IProperty }) => {
   const getAreas = () => {
     areas.map((area) => {
       let propertyAreaKey = `${area.toLowerCase()}Area` as LowAreaVarients;
-      return property[propertyAreaKey].value
+      return property[propertyAreaKey]?.value
         ? details.push(
             `${area} area: ${property[propertyAreaKey].value} \u33A1`
           )
@@ -50,7 +47,7 @@ const Property = ({ property }: { property: IProperty }) => {
     });
   };
 
-  let details = [property.displayAddress, property.type.name];
+  let details = [property.displayAddress];
 
   getAreas();
 
@@ -159,7 +156,7 @@ const Property = ({ property }: { property: IProperty }) => {
         </div>
         
       </div>
-      <a id="form"><PropSaleForm id={property.id}/></a>
+      <a id="form"><PropSaleForm id={property.id || 0}/></a>
       <Cta3/>
     </Main>
   );

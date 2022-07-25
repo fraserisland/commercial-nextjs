@@ -6,9 +6,6 @@ export interface IProperty {
   unitNumber: string;
   inserted: string;
   modified: string;
-  // type: {
-  //   name:string;
-  // };
   commercialListingType: 'sale' | 'lease';
   photos: {
     thumbnails: {
