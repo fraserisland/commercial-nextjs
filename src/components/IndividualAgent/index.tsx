@@ -16,15 +16,17 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
           </div>
           <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5">
             <div className="bg-white-50 py-10 px-4 sm:px-6 lg:col-span-2 lg:px-8  xl:pr-12">
-              <div className="max-w-lg mx-auto">
+              <div className="mx-auto">
+                <div className="relative h-[400px] md:h-[700px] lg:h-[500px]">
                 <Image
                   src={agent.imageUrl}
                   alt={agent.name}
-                  layout="responsive"
+                  layout="fill"
                   height="100%"
                   width="100%"
                   className="rounded-lg object-cover"
                 />
+                </div>
 
                 <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl pt-3">
                   Contact {agent.name}
@@ -47,7 +49,7 @@ const IndividualAgent = ({ agent }: { agent: IAgent }) => {
               </div>
             </div>
             <div className="bg-white py-16 px-4 sm:px-6 sm:m-2 lg:col-span-3 lg:py-16 lg:px-8 xl:pl-12 ">
-              <div className="max-w-lg mx-auto lg:max-w-none ">
+              <div className=" mx-auto lg:max-w-none ">
                 <BasicForm />
               </div>
             </div>

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.commercial1gc.com.au
+
+# Sitemaps
+Sitemap: https://www.commercial1gc.com.au/sitemap.xml

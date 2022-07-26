@@ -42,21 +42,21 @@ export default function Example({ posts = allPosts }) {
       <Header tag="" title="Latest property news" />
       <div className="relative pb-16  lg:pb-20 ">
         <div className="relative max-w-7xl mx-auto">
-          <div className="max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+          <div className=" mx-auto grid gap-5 lg:grid-cols-3 max-w-none">
             {posts.map((post) => (
               <div
                 key={post.title}
-                className="flex flex-col rounded-lg shadow-lg overflow-hidden"
+                className="flex flex-col rounded-lg shadow-lg overflow-hidden "
               >
                 <div className="flex-shrink-0">
+                  <div className="h-52 relative">
                   <Image
                     src={post.imageUrl}
-                    alt=""
-                    layout="responsive"
-                    height="60%"
-                    width="100%"
+                    alt="blog post"
+                    layout="fill"
                     className="object-cover"
                   />{" "}
+                  </div>
                 </div>
                 <div className="flex-1 p-6 flex flex-col justify-between bg-white">
                   <div className="flex-1">
