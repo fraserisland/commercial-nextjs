@@ -23,7 +23,6 @@ const highlights = [
 ];
 
 const Property = ({ property }: { property: IProperty }) => {
-  console.log(property);
   return (
     <Main
       meta={
@@ -64,7 +63,7 @@ const Property = ({ property }: { property: IProperty }) => {
                   </div>
                 </li>
               ))}
-              <li className="text-sm">{property.heading}</li>
+              <li className="text-sm truncate ">{property.heading}</li>
             </ol>
           </nav>
 
@@ -192,7 +191,7 @@ interface IParams {
 
 export async function getStaticProps({ params }: IParams) {
   let property;
-  console.log("SOLD PARAMS ==", params);
+  // console.log("SOLD PARAMS ==", params);
   if (params.type === "sale") {
     property = await getSalePropertyByID({ id: params.id });
   } else {

@@ -58,7 +58,7 @@ export default function Example({ posts = allPosts }) {
                     className="object-cover"
                   />{" "}
                 </div>
-                <div className="flex-1 p-6 flex flex-col justify-between">
+                <div className="flex-1 p-6 flex flex-col justify-between bg-white">
                   <div className="flex-1">
                     <a
                       href={post.href}
