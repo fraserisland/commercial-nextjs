@@ -11,8 +11,6 @@ export default function Example() {
               src="/assets/images/banner1.jpg"
               alt="logo"
               layout="fill"
-              height="100%"
-              width="100%"
               className="object-cover"
             />
           </div>
