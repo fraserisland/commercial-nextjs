@@ -18,7 +18,7 @@ const Hit = ({ hit }: { hit: any }) => {
             {hit.image ?  
             <Image src={hit.image} alt={hit.title} layout="responsive" height="300" width="300" objectFit="cover" />
             :
-            <Image src={"/assets/images/team.jpeg"} alt={hit.title} layout="responsive" height="300" width="300" objectFit="cover" />}
+            <Image src={"/assets/images/team.jpeg"} alt="placeholder image" layout="responsive" height="300" width="300" objectFit="cover" />}
           </div>
         </div>
         <div className="flex flex-1 flex-col space-y-2 p-4">
