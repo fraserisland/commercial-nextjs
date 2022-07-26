@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Image from "next/image";
+
 const allPosts = [
   {
     title: "Commercial property values near two-year high",
