@@ -92,7 +92,7 @@ const Property = ({ property }: { property: IProperty }) => {
                   </div>
                 </li>
               ))}
-              <li className="text-sm">{property.heading}</li>
+              <li className="text-sm truncate ">{property.heading}</li>
             </ol>
           </nav>
 <div className="mt-12 pb-2">
@@ -172,7 +172,7 @@ interface IParams {
 
 export async function getStaticProps({ params }: IParams) {
   let property;
-  console.log("SOLD PARAMS ==", params);
+  // console.log("SOLD PARAMS ==", params);
   if (params.type === "sale") {
     property = await getSalePropertyByID({ id: params.id });
   } else {

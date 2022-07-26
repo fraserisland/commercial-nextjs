@@ -12,7 +12,7 @@ const ContactForm = () => {
         </div>
         <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5">
           <div className="bg-white-50 py-10 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-16 xl:pr-12">
-            <div className="max-w-lg mx-auto">
+            <div className="mx-auto">
               <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
                 Contact Our Team
               </h2>
@@ -57,7 +57,7 @@ const ContactForm = () => {
             </div>
           </div>
           <div className="bg-white py-6 px-4 sm:px-6 sm:m-2 lg:col-span-3 lg:py-10 lg:px-8 xl:pl-12 ">
-            <div className="max-w-lg mx-auto lg:max-w-none ">
+            <div className=" mx-auto lg:max-w-none ">
               <BasicForm />
             </div>
           </div>
