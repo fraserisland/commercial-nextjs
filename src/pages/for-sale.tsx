@@ -1,6 +1,5 @@
 import algoliasearch from 'algoliasearch/lite';
-import type { InstantSearchServerState } from 'react-instantsearch-hooks-web';
-import { Configure, InstantSearch, InstantSearchSSRProvider } from 'react-instantsearch-hooks-web';
+import { Configure, InstantSearch, InstantSearchSSRProvider, InstantSearchServerState } from 'react-instantsearch-hooks-web';
 
 import Header from '@/components/Header';
 import ActiveFilters from '@/components/Search/ActiveFilters';
@@ -11,6 +10,9 @@ import Range from '@/components/Search/Range';
 import RefinementList from '@/components/Search/refinementList';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
+import { history } from 'instantsearch.js/es/lib/routers';
+import { getServerState } from 'react-instantsearch-hooks-server';
+import HomePage from './search';
 
 const client = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || '',
@@ -25,14 +27,24 @@ type ForSalePageProps = {
 const title = 'For Sale' 
 const desc = 'Browse the best properties for sale'
 
-export default function ForSalePage({ serverState }: ForSalePageProps) {
+export default function ForSalePage({ serverState, url }: ForSalePageProps) {
 
   return (
     <Main meta={<Meta title={`${title} - Commercial 1 GC`} description={desc} />}>
       
       <Header tag='' title={title} subtitle={desc} />
-      <InstantSearchSSRProvider {...serverState}>
-        <InstantSearch searchClient={client} indexName='commercial1'>
+      <InstantSearchSSRProvider  {...serverState}>
+        <InstantSearch routing={{
+          router: history({
+            getLocation() {
+              if (typeof window === 'undefined') {
+                return new URL(url!) as unknown as Location;
+              }
+
+              return window.location;
+            },
+          }),
+        }} searchClient={client} indexName='commercial1'>
           <Configure filters='type:sale' />
           <div className="border-[1px] border-gray-300 rounded-md shadow-md bg-white">
           <Input />
@@ -56,3 +68,17 @@ export default function ForSalePage({ serverState }: ForSalePageProps) {
     </Main>
   );
 }
+
+export const getServerSideProps =
+  async function getServerSideProps({ req }) {
+    const protocol = req.headers.referer?.split('://')[0] || 'https';
+    const url = `${protocol}://${req.headers.host}${req.url}`;
+    const serverState = await getServerState(<HomePage url={url} />);
+
+    return {
+      props: {
+        serverState,
+        url,
+      },
+    };
+  };

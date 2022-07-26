@@ -37,7 +37,6 @@ const ActiveFilters = () => {
     includedAttributes: ['price', 'floorArea', 'address.suburb'],
   });
 
-  console.log('active', { items });
 
   return (
     <div className='bg-gray-100 rounded-b-md'>
