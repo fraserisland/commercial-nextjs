@@ -67,7 +67,7 @@ const PropSaleForm = ({id}: {id: Number}) => {
       <div className="relative bg-white  max-w-7xl m-auto shadow-2xl rounded-md  border-2 border-gray-100 mt-12">
         <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5">
           <div className="bg-white-50 py-10 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-16 xl:pr-12">
-            <div className="max-w-lg mx-auto">
+            <div className="mx-auto">
               <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl mt-7">
                 Contact Us
               </h2>
@@ -86,7 +86,7 @@ const PropSaleForm = ({id}: {id: Number}) => {
             </div>
           </div>
           <div className="bg-white py-6 px-4 sm:px-6 sm:m-2 lg:col-span-3 lg:py-10 lg:px-8 xl:pl-12 ">
-            <div className="max-w-lg mx-auto lg:max-w-none ">
+            <div className="mx-auto  ">
               <form
                 ref={form2}
                 name="propertyManagement"
@@ -161,7 +161,7 @@ const PropSaleForm = ({id}: {id: Number}) => {
                 </div>
              
 
-                <div>
+                <div className="col-span-2 sm:col-span-1">
                   <label
                     htmlFor="name"
                     className="block text-sm font-medium text-gray-700"
@@ -182,7 +182,7 @@ const PropSaleForm = ({id}: {id: Number}) => {
                   </div>
                 </div>
 
-                <div>
+                <div className="col-span-2 sm:col-span-1">
                   <label
                     htmlFor="email"
                     className="block text-sm font-medium text-gray-700"
@@ -203,7 +203,7 @@ const PropSaleForm = ({id}: {id: Number}) => {
                   </div>
                 </div>
 
-                <div>
+                <div className="col-span-2 sm:col-span-1">
                   <label
                     htmlFor="phone"
                     className="block text-sm font-medium text-gray-700"
@@ -224,7 +224,7 @@ const PropSaleForm = ({id}: {id: Number}) => {
                   </div>
                 </div>
 
-                <fieldset className="sm:col-span-2">
+                <fieldset className="col-span-2">
                   <legend className="block text-sm font-medium text-gray-700">
                     Preferred contact time:
                   </legend>
