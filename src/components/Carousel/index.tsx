@@ -8,7 +8,7 @@ export default function ResponsiveCarouselComponent({ propPhotos }: {propPhotos?
 
   return (
     <>
-    {console.log(propPhotos)}
+    
     <div className="carousel-container">
       <Carousel
         infiniteLoop
@@ -18,12 +18,12 @@ export default function ResponsiveCarouselComponent({ propPhotos }: {propPhotos?
        showThumbs={false}
         centerSlidePercentage={100}
       >
-      {/* {console.log(photoUrls)} */}
+      
       
       {propPhotos?.map((photo) => (
           <div key={photo.url} className="h-[300px] md:h-[500px] relative w-100">
             <Image src={photo.url} alt="Image 1" layout="fill" objectFit="cover"/>
-          {/* <img src={url} alt="Image 1" /> */}
+          
       </div>
               ))}
 
