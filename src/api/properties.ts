@@ -65,12 +65,14 @@ const getAllProperties = async () => {
   const leased = await getLeasedLeaseProperties();
   const sold = await getSoldSaleProperties();
 
-  return [
+  const allProperties =  [
     ...addPropertyType(sale.items, 'sale'),
     ...addPropertyType(lease.items, 'lease'),
     ...addPropertyType(leased.items, 'leased'),
     ...addPropertyType(sold.items, 'sold'),
   ];
+
+  return allProperties
 };
 
 export {

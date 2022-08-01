@@ -5,7 +5,7 @@ import { Fragment } from "react";
 import Image from "next/image";
 
 const links = [
-  { href: "/for-sale", name: "For Sale" },
+  { href: "/sale", name: "For Sale" },
   { href: "/lease", name: "Lease" },
   { href: "/results", name: "Results" },
   { href: "/property-management", name: "Property Management" },
