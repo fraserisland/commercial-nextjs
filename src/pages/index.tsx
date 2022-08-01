@@ -1,9 +1,8 @@
-import { Configure, InstantSearch, InstantSearchSSRProvider, InstantSearchServerState, Hits } from 'react-instantsearch-hooks-web';
+import { InstantSearch, InstantSearchSSRProvider } from 'react-instantsearch-hooks-web';
 
 import Cta1 from '@/components/Cta1';
 import FeaturedProperties from '@/components/FeaturedProperties';
 import SearchInputUrlBuilder from "@/components/Search/SearchInputUrlBuilder"
-import HeaderHomePage from '@/components/HeaderHomePage';
 import Blog from '@/components/Blog';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
@@ -13,7 +12,7 @@ import client from '@/utils/algoliaClient'
 import { simple } from 'instantsearch.js/es/lib/stateMappings';
 import { history } from 'instantsearch.js/es/lib/routers';
 
-const Index = ({ serverState }) => (
+const Index = ({ serverState }: any) => (
   <Main meta={<Meta title='Commercial 1 GC' image='assets/images/team.jpeg' />}>
 
     <InstantSearchSSRProvider  {...serverState}>
