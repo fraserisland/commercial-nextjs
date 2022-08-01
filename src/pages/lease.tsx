@@ -1,38 +1,50 @@
-import algoliasearch from 'algoliasearch/lite';
-import type { InstantSearchServerState } from 'react-instantsearch-hooks-web';
+import { InstantSearchServerState } from 'react-instantsearch-hooks-web';
 import { Configure, InstantSearch, InstantSearchSSRProvider } from 'react-instantsearch-hooks-web';
 
 import Header from '@/components/Header';
 import ActiveFilters from '@/components/Search/ActiveFilters';
 import FiltersHolder from '@/components/Search/FiltersHolder';
-import Hits from '@/components/Search/hit';
+import { InfiniteHits } from '@/components/Search/InfiniteHits';
 import Input from '@/components/Search/input';
 import Range from '@/components/Search/Range';
 import RefinementList from '@/components/Search/refinementList';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
-
-const client = algoliasearch(
-  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || '',
-  process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY || ''
-);
+import client from '@/utils/algoliaClient'
+import { simple } from 'instantsearch.js/es/lib/stateMappings';
+import { history } from 'instantsearch.js/es/lib/routers';
 
 type ForSalePageProps = {
   serverState?: InstantSearchServerState;
-  url?: string;
+  location: Location;
 };
 
 const title = 'For Lease'
 const desc = 'Browse the best properties for lease'
 
-export default function ForSalePage({ serverState }: ForSalePageProps) {
+export default function ForSalePage({ serverState, location }: ForSalePageProps) {
   return (
     <Main meta={<Meta title={`${title} - Commercial 1 GC`} description={desc}  />}>
      
       <Header tag='' title={title} subtitle={desc} />
 
       <InstantSearchSSRProvider {...serverState}>
-        <InstantSearch searchClient={client} indexName='commercial1'>
+        <InstantSearch  
+          routing={{
+          stateMapping: simple(),
+          router: history({
+            getLocation() {
+              if (typeof window === 'undefined') {
+                return location;
+              }
+
+              return window.location;
+            },
+          }),
+        }}  
+        searchClient={client} 
+        indexName='commercial1'
+        >
           <Configure filters='type:lease' />
           <div className="border-[1px] border-gray-300 rounded-md shadow-md bg-white">
           <Input />
@@ -44,11 +56,10 @@ export default function ForSalePage({ serverState }: ForSalePageProps) {
           <ActiveFilters />
           </div>
           <div className='pt-16'>
-          <Hits />
+          <InfiniteHits />
           </div>
         </InstantSearch>
-      </InstantSearchSSRProvider>
-     
+      </InstantSearchSSRProvider>  
     </Main>
   );
 }

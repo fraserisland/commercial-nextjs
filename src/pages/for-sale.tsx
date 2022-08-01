@@ -1,50 +1,48 @@
-import algoliasearch from 'algoliasearch/lite';
-import { Configure, InstantSearch, InstantSearchSSRProvider, InstantSearchServerState } from 'react-instantsearch-hooks-web';
+import { Configure, InstantSearch, InstantSearchSSRProvider, InstantSearchServerState, Hits } from 'react-instantsearch-hooks-web';
 
 import Header from '@/components/Header';
 import ActiveFilters from '@/components/Search/ActiveFilters';
 import FiltersHolder from '@/components/Search/FiltersHolder';
-import Hits from '@/components/Search/hit';
+import { InfiniteHits } from '@/components/Search/InfiniteHits';
 import Input from '@/components/Search/input';
 import Range from '@/components/Search/Range';
 import RefinementList from '@/components/Search/refinementList';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
+import client from '@/utils/algoliaClient'
+import { simple } from 'instantsearch.js/es/lib/stateMappings';
 import { history } from 'instantsearch.js/es/lib/routers';
-import { getServerState } from 'react-instantsearch-hooks-server';
-import HomePage from './search';
-
-const client = algoliasearch(
-  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || '',
-  process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY || ''
-);
 
 type ForSalePageProps = {
   serverState?: InstantSearchServerState;
-  url?: string;
+  location: Location;
 };
 
 const title = 'For Sale' 
 const desc = 'Browse the best properties for sale'
 
-export default function ForSalePage({ serverState, url }: ForSalePageProps) {
+export default function ForSalePage({ serverState, location }: ForSalePageProps) {
 
   return (
     <Main meta={<Meta title={`${title} - Commercial 1 GC`} description={desc} />}>
       
       <Header tag='' title={title} subtitle={desc} />
       <InstantSearchSSRProvider  {...serverState}>
-        <InstantSearch routing={{
+        <InstantSearch 
+         routing={{
+          stateMapping: simple(),
           router: history({
             getLocation() {
               if (typeof window === 'undefined') {
-                return new URL(url!) as unknown as Location;
+                return location;
               }
 
               return window.location;
             },
           }),
-        }} searchClient={client} indexName='commercial1'>
+        }} 
+        searchClient={client}
+         indexName='commercial1'>
           <Configure filters='type:sale' />
           <div className="border-[1px] border-gray-300 rounded-md shadow-md bg-white">
           <Input />
@@ -59,7 +57,7 @@ export default function ForSalePage({ serverState, url }: ForSalePageProps) {
           </div>
          
           <div className="pt-16">
-          <Hits />
+          <InfiniteHits />
         
           </div>
         </InstantSearch>
@@ -68,17 +66,3 @@ export default function ForSalePage({ serverState, url }: ForSalePageProps) {
     </Main>
   );
 }
-
-export const getServerSideProps =
-  async function getServerSideProps({ req }) {
-    const protocol = req.headers.referer?.split('://')[0] || 'https';
-    const url = `${protocol}://${req.headers.host}${req.url}`;
-    const serverState = await getServerState(<HomePage url={url} />);
-
-    return {
-      props: {
-        serverState,
-        url,
-      },
-    };
-  };

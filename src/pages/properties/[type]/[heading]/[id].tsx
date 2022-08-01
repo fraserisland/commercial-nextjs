@@ -8,22 +8,50 @@ import {
 import { Meta } from "@/layouts/Meta";
 import { Main } from "@/templates/Main";
 import type { IProperty } from "@/types";
-import Image from "next/image";
+import Link from "next/link";
+import PropSaleForm from "@/components/PropSaleForm";
+import Cta3 from "@/components/Cta3";
+import Carousel from "@/components/Carousel"
 
 const breadcrumbs = [
   { id: 1, name: "Properties", href: "#" },
   { id: 2, name: "Sale", href: "#" },
 ];
 
-const highlights = [
-  "Hand cut and sewn locally",
-  "Dyed with our proprietary colors",
-  "Pre-washed & pre-shrunk",
-  "Ultra-soft 100% cotton",
-];
 
 const Property = ({ property }: { property: IProperty }) => {
-  console.log(property);
+
+  console.log(property)
+
+  type LowAreaVarients = "landArea" | "retailArea" | "otherArea" | "floorArea" | "mezzanineArea" | "warehouseArea" | "officeArea" ;
+
+
+  let areas = [
+    "Land",
+    "Retail",
+    "Other",
+    "Floor",
+    "Mezzanine",
+    "Warehouse",
+    "Office",
+  ];
+
+  const getAreas = () => {
+    areas.map((area) => {
+      let propertyAreaKey = `${area.toLowerCase()}Area` as LowAreaVarients;
+      return property[propertyAreaKey]?.value
+        ? details.push(
+            `${area} area: ${property[propertyAreaKey].value} \u33A1`
+          )
+        : "";
+    });
+  };
+
+  let details = [property.displayAddress];
+
+  getAreas();
+
+
   return (
     <Main
       meta={
@@ -34,7 +62,7 @@ const Property = ({ property }: { property: IProperty }) => {
         />
       }
     >
-      <div className="bg-white">
+      <div className="bg-white rounded-lg shadow-xl">
         <div className="pt-6">
           <nav aria-label="Breadcrumb">
             <ol
@@ -64,58 +92,17 @@ const Property = ({ property }: { property: IProperty }) => {
                   </div>
                 </li>
               ))}
-              <li className="text-sm">{property.heading}</li>
+              <li className="text-sm truncate ">{property.heading}</li>
             </ol>
           </nav>
-
-          {/* Image gallery */}
-          <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-            <div className="aspect-w-3 aspect-h-4 hidden overflow-hidden rounded-lg lg:block">
-              <Image
-                src={property.photos?.[0]?.thumbnails.thumb_1024!}
-                alt="agent image"
-                layout="fill"
-                height="100%"
-                width="100%"
-                objectFit="cover"
-              />
-            </div>
-            <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-              <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
-                <Image
-                  src={property.photos?.[1]?.thumbnails.thumb_1024!}
-                  alt="agent image"
-                  layout="fill"
-                  height="100%"
-                  width="100%"
-                  objectFit="cover"
-                />
-              </div>
-              <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
-                <Image
-                  src={property.photos?.[2]?.thumbnails.thumb_1024!}
-                  alt="agent image"
-                  layout="fill"
-                  height="100%"
-                  width="100%"
-                  objectFit="cover"
-                />
-              </div>
-            </div>
-            <div className="aspect-w-4 aspect-h-5 sm:overflow-hidden sm:rounded-lg lg:aspect-w-3 lg:aspect-h-4">
-              <Image
-                src={property.photos?.[2]?.thumbnails.thumb_1024!}
-                alt="agent image"
-                layout="fill"
-                height="100%"
-                width="100%"
-                objectFit="cover"
-              />
-            </div>
+<div className="mt-12 pb-2">
+          <Carousel propPhotos={property.photos}/>
           </div>
 
+          
+
           {/* Product info */}
-          <div className="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
+          <div className="mx-auto max-w-4xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
             <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
               <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
                 {property.heading}
@@ -124,16 +111,32 @@ const Property = ({ property }: { property: IProperty }) => {
 
             {/* Options */}
             <div className="mt-4 lg:row-span-3 lg:mt-0">
-              <h2 className="sr-only">Product information</h2>
+              <h2 className="sr-only">Property Price</h2>
               <p className="text-3xl text-gray-900">{property.displayPrice}</p>
 
+              <div className="mt-10">
+                <h3 className="text-sm font-medium text-gray-900">Details</h3>
+
+                <div className="mt-4">
+                  <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
+                    {details.map((detail, index) => (
+                      <li key={index} className="text-gray-400">
+                        <span className="text-gray-600">{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
               <form className="mt-10">
+              <Link href="#form" className="flex">
                 <button
                   type="submit"
-                  className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-orange-500 py-3 px-8 text-base font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
                 >
                   Enquire now
                 </button>
+                </Link>
               </form>
             </div>
 
@@ -143,41 +146,18 @@ const Property = ({ property }: { property: IProperty }) => {
                 <h3 className="sr-only">Description</h3>
 
                 <div className="space-y-6">
-                  <p className="text-base text-gray-900">
+                  <p className="text-base text-gray-900 whitespace-pre-wrap">
                     {property.description}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-10">
-                <h3 className="text-sm font-medium text-gray-900">
-                  Highlights
-                </h3>
-
-                <div className="mt-4">
-                  <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
-                    {highlights.map((highlight) => (
-                      <li key={highlight} className="text-gray-400">
-                        <span className="text-gray-600">{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="mt-10">
-                <h2 className="text-sm font-medium text-gray-900">Details</h2>
-
-                <div className="mt-4 space-y-6">
-                  <p className="text-sm text-gray-600">
-                    {property.displayAddress}
                   </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        
       </div>
+      <a id="form"><PropSaleForm id={property.id || 0}/></a>
+      <Cta3/>
     </Main>
   );
 };
@@ -192,7 +172,7 @@ interface IParams {
 
 export async function getStaticProps({ params }: IParams) {
   let property;
-  console.log("SOLD PARAMS ==", params);
+  // console.log("SOLD PARAMS ==", params);
   if (params.type === "sale") {
     property = await getSalePropertyByID({ id: params.id });
   } else {

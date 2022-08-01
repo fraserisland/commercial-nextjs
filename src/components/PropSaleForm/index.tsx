@@ -2,20 +2,21 @@ import React, { useState, useRef } from "react";
 import Alert from "../Alert";
 import emailjs from "@emailjs/browser";
 
-const PropertyManagementForm = () => {
+const PropSaleForm = ({id}: {id: Number}) => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
   const disableForm = isSuccess;
 
   const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    message: "",
-    email: "",
-    propertyAddress: "",
-    propertyDetails: "",
-    time: "",
+    name: "n/a",
+    phone: "n/a",
+    message: "n/a",
+    email: "n/a",
+    propertyAddress: "n/a",
+    propertyDetails: "n/a",
+    time: "n/a",
+    id: {id}
   });
 
   const handleSubmit = async (e: any) => {
@@ -63,12 +64,12 @@ const PropertyManagementForm = () => {
 
   return (
     <>
-      <div className="relative bg-white  max-w-7xl m-auto shadow-2xl rounded-md  border-2 border-gray-100">
-        <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5 ">
-          <div className="bg-white-50 py-10 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-16 xl:pr-12 ">
-            <div className="mx-auto">
-              <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl ">
-                Contact Our Property Management Team
+      <div className="relative bg-white  max-w-7xl m-auto shadow-2xl rounded-md  border-2 border-gray-100 mt-12">
+        <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5">
+          <div className="bg-white-50 py-10 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-16 xl:pr-12">
+            <div className="max-w-lg mx-auto">
+              <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl mt-7">
+                Contact Us
               </h2>
               <p className="mt-3 text-lg leading-6 text-blueCharcoal-500"></p>
               <dl className="mt-8 text-base text-gray-600">
@@ -77,8 +78,7 @@ const PropertyManagementForm = () => {
                     <p>
                       {" "}
                       We&apos;d love to hear from you! Send us a message using
-                      this form to enquire about our property management
-                      services.
+                      this form to enquire about this property.
                     </p>
                   </dd>
                 </div>
@@ -86,7 +86,7 @@ const PropertyManagementForm = () => {
             </div>
           </div>
           <div className="bg-white py-6 px-4 sm:px-6 sm:m-2 lg:col-span-3 lg:py-10 lg:px-8 xl:pl-12 ">
-            <div className="mx-auto lg:max-w-none ">
+            <div className="max-w-lg mx-auto lg:max-w-none ">
               <form
                 ref={form2}
                 name="propertyManagement"
@@ -95,7 +95,51 @@ const PropertyManagementForm = () => {
                 onSubmit={handleSubmit}
                 className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
               >
-                <div className="sm:col-span-2">
+              
+              <div className="hidden">
+                  <label
+                    htmlFor="id"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    id
+                  </label>
+                  <div className="mt-1">
+                    <input
+                    defaultValue={id.toString()}
+                      disabled={disableForm}
+                      onChange={handleChange}
+                      required={true}
+                      type="text"
+                      name="id"
+                      id="id"
+                      autoComplete={id.toString()}
+                      className="block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-orange-500 focus:ring-orange-500"
+                    />
+                  </div>
+                </div>
+
+                <div className="col-span-2">
+                  <label
+                    htmlFor="propertyDetails"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Message
+                  </label>
+                  <div className="mt-1">
+                    <textarea
+                      disabled={disableForm}
+                      onChange={handleChange}
+                      required={false}
+                      id="propertyDetails"
+                      name="propertyDetails"
+                      rows={4}
+                      className="block w-full rounded-md border border-gray-300 py-3 px-4 shadow-sm focus:border-orange-500 focus:ring-orange-500"
+                      defaultValue={""}
+                    />
+                  </div>
+                </div>
+
+                <div className="hidden">
                   <label
                     htmlFor="propertyAddress"
                     className="block text-sm font-medium text-gray-700"
@@ -111,31 +155,11 @@ const PropertyManagementForm = () => {
                       name="propertyAddress"
                       rows={1}
                       className="block w-full rounded-md border border-gray-300 py-3 px-4 shadow-sm focus:border-orange-500 focus:ring-orange-500"
-                      defaultValue={""}
+                      defaultValue={"Property Enquiry"}
                     />
                   </div>
                 </div>
-
-                <div className="sm:col-span-2">
-                  <label
-                    htmlFor="propertyDetails"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Property Details
-                  </label>
-                  <div className="mt-1">
-                    <textarea
-                      disabled={disableForm}
-                      onChange={handleChange}
-                      required={true}
-                      id="propertyDetails"
-                      name="propertyDetails"
-                      rows={4}
-                      className="block w-full rounded-md border border-gray-300 py-3 px-4 shadow-sm focus:border-orange-500 focus:ring-orange-500"
-                      defaultValue={""}
-                    />
-                  </div>
-                </div>
+             
 
                 <div>
                   <label
@@ -271,6 +295,8 @@ const PropertyManagementForm = () => {
                   </div>
                 </fieldset>
 
+                
+
                 <div className="sm:col-span-2">
                   <button
                     disabled={disableForm}
@@ -295,4 +321,4 @@ const PropertyManagementForm = () => {
   );
 };
 
-export default PropertyManagementForm;
+export default PropSaleForm;

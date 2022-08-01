@@ -46,7 +46,7 @@ function transformPostsToSearchObjects(properties: IPropertyNormalised[]) {
     // initialize the client with your environment variables
     const client = algoliasearch(process.env.NEXT_PUBLIC_ALGOLIA_APP_ID, process.env.ALGOLIA_SEARCH_ADMIN_KEY);
     const index = client.initIndex('commercial1');
-    const algoliaResponse = await index.saveObjects(transformed);
+    const algoliaResponse = await index.replaceAllObjects(transformed);
 
     console.log(transformed);
 
