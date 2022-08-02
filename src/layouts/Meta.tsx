@@ -35,6 +35,7 @@ const Meta = ({
           href={`${router?.basePath}/apple-touch-icon.png`}
           key="apple"
         />
+        <meta name="theme-color" content="#D64227"/>
         <link
           rel="icon"
           type="image/png"

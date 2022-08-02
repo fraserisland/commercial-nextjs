@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+
 import Image from "next/image";
 
 const allPosts = [
@@ -40,7 +40,9 @@ const allPosts = [
 export default function Example({ posts = allPosts }) {
   return (
     <div>
-      <Header tag="" title="Latest property news" />
+      <p className=' text-3xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-5xl items-end pb-4'>
+            Latest Property News:
+          </p> 
       <div className="relative pb-16  lg:pb-20 ">
         <div className="relative max-w-7xl mx-auto">
           <div className=" mx-auto grid gap-5 lg:grid-cols-3 max-w-none">

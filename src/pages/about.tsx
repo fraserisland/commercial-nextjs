@@ -14,8 +14,8 @@ const About = () => (
   sites." />}>
     <div className=''>
     <Header
-      tag=""
-      title="About Commercial 1"
+      tag="/assets/images/about-com1.png"
+      title=""
       subtitle="A family owned and operated independent real estate agency located on
       the Gold Coast focusing on selling and leasing of commercial and
       industrial properties, investments, storage facilities and development
