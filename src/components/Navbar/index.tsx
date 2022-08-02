@@ -38,15 +38,15 @@ const NavBar = () => {
             </Popover.Group>
           </div>
 
-          <div className="shrink-0 pb-4">
+          <div className="shrink-0 ">
             <Link href="/">
-              <div className="h-10 min-w-full hover:cursor-pointer sm:h-10">
+              <div className="h-14 min-w-full hover:cursor-pointer">
                 <Image
                   src="/assets/images/logo.png"
                   alt="logo"
                   layout="fixed"
-                  height="40%"
-                  width="165%"
+                  height="55%"
+                  width="225%"
                   className="contain"
                 />
               </div>
@@ -67,7 +67,7 @@ const NavBar = () => {
       >
         <Popover.Panel
           focus
-          className="absolute inset-x-0 top-0 z-50 origin-top-right p-2 transition lg:hidden"
+          className="absolute inset-x-0 top-0 z-50 origin-top-right  transition lg:hidden"
         >
           <div className="divide-y-2 divide-orange-50 rounded-lg bg-white">
             <div className="px-5 pt-5 pb-6">
@@ -107,7 +107,7 @@ const NavBar = () => {
         </Popover.Panel>
       </Transition>
 
-      <div className="mx-auto h-[1px]  items-center justify-center  bg-orange shadow-md lg:mb-12 mb-9"></div>
+      <div className="mx-auto h-[4px]  items-center justify-center  bg-orange shadow-md lg:mb-12 mb-9"></div>
     </Popover>
   );
 };

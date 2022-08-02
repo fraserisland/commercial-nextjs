@@ -119,20 +119,7 @@ const Property = ({ property }: { property: IProperty }) => {
                       {breadcrumb.name}
                     </a>
                     &rsaquo;
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      
-                      viewBox="0 0 16 16"
-                      className="text-gray-600"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
-                      />
-                    </svg>
+                    
                   </div>
                 </li>
               ))}
@@ -155,22 +142,9 @@ const Property = ({ property }: { property: IProperty }) => {
 
             {/* Options */}
             <div className="mt-4 lg:row-span-3 lg:mt-0">
-              <h2 className="sr-only">Property Price</h2>
-              <p className="text-3xl text-gray-900">{property.displayPrice}</p>
+             
 
-              <div className="mt-10">
-                <h3 className="text-sm font-medium text-gray-900">Details</h3>
-
-                <div className="mt-4">
-                  <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
-                    {details.map((detail, index) => (
-                      <li key={index} className="text-gray-400">
-                        <span className="text-gray-600">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+              
 
               <form className="mt-10">
                 <Link href="#form" className="flex">

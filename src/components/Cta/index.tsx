@@ -14,17 +14,19 @@ const Cta = ({
     <div className="my-24 space-y-16 bg-white rounded-md shadow-xl">
       <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8 lg:items-center">
         <div className="lg:col-start-8 xl:col-start-9 mt-6 lg:mt-0 lg:row-start-1 lg:col-span-5  px-4 pb-4 lg:p-0 lg:pr-3">
-          <div className="hidden md:block w-28 overflow-hidden hover:cursor-pointer mb-2">
-            <Image
-              src="/assets/images/logo.png"
-              alt="logo"
-              layout="responsive"
-              height="40%"
-              width="100%"
-              className="object-scale-down"
-            />
+          <div className="flex flex-col items-end">
+            <div className="w-40 overflow-hidden hover:cursor-pointer items-end">
+              <Image
+                src="/assets/images/logo.png"
+                alt="logo"
+                layout="responsive"
+                height="25%"
+                width="100%"
+                className="object-scale-down"
+              />
+            </div>
           </div>
-
+          <div className="bg-orange h-1 mb-4"></div>
           <h3 className="text-lg lg:text-2xl font-medium text-gray-900">
             {capitalize(titleTop)} {titleBottom.toLowerCase()}
           </h3>

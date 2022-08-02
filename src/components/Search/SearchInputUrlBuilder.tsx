@@ -49,17 +49,17 @@ export default function Example() {
               className="object-cover"
             />
           </div>
-          <div className="relative bg-gray-900 bg-opacity-75 py-32 px-6 sm:py-40 sm:px-12 lg:px-16">
-            <div className="relative max-w-3xl mx-auto flex flex-col items-center text-center">
+          <div className="relative bg-gray-900 bg-opacity-75 py-32 sm:py-40 ">
+            <div className="relative mx-auto flex flex-col items-center text-center">
               <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-                <span className="block sm:inline">
+                <span className="block sm:inline mx-3 ">
                   The #1 address for commercial property
                 </span>
               </h2>
 
               <>
-                <div className="flex-column relative mx-auto mt-1 max-w-7xl items-center px-6 pt-4">
-                  <div className='w-[700px]'>
+                <div className="w-full mt-5">
+                  <div className="md:mx-12 mx-3">
                     <div className="border-[1px] border-gray-300 rounded-md shadow-md bg-white">
                       <Input />
                       <FiltersHolder>
@@ -70,11 +70,13 @@ export default function Example() {
                       </FiltersHolder>
                       <ActiveFilters />
                     </div>
-                  </div>
-                  <div className="flex flex-1 flex-col justify-end">
-                    <button onClick={handleSearch} className="w-full mt-2 my-auto h-12 inline-flex items-center justify-center border rounded border-transparent bg-orange text-base  font-medium text-whiteLinen hover:cursor-pointer hover:bg-orange-50 sm:w-auto">
+                  <div className="items-center justify-center">
+                  <div className="flex flex-1 flex-col mx-auto w-full ">
+                    <button onClick={handleSearch} className="  mt-2 my-auto h-12 inline-flex items-center justify-center border rounded border-transparent bg-orange text-base  font-medium text-whiteLinen hover:cursor-pointer hover:bg-orange-50 ">
                       Search
                     </button>
+                  </div>
+                  </div>
                   </div>
                 </div>
               </>
