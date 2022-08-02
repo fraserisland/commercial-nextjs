@@ -17,7 +17,7 @@ export default function Example() {
     // @TODO: Either force type search (set default lease) or add search page back for multiple type search
     // find alt for "results"?
     const pageDict = {
-      'sale': "for-sale",
+      'sale': "sale",
       'lease': "lease",
       'sold': "results",
       'leased': "results",
