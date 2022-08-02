@@ -14,7 +14,7 @@ const getFormattedNumberLabel = (label: string, attribute: string) => {
   const isSqm = attribute === 'floorArea';
   const num = label.split(' ');
   const formatted = parseInt(num[1] as string).toLocaleString();
-  return `${num[0]?.replace('≥', 'over').replace('≤', 'under')} ${isPrice ? '$' : ''}${formatted}${isSqm ? 'sqm' : ''}`;
+  return `${num[0]?.replace('≥', '>').replace('≤', '<')} ${isPrice ? '$' : ''}${formatted}${isSqm ? 'sqm' : ''}`;
 };
 
 const transformItems = (items: any) => {
@@ -37,7 +37,6 @@ const ActiveFilters = () => {
     includedAttributes: ['price', 'floorArea', 'address.suburb'],
   });
 
-  console.log('active', { items });
 
   return (
     <div className='bg-gray-100 rounded-b-md'>
@@ -52,7 +51,7 @@ const ActiveFilters = () => {
         <div className='mt-2 sm:mt-0 sm:ml-4'>
           <div className='-m-1 flex flex-wrap items-center'>
             {items.map((item) => (
-              <div key={item.label}>
+              <>
                 {item.refinements.map((itemRefinement) => {
                   return (
                     <span
@@ -75,7 +74,7 @@ const ActiveFilters = () => {
                     </span>
                   );
                 })}
-              </div>
+              </>
             ))}
           </div>
         </div>

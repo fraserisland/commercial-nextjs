@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { useInfiniteHits } from "react-instantsearch-hooks-web";
+import { useInfiniteHits, useHits } from "react-instantsearch-hooks-web";
 import Link from "next/link";
 import Image from "next/image";
 import Cta1 from "../Cta1";
@@ -43,8 +43,10 @@ const Hit = ({ hit }: { hit: any }) => {
 
 export function InfiniteHits({ hitComponent: HitComponent = Hit, noPaginate = false, ...props }: {hitComponent?: any, noPaginate?: boolean}) {
   const { hits, isLastPage, showMore } = useInfiniteHits(props);
+  const {hits: hits2} = useHits(props)
+  console.log(hits2)
   const sentinelRef = useRef(null);
-
+  console.log(hits)
   useEffect(() => {
     if (sentinelRef.current !== null) {
       const observer = new IntersectionObserver((entries) => {
